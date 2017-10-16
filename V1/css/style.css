@@ -1,0 +1,41 @@
+/*Style CSS */
+
+
+* {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  background-color: #282626;
+  height: 5%;
+}
+
+/* mise en page partie item */
+#item {
+  /*height: 1000px;*/
+  width: 25%;
+  padding: 0;
+  float: left;
+  background-color: #3313b2;
+}
+
+/* mise en page partie carte */
+#map {
+  /*height: 1000px;*/
+  width: 75%;
+  padding: 0;
+  float: right;
+}
+
+/* mise en page partie recherche */
+#autocomplete {
+  width: 100%;
+  height: 5%;
+  font-size: 18px;
+  padding: 5px;
+  background-color: #282626;
+}
+
