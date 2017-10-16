@@ -23,6 +23,8 @@ Une liste de restaurants est fournie sous forme de données JSON présentées da
 
 Voici un exemple de fichier JSON avec déjà 2 restaurants pré-remplis (vous devriez en ajouter un peu plus) :
 
+
+
 [
    {
       "restaurantName":"Bronco",
@@ -57,6 +59,8 @@ Voici un exemple de fichier JSON avec déjà 2 restaurants pré-remplis (vous de
       ]
    }
 ]
+
+
 Affichez ces restaurants grâce à leurs coordonnées GPS sur la carte. Les restaurants qui sont actuellement visibles sur la carte doivent être affichés sous forme de liste sur le côté de la carte. Vous afficherez la moyenne des commentaires de chaque restaurant (qui va de 1 à 5 étoiles).
 
 Lorsqu'on clique sur un restaurant, la liste des avis enregistrés s'affiche avec les commentaires. Affichez aussi la photo Google Street View grâce à l'API correspondante.
