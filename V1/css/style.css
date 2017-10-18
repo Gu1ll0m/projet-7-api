@@ -34,7 +34,10 @@ h1 {
 #autocomplete {
   width: 100%;
   height: 5%;
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
   padding: 5px;
   background-color: #282626;
 }
