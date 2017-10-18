@@ -8,9 +8,8 @@ const paris = {
 
 function initMap () {
 
-
 //====== Autocomplete
-    const input = document.querySelector('#autocomplete');
+const input = document.querySelector('#autocomplete');
     // autocomplete permet une recherche par lieu
     const autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.addListener('place_changed', function () {
@@ -19,9 +18,18 @@ function initMap () {
       const position = autocomplete.getPlace().geometry.location
       // créé un marqueur sur le lieu de la recherche
       const marker = new google.maps.Marker({
-        position,
-        map,
+        position: position,
+        map: map,
         animation: google.maps.Animation.DROP
+      })
+      const infoWindow = new google.maps.InfoWindow({
+        map: map,
+        content: `Votre Position`
+      });
+      marker.addListener('click', function () {
+        // this correspond à marker
+        infoWindow.open(map, this)
+        //console.log(marker)
       })
       // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée à une vue de rue
       map.setCenter(position)
@@ -29,20 +37,20 @@ function initMap () {
     })
 
 //====== Map centré par défaut sur Paris avec un zoom initialisé à 16
-    const map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-          lat: 48.8534100,
-          lng: 2.3488000
-        },
-        zoom: 16
-    });
+const map = new google.maps.Map(document.getElementById('map'), {
+  center: {
+    lat: 48.8534100,
+    lng: 2.3488000
+  },
+  zoom: 16
+});
 
 //====== Mise en évidence des items
-    const item = {
-      location: paris,
-      radius: '500',
-      types: ['restaurant']
-    };
+const item = {
+  location: paris,
+  radius: '500',
+  types: ['restaurant']
+};
 
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map);
@@ -58,47 +66,55 @@ function initMap () {
       }
 
 //====== Fonction creation des marqueur
-function createMarker () {
-
+function createMarker (position, map) {
+  const marker = new google.maps.Marker({
+    position: position,
+    map: map,
+  })
 }
 
 
 //====== Infobulle
-    const infoWindow = new google.maps.InfoWindow({
-        map: map
-      });
+const infoWindow = new google.maps.InfoWindow({
+  map: map,
+  content: `Votre Position`
+});
         // test la geolocation en HTML5.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             const pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
-          };
-          map.setCenter(pos);
+            };
+            map.setCenter(pos);
           //console.log(pos);
-          // marker qui correpond à la localisation de l' utilisateur
+          // marker correpond à la localisation de l' utilisateur
           const marker = new google.maps.Marker({
-              position: pos,
-              map: map,
-              animation: google.maps.Animation.DROP
+            position: pos,
+            map: map,
+            animation: google.maps.Animation.DROP
           });
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-    });
-      } else {
+          // permet de faire apparaitre des informations dans l' infobulle
+          marker.addListener('click', function () {
+            infoWindow.open(map, this)
+          })
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+        } else {
           // le navigateur ne supporte pas la géolocation
           handleLocationError(false, infoWindow, map.getCenter());
+        }
       }
-  }
 
 
 
 //====== Fonction qui retourne une erreur si navigateur incompatible
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-  }
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
+}
 };
 
