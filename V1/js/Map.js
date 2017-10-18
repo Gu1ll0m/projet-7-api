@@ -66,12 +66,17 @@ const item = {
       }
 
 //====== Fonction creation des marqueur
-function createMarker (position, map) {
+function createMarker(place) {
+  const placeLoc = place.geometry.location;
   const marker = new google.maps.Marker({
-    position: position,
     map: map,
-  })
-}
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
 
 
 //====== Infobulle
