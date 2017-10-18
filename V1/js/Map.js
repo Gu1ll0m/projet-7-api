@@ -8,24 +8,26 @@ const paris = {
 
 function initMap () {
 
-//====== Autocomplete
-const input = document.querySelector('#autocomplete');
-    // autocomplete permet une recherche par lieu
-    const autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.addListener('place_changed', function () {
-      //console.log(autocomplete.getPlace());
-      // trouve lat et lng
-      const position = autocomplete.getPlace().geometry.location
-      // créé un marqueur sur le lieu de la recherche
-      const marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        animation: google.maps.Animation.DROP
-      })
+  //====== Autocomplete
+  const input = document.querySelector('#autocomplete');
+  // autocomplete permet une recherche par lieu
+  const autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function () {
+    //console.log(autocomplete.getPlace());
+    // trouve lat et lng
+    const position = autocomplete.getPlace().geometry.location
+    // créé un marqueur sur le lieu de la recherche
+    const marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      animation: google.maps.Animation.DROP
+    })
+      // var test puis passer dans le content
+      console.log()
       const infoWindow = new google.maps.InfoWindow({
         map: map,
         content: `Votre Position`
-      });
+      })
       marker.addListener('click', function () {
         // this correspond à marker
         infoWindow.open(map, this)
@@ -34,7 +36,7 @@ const input = document.querySelector('#autocomplete');
       // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée à une vue de rue
       map.setCenter(position)
       map.setZoom(16)
-    })
+    });
 
 //====== Map centré par défaut sur Paris avec un zoom initialisé à 16
 const map = new google.maps.Map(document.getElementById('map'), {
@@ -47,23 +49,27 @@ const map = new google.maps.Map(document.getElementById('map'), {
 
 //====== Mise en évidence des items
 const item = {
-  location: paris,
+  position: paris,
   radius: '500',
   types: ['restaurant']
 };
 
-    // permet la mise en place des items
-    const service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(item, callback);
-
     // fonction qui retourne et numérote les items autour de la localisation de l'utilisateur
     function callback(results, status) {
+      // console.log(results)
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           const place = results[i];
           createMarker(results[i]);
         }
       }
+    }
+    // // permet la mise en place des items
+    // const service = new google.maps.places.PlacesService(map);
+    // log item results
+    // service.nearbySearch(item, callback);
+
+
 
 //====== Fonction creation des marqueur
 function createMarker(place) {
@@ -77,7 +83,7 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
-
+}
 
 //====== Infobulle
 const infoWindow = new google.maps.InfoWindow({
@@ -121,5 +127,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.');
 }
-};
+
 
