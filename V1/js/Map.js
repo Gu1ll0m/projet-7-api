@@ -12,27 +12,26 @@ function initMap () {
   const input = document.querySelector('#autocomplete');
   // autocomplete permet une recherche par lieu
   const autocomplete = new google.maps.places.Autocomplete(input);
+
   autocomplete.addListener('place_changed', function () {
-    //console.log(autocomplete.getPlace());
+    console.log(autocomplete.getPlace());
     // trouve lat et lng
     const position = autocomplete.getPlace().geometry.location
     // créé un marqueur sur le lieu de la recherche
     const marker = new google.maps.Marker({
-      position: position,
-      map: map,
+      position,
+      map,
       animation: google.maps.Animation.DROP
     })
-      // var test puis passer dans le content
-      console.log()
-      const infoWindow = new google.maps.InfoWindow({
-        map: map,
-        content: `Votre Position`
-      })
-      marker.addListener('click', function () {
+    const infoWindow = new google.maps.InfoWindow({
+      map,
+      content: `Votre Position`
+    })
+    marker.addListener('click', function () {
       // this correspond à marker
       infoWindow.open(map, this)
-      //console.log(marker)
-    })
+      // console.log(marker)
+      })
     // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée à une vue de rue
     map.setCenter(position)
     map.setZoom(16)
@@ -49,26 +48,26 @@ function initMap () {
 
   //====== Mise en évidence des items
   const item = {
-    position: paris,
+    location: paris,
     radius: '500',
     types: ['restaurant']
   };
 
   // fonction qui retourne et numérote les items autour de la localisation de l'utilisateur
   function callback(results, status) {
-    // console.log(results)
+    console.log(results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
+      for (let i = 0; i < results.length; i++) {
         const place = results[i];
         createMarker(results[i]);
       }
     }
-  }
+  };
 
-  // // permet la mise en place des items
-  // const service = new google.maps.places.PlacesService(map);
-  // log item results
-  // service.nearbySearch(item, callback);
+  // permet la mise en place des items
+  const service = new google.maps.places.PlacesService(map);
+  // console.log(item)
+  service.nearbySearch(item, callback);
 
 
 
@@ -81,17 +80,17 @@ function initMap () {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
-  }
+      infowindow.setContent(place.name)
+      infowindow.open(map, this)
+    })
+  };
 
   //====== Infobulle
   const infoWindow = new google.maps.InfoWindow({
     map: map,
     content: `Votre Position`
   });
-  
+
   // test la geolocation en HTML5.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -100,13 +99,12 @@ function initMap () {
         lng: position.coords.longitude
       };
       map.setCenter(pos);
-    //console.log(pos);
-    // marker correpond à la localisation de l' utilisateur
+    // console.log(pos);
     const marker = new google.maps.Marker({
       position: pos,
       map: map,
       animation: google.maps.Animation.DROP
-    });
+    })
     // permet de faire apparaitre des informations dans l' infobulle
     marker.addListener('click', function () {
       infoWindow.open(map, this)
