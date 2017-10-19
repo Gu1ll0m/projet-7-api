@@ -25,7 +25,7 @@ function initMap () {
     })
     const infoWindow = new google.maps.InfoWindow({
       map,
-      content: `Votre Position`
+      content: `Marker autocomplete contenu à paramétrer`
     })
     marker.addListener('click', function () {
       // this correspond à marker
@@ -48,7 +48,7 @@ function initMap () {
 
   //====== Mise en évidence des items
   const item = {
-    location: paris,
+    location: paris, // problème avec location paris
     radius: '500',
     types: ['restaurant']
   };
@@ -69,26 +69,30 @@ function initMap () {
   // console.log(item)
   service.nearbySearch(item, callback);
 
-
-
   //====== Fonction creation des marqueur
   function createMarker(place) {
     const placeLoc = place.geometry.location;
     const marker = new google.maps.Marker({
       map: map,
       position: place.geometry.location
-    });
+    })
 
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name)
-      infowindow.open(map, this)
+      // console.log(infoWindow)
+      const infoWindow = new google.maps.InfoWindow({
+        map,
+        content: `
+          $infowindow.setContent(place.name.value)
+          $infowindow.open(map, this)
+        `
+      })
     })
   };
 
-  //====== Infobulle
+  //====== Géolocalisation
   const infoWindow = new google.maps.InfoWindow({
     map: map,
-    content: `Votre Position`
+    content: `Marker géolocation contenu à paramétrer`
   });
 
   // test la geolocation en HTML5.
