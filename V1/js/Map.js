@@ -14,7 +14,9 @@ function initMap () {
       const placeLoc = place.geometry.location;
       const marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: place.geometry.location,
+        animation: google.maps.Animation.DROP,
+        icon: ''
       })
 
       google.maps.event.addListener(marker, 'click', function() {
@@ -22,13 +24,22 @@ function initMap () {
         const infoWindow = new google.maps.InfoWindow({
           map,
           content: `
-            $infowindow.setContent(place.name.value)
-            $infowindow.open(map, this)
+            <h1>markeur item info à paramétrer</h1>
+            <h2>${marker.position.name}</h2>
+            <img>${marker.position.photos}</img>
+            <p>${marker.position.vicinity}</p>
+            <p>Lat: ${marker.position.lat()}</p>
+            <p>Lng: ${marker.position.lng()}</p>
           `
         })
+        // création fonction click sur le marqueur
+        marker.addListener('click', function () {
+          // this correspond à marker
+          infoWindow.open(map, this)
+          // console.log(marker)
+          })
       })
   };
-
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
   function callback(results, status) {
@@ -54,7 +65,6 @@ function initMap () {
     zoom: 16
   });
 
-
 //======== AUTOCOMPLETE  =====================================================================================//
   const input = document.querySelector('#autocomplete');
   // autocomplete permet une recherche par lieu
@@ -68,7 +78,7 @@ function initMap () {
     const marker = new google.maps.Marker({
       position,
       map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.BOUNCE
     })
     //====== Mise en évidence des items
     const item = {
@@ -78,12 +88,16 @@ function initMap () {
     };
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map);
-    // console.log(item)
+    console.log(item)
     service.nearbySearch(item, callback);
     // infoBulle : objet avec paramètres map et contenu
     const infoWindow = new google.maps.InfoWindow({
       map,
-      content: `Marker autocomplete contenu à paramétrer`
+      content: `
+        <h1>Marker autocomplete contenu à paramétrer</h1>
+        <p>Lat: ${marker.position.lat()}</p>
+        <p>Lng: ${marker.position.lng()}</p>
+        `
     })
     // création fonction click sur le marqueur
     marker.addListener('click', function () {
@@ -96,12 +110,8 @@ function initMap () {
     map.setZoom(16)
   });
 
-
 //======= GEOLOCALISATION =====================================================================================//
-  const infoWindow = new google.maps.InfoWindow({
-    map: map,
-    content: `Marker géolocation contenu à paramétrer`
-  });
+
 
   // test la geolocation en HTML5.
   if (navigator.geolocation) {
@@ -111,34 +121,43 @@ function initMap () {
         lng: position.coords.longitude
       };
       map.setCenter(pos);
-    // console.log(pos);
-    const marker = new google.maps.Marker({
-      position: pos,
-      map: map,
-      animation: google.maps.Animation.DROP
-    })
-    // permet de faire apparaitre des informations dans l' infobulle
-    marker.addListener('click', function () {
-      infoWindow.open(map, this)
-    })
+      // console.log(pos);
+      const marker = new google.maps.Marker({
+        position: pos,
+        map,
+        animation: google.maps.Animation.BOUNCE
+      })
+      // permet de faire apparaitre des informations dans l' infobulle
+      marker.addListener('click', function () {
+          const infoWindow = new google.maps.InfoWindow({
+            map,
+            content: `
+              <h1>Marker géolocation contenu à paramétrer</h1>
+              <p>Lat: ${marker.position.lat()}</p>
+              <p>Lng: ${marker.position.lng()}</p>
+              `
+          });
+        infoWindow.open(map, this)
+      })
     //====== Mise en évidence des items
-    const item = {
-      location: pos,
-      radius: '500',
-      types: ['restaurant']
-    };
-    // permet la mise en place des items
-    const service = new google.maps.places.PlacesService(map);
-    // console.log(item)
-    service.nearbySearch(item, callback);
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
-  } else {
-    // le navigateur ne supporte pas la géolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
+      const item = {
+        location: pos,
+        radius: '500',
+        types: ['restaurant']
+      };
+      // permet la mise en place des items
+      const service = new google.maps.places.PlacesService(map);
+      // console.log(item)
+      service.nearbySearch(item, callback);
+    }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // le navigateur ne supporte pas la géolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+};
 
 
 
