@@ -1,28 +1,36 @@
 //============================================================================================================//
 //====== Function qui initialise la map et la centre sur la position de l' utilisateur========================//
 //============================================================================================================//
-const paris = {
-  lat: 48.8534100,
-  lng: 2.3488000
-}
+
 
 function initMap () {
 
-//======== MAP PAR DEFAULT ===================================================================================//
-  const map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 48.8534100,
-      lng: 2.3488000
-    },
-    zoom: 16
-  });
-  //====== Mise en évidence des items
-  const item = {
-    location: paris,
-    radius: '500',
-    types: ['restaurant']
+//============================================================================================================//
+//====== FONCTIONS GLOBALES ==================================================================================//
+//============================================================================================================//
+
+//====== CREATION DES MARQUEURS
+  function createMarker(place) {
+      const placeLoc = place.geometry.location;
+      const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      })
+
+      google.maps.event.addListener(marker, 'click', function() {
+        // console.log(infoWindow)
+        const infoWindow = new google.maps.InfoWindow({
+          map,
+          content: `
+            $infowindow.setContent(place.name.value)
+            $infowindow.open(map, this)
+          `
+        })
+      })
   };
-  // fonction qui retourne et numérote les items autour de la localisation de l'utilisateur
+
+
+//====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
   function callback(results, status) {
     console.log(results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -32,12 +40,19 @@ function initMap () {
       }
     }
   };
-  // permet la mise en place des items
-  const service = new google.maps.places.PlacesService(map);
-  // console.log(item)
-  service.nearbySearch(item, callback);
 
+//============================================================================================================//
+//======== DEFAULT, AUTOCOMPLETE, GEOLOCALISATION ============================================================//
+//============================================================================================================//
 
+//======== MAP PAR DEFAULT ===================================================================================//
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: 48.8534100,
+      lng: 2.3488000
+    },
+    zoom: 16
+  });
 
 
 //======== AUTOCOMPLETE  =====================================================================================//
@@ -61,16 +76,6 @@ function initMap () {
       radius: '500',
       types: ['restaurant']
     };
-    // fonction qui retourne et numérote les items autour de la localisation de l'utilisateur
-    function callback(results, status) {
-      console.log(results)
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          const place = results[i];
-          createMarker(results[i]);
-        }
-      }
-    };
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map);
     // console.log(item)
@@ -91,26 +96,6 @@ function initMap () {
     map.setZoom(16)
   });
 
-
-  //====== Fonction creation des marqueur
-  function createMarker(place) {
-    const placeLoc = place.geometry.location;
-    const marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    })
-
-    google.maps.event.addListener(marker, 'click', function() {
-      // console.log(infoWindow)
-      const infoWindow = new google.maps.InfoWindow({
-        map,
-        content: `
-          $infowindow.setContent(place.name.value)
-          $infowindow.open(map, this)
-        `
-      })
-    })
-  }
 
 //======= GEOLOCALISATION =====================================================================================//
   const infoWindow = new google.maps.InfoWindow({
@@ -142,16 +127,6 @@ function initMap () {
       radius: '500',
       types: ['restaurant']
     };
-    // fonction qui retourne et numérote les items autour de la localisation de l'utilisateur
-    function callback(results, status) {
-      console.log(results)
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          const place = results[i];
-          createMarker(results[i]);
-        }
-      }
-    };
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map);
     // console.log(item)
@@ -164,6 +139,8 @@ function initMap () {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
+
+
 
 
 
