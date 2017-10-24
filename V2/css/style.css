@@ -18,6 +18,19 @@ html, body {
   background-color: #3313b2;
 }
 
+/* menu déroulant */
+#type {
+  height: 5%;
+  width: 100%;
+  padding: 0;
+  float: left;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  padding: 5px;
+  background-color: #282626;
+}
+
 /* mise en page partie carte */
 #map {
   height: 95%;
@@ -29,7 +42,7 @@ html, body {
 /* mise en page partie recherche */
 #autocomplete {
   width: 99%;
-  height: 3%;
+  height: 5%;
   font-size: 28px;
   font-weight: bold;
   font-style: italic;
