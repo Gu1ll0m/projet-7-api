@@ -4,6 +4,7 @@ function initMap () {
 //====== FONCTIONS GLOBALES ==================================================================================//
 //============================================================================================================//
 
+
 //====== CREATION DES MARQUEURS
   function createMarker(place) {
       const placeLoc = place.geometry.location;
@@ -61,7 +62,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         lng: position.coords.longitude
       }
       map.setCenter(pos)
-      // console.log(pos);
       const marker = new google.maps.Marker({
         position: pos,
         map,
@@ -69,14 +69,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       })
 
     //====== Mise en évidence des items
-      const item = {
-        location: pos,
-        radius: '500',
-        types: ['restaurant']
-      }
+      this.item = new Item(); // function Item() item.js
+      this.item.initItem(pos, '500', ['restaurant']); // initialise l' item à partir du constructor Item
+
       // permet la mise en place des items
       const service = new google.maps.places.PlacesService(map)
-      // console.log(item)
+      console.log(item)
       service.nearbySearch(item, callback);
     }, function() {
         handleLocationError(true, infoWindow, map.getCenter())
@@ -96,7 +94,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
   autocomplete.addListener('place_changed', function () {
     console.log(autocomplete.getPlace())
-    // trouve lat et lng
     const position = autocomplete.getPlace().geometry.location
     // créé un marqueur sur le lieu de la recherche
     const marker = new google.maps.Marker({
@@ -105,11 +102,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       animation: google.maps.Animation.BOUNCE
     })
     //====== Mise en évidence des items
-    const item = {
-      location: position,
-      radius: '500',
-      types: ['restaurant']
-    };
+    this.item = new Item(); // function Item() item.js
+      this.item.initItem(position, '500', ['restaurant']); // initialise l' item à partir du constructor Item
+
+    // const item = {
+    //   location: position,
+    //   radius: '500',
+    //   types: ['restaurant']
+    // };
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map)
     console.log(item)
