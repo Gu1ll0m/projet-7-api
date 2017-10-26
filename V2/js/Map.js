@@ -74,7 +74,8 @@ function initMap () {
 
     //====== Mise en évidence des items
       this.item = new Item(); // function Item() item.js
-      this.item.initItem(pos, '500', ['restaurant'], 'from geolocation'); // initialise l' item à partir du constructor Item
+      this.item.initItem(pos, '1500', ['restaurant'], 'from geolocation'); // initialise l' item à partir du constructor Item
+      console.log(`this :`, this)
       // permet la mise en place des items
       const service = new google.maps.places.PlacesService(map)
       console.log(`item géolocation`, item)
@@ -106,20 +107,14 @@ function initMap () {
       animation: google.maps.Animation.BOUNCE
     })
     //====== Mise en évidence des items
-    // this.item = new Item();
-    // this.item.initItem(position, '500', ['restaurant'], 'from autocomplete');
-
-    const item = {
-      location: position,
-      radius: '500',
-      types: ['restaurant'],
-      msg: 'from autocomplete'
-    };
+    this.item = new Item();
+    this.item.initItem(position, '500', ['restaurant'], 'from autocomplete');
 
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map)
     console.log(`item autocomplete`,item)
-    service.nearbySearch(item, callback)
+    item !=this.item
+    service.nearbySearch(this.item, callback)
 
     // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée
     map.setCenter(position)
