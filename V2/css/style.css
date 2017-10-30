@@ -19,7 +19,7 @@ html, body {
 }
 
 /* menu déroulant */
-#type {
+#filter {
   height: 5%;
   width: 100%;
   padding: 0;
