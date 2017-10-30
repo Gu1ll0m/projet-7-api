@@ -16,13 +16,26 @@ function initMap () {
         map: map,
         position: place.geometry.location,
         animation: google.maps.Animation.DROP,
-        icon: ''
+        icon: '',
       })
-  };
+      // permet de faire apparaitre des informations dans l' infobulle
+      marker.addListener('click', function () {
+          const infoWindow = new google.maps.InfoWindow({
+            map,
+            content: `
+                ${this.results__name},
+                ${this.results__adress},
+                ${this.results__photo},
+                ${this.results__rating}
+                `  
+          });
+        infoWindow.open(map, this)
+      })
+  };                        
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
   const callback = (results, status) => {
-    console.log(`results`, results)
+    console.log(`results : `, results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         const place = results[i]
@@ -69,7 +82,7 @@ function initMap () {
       const marker = new google.maps.Marker({
         position: pos,
         map,
-        animation: google.maps.Animation.BOUNCE
+        animation: google.maps.Animation.BOUNCE,
       })
 
     //====== Mise en évidence des items
@@ -78,7 +91,7 @@ function initMap () {
       console.log(`this :`, this)
       // permet la mise en place des items
       const service = new google.maps.places.PlacesService(map)
-      console.log(`item géolocation`, item)
+      console.log(`item géolocation : `, item)
       service.nearbySearch(item, callback);
     }, function() {
         handleLocationError(true, infoWindow, map.getCenter())
@@ -112,7 +125,7 @@ function initMap () {
 
     // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map)
-    console.log(`item autocomplete`,item)
+    console.log(`item autocomplete : `,item)
     item !=this.item
     service.nearbySearch(this.item, callback)
 
