@@ -5,77 +5,6 @@
 function initMap () {
 
 //============================================================================================================//
-//====== FONCTIONS GLOBALES ==================================================================================//
-//============================================================================================================//
-
-
-//====== CREATION DES MARQUEURS
-  function createMarker(place){
-    const placeLoc = place.geometry.location;
-    const marker = new google.maps.Marker({
-      map,
-      position: place.geometry.location,
-      animation: google.maps.Animation.DROP,
-      icon: '',
-    })
-    //console.log(`marker : `, marker)
-    // permet de faire apparaitre des informations dans l' infobulle
-    marker.addListener('click', function () {
-      const infoWindow = new google.maps.InfoWindow({
-        map,
-        content: `
-          <p>Lat : ${marker.position.lat()}</p>
-          <p>Lng : ${marker.position.lng()}</p>
-          <p>Nom : ${marker.position.name}</p>
-          <p>Adresse : ${marker.position.adress}</p>
-          <p>Photo : ${marker.position.photo}</p>
-          <p>Moyenne : ${marker.position.rating}</p>
-
-          `
-          // ${this.results.name},
-          // ${this.results.adress},
-          // ${this.results.photo},
-          // ${this.results.rating}
-      });
-      infoWindow.open(map, this)
-    })
-  };
-
-//====== AJOUTER DES MARKERS
-  function addMarker(position, map){
-    const marker = new google.maps.marker({
-      position,
-      map,
-      draggable: true
-    })
-    map.addListener('click', function(event){
-      addMarker(event.latLng, map)
-    })
-  }
-
-
-//====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
-  function callback(results, status){
-    console.log(`results : `, results)
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (let i = 0; i < results.length; i++) {
-        const place = results[i]
-        createMarker(results[i])
-      }
-    }
-  };
-
-//====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================//
-  function handleLocationError(browserHasGeolocation, infoWindow, pos){
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-      'Error: The Geolocation service failed.' :
-      'Error: Your browser doesn\'t support geolocation.')
-  }
-
-
-
-//============================================================================================================//
 //======== DEFAULT, AUTOCOMPLETE, GEOLOCALISATION ============================================================//
 //============================================================================================================//
 
@@ -88,9 +17,8 @@ function initMap () {
     zoom: 16
   })
 
-//=============================================================================================================//
+
 //======= GEOLOCALISATION =====================================================================================//
-//=============================================================================================================//
 
   // test la geolocation en HTML5.
   if (navigator.geolocation) {
@@ -122,9 +50,8 @@ function initMap () {
       handleLocationError(false, infoWindow, map.getCenter())
     }
 
-//============================================================================================================//
+
 //======== AUTOCOMPLETE  =====================================================================================//
-//============================================================================================================//
 
   const input = document.querySelector('#autocomplete')
   // autocomplete permet une recherche par lieu
@@ -154,6 +81,78 @@ function initMap () {
     map.setCenter(position)
     map.setZoom(16)
   })
+
+
+//============================================================================================================//
+//======== FONCTIONS GLOBALES  ===============================================================================//
+//============================================================================================================//
+
+
+//====== CREATION DES MARQUEURS
+  function createMarker(place) {
+    const placeLoc = place.geometry.location;
+    const marker = new google.maps.Marker({
+      map,
+      position: place.geometry.location,
+      animation: google.maps.Animation.DROP,
+      icon: '',
+    })
+    //console.log(`marker : `, marker)
+    // permet de faire apparaitre des informations dans l' infobulle
+    marker.addListener('click', function () {
+      const infoWindow = new google.maps.InfoWindow({
+        map,
+        content: `
+          <p>Lat : ${marker.position.lat()}</p>
+          <p>Lng : ${marker.position.lng()}</p>
+          <p>Nom : ${marker.position.name}</p>
+          <p>Adresse : ${marker.position.adress}</p>
+          <p>Photo : ${marker.position.photo}</p>
+          <p>Moyenne : ${marker.position.rating}</p>
+
+          `
+          // ${this.results.name},
+          // ${this.results.adress},
+          // ${this.results.photo},
+          // ${this.results.rating}
+      });
+      infoWindow.open(map, this)
+    })
+  };
+
+
+//====== AJOUTER DES MARKERS
+  function addMarker(position, map) {
+    const marker = new google.maps.Marker({
+      position,
+      map,
+      draggable: true
+    })
+  }
+  map.addListener('click', function(event){
+    addMarker(event.latLng, map)
+  })
+
+
+//====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
+  function callback(results, status) {
+    console.log(`results : `, results)
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (let i = 0; i < results.length; i++) {
+        const place = results[i]
+        createMarker(results[i])
+      }
+    }
+  };
+
+
+//====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=======================================//
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.')
+  }
 
 }
 
