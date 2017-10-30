@@ -10,31 +10,52 @@ function initMap () {
 
 
 //====== CREATION DES MARQUEURS
-  const createMarker = (place) => {
-      const placeLoc = place.geometry.location;
-      const marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location,
-        animation: google.maps.Animation.DROP,
-        icon: '',
-      })
-      // permet de faire apparaitre des informations dans l' infobulle
-      marker.addListener('click', function () {
-          const infoWindow = new google.maps.InfoWindow({
-            map,
-            content: `
-                ${this.results__name},
-                ${this.results__adress},
-                ${this.results__photo},
-                ${this.results__rating}
-                `  
-          });
-        infoWindow.open(map, this)
-      })
-  };                        
+  function createMarker(place){
+    const placeLoc = place.geometry.location;
+    const marker = new google.maps.Marker({
+      map,
+      position: place.geometry.location,
+      animation: google.maps.Animation.DROP,
+      icon: '',
+    })
+    //console.log(`marker : `, marker)
+    // permet de faire apparaitre des informations dans l' infobulle
+    marker.addListener('click', function () {
+      const infoWindow = new google.maps.InfoWindow({
+        map,
+        content: `
+          <p>Lat : ${marker.position.lat()}</p>
+          <p>Lng : ${marker.position.lng()}</p>
+          <p>Nom : ${marker.position.name}</p>
+          <p>Adresse : ${marker.position.adress}</p>
+          <p>Photo : ${marker.position.photo}</p>
+          <p>Moyenne : ${marker.position.rating}</p>
+
+          `
+          // ${this.results.name},
+          // ${this.results.adress},
+          // ${this.results.photo},
+          // ${this.results.rating}
+      });
+      infoWindow.open(map, this)
+    })
+  };
+
+//====== AJOUTER DES MARKERS
+  function addMarker(position, map){
+    const marker = new google.maps.marker({
+      position,
+      map,
+      draggable: true
+    })
+    map.addListener('click', function(event){
+      addMarker(event.latLng, map)
+    })
+  }
+
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
-  const callback = (results, status) => {
+  function callback(results, status){
     console.log(`results : `, results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
@@ -45,7 +66,7 @@ function initMap () {
   };
 
 //====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================//
-  const handleLocationError = (browserHasGeolocation, infoWindow, pos) => {
+  function handleLocationError(browserHasGeolocation, infoWindow, pos){
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
       'Error: The Geolocation service failed.' :
