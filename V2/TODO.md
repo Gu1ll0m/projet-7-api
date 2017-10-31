@@ -10,3 +10,33 @@ Objet Comments à coder.
 5. Permettre l'**ajout d'un restaurant**, en cliquant sur un lieu spécifique de la carte.
 Modification de marker.
 6. **Supprimer le marker géoloc** si on fait une recherche autocomplete dans la même zone.
+
+
+<!-- //====== AJOUTER DES MARKERS
+  function addMarker(position, map) {
+    const marker = new google.maps.Marker({
+      position,
+      map,
+      draggable: true
+    })
+  }
+  map.addListener('click', function(event){
+    addMarker(event.latLng, map)
+  }) -->
+
+
+<!--  dans nearbySearch passer contour de la fenêtre à la place d' item
+utiliser un bouton pour supprimer et recharger les nouveaux items via getcenter ?
+
+sidebar => google pogressif web app
+this.itemNode = document.querySelector('.item--template').cloneNode(true);
+var self = this;
+
+self.itemNode.classList.remove('item--template');
+self.itemNode.removeAttribute('hidden');
+self.itemNode.querySelector('.item__name').textContent = self.name;
+self.itemNode.querySelector('.item__adress').textContent = self.address;
+self.itemNode.querySelector('.item__stars').textContent = self.rating;
+
+filtre
+-->
