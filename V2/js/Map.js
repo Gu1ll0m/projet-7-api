@@ -1,4 +1,4 @@
-//============================================================================================================//
+   //============================================================================================================//
 //====== MAP =================================================================================================//
 //============================================================================================================//
 
@@ -59,24 +59,23 @@ function initMap () {
   const autocomplete = new google.maps.places.Autocomplete(input);
 
   autocomplete.addListener('place_changed', function () {
-    console.log(`autocomplete.getPlace`, autocomplete.getPlace())
-    const position = autocomplete.getPlace().geometry.location
-    console.log(position)
+    //console.log(`autocomplete.getPlace`, autocomplete.getPlace())
+    const position = autocomplete.getPlace().geometry.location;
+    //console.log(position)
     // créé un marqueur sur le lieu de la recherche
     const marker = new google.maps.Marker({
       position,
       map,
       animation: google.maps.Animation.BOUNCE
     })
-    //====== Mise en évidence des items
-    this.item = new Item();
-    this.item.initItem(position, '500', ['restaurant'], 'from autocomplete');
-
-    // permet la mise en place des items
     const service = new google.maps.places.PlacesService(map)
-    console.log(`item autocomplete : `,item)
-    item !=this.item
-    service.nearbySearch(this.item, callback)
+    //console.log(`item autocomplete : `,item)
+    //item !=this.item
+    service.nearbySearch({      
+      location :position,
+      radius : 500,
+      type : ['restaurant']
+      }, callback)
 
     // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée
     map.setCenter(position)
@@ -96,7 +95,7 @@ function initMap () {
       for (let i = 0; i < results.length; i++) {
         const place = results[i]
         // createMarker(results[i])
-        const item = new Item(results[i].geometry.location, results[i].name, results[i].vicinity, results[i].rating, results[i].photos);
+        const item = new Item(results[i].geometry.location, results[i].name, results[i].vicinity, results[i].rating, results[i].photos, results[i].comments);
         item.createMarker();
       }
     }
@@ -112,5 +111,3 @@ function initMap () {
   }
 
 }
-
-
