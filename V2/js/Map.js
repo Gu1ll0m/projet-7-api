@@ -1,4 +1,4 @@
-   //============================================================================================================//
+//============================================================================================================//
 //====== MAP =================================================================================================//
 //============================================================================================================//
 
@@ -62,7 +62,6 @@ function initMap () {
     //console.log(`autocomplete.getPlace`, autocomplete.getPlace())
     const position = autocomplete.getPlace().geometry.location;
     //console.log(position)
-    // créé un marqueur sur le lieu de la recherche
     const marker = new google.maps.Marker({
       position,
       map,
@@ -70,7 +69,6 @@ function initMap () {
     })
     const service = new google.maps.places.PlacesService(map)
     //console.log(`item autocomplete : `,item)
-    //item !=this.item
     service.nearbySearch({      
       location :position,
       radius : 500,
@@ -111,3 +109,5 @@ function initMap () {
   }
 
 }
+
+
