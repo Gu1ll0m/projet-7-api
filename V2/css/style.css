@@ -19,9 +19,10 @@ html, body {
 }
 
 /* mise en page partie item */
-#item {
+.item {
   width: 100%;
-  padding: 1;
+  /*padding: 1px;*/
+  margin: 5%;
   background-color: #282626;
   color : #DEDEDE;
   border-color: #282626;
@@ -30,7 +31,7 @@ html, body {
 
 /* menu déroulant */
 #filter {
-  height: 5%;
+  min-height: 5%;
   width: 100%;
   padding: 0;
   float: left;
@@ -57,7 +58,7 @@ html, body {
   font-weight: bold;
   font-style: italic;
   color: white;
-  padding: 5px;
+  padding: 1%;
   background-color: #282626;
 }
 
