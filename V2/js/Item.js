@@ -4,29 +4,38 @@
 
 
 //====== RESTAURANT
-function Item (location, name, vicinity, rating, photos, coments) {
-    this.location = location;
-    this.name = name;
-    this.vicinity = vicinity;
-    this.rating = rating;
-    this.photos = photos;
-    this.coments = coments;
-    //console.log(`init item`, this.location, this.name, this.vicinity, this.rating)
+//====== CONSTRUCTOR ITEM
+function Item (id, location, name, vicinity, rating, photos, comment) {
+  this.id = id;
+  this.location = location;
+  this.name = name;
+  this.vicinity = vicinity;
+  this.rating = rating;
+  this.photos = photos;
+  this.comment = comment;
 }
 
 //====== CREATION DES MARQUEURS
+//====== FONCTION PROTOTYPALE
 Item.prototype.createMarker = function () {
-
-    var self = this;
-    console.log(`self : `,self);
-    const placeLoc = self.location;
-    var marker = new google.maps.Marker({
-      map,
-      position: placeLoc,
-      animation: google.maps.Animation.DROP,
-      icon: '',
-    })
-    //console.log(`marker : `, marker)
+  var self = this;
+  const placeLoc = self.location;
+  var marker = new google.maps.Marker({
+    map,
+    position: placeLoc,
+    animation: google.maps.Animation.DROP,
+  })
 }
 
-//Item.prototype.initHtml()
+//====== SIDEBAR
+Item.prototype.initHtml = function () {
+  this.itemNode = document.querySelector('#item').cloneNode(true);
+  var self = this;
+    console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
+  self.itemNode.classList.remove('.item');
+  self.itemNode.removeAttribute('hidden');
+  document.querySelector('.item__name').textContent = `Nom : ${self.name}`;
+  document.querySelector('.item__vicinity').textContent = `Adresse : ${self.vicinity}`;
+  document.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+}
+
