@@ -29,7 +29,7 @@ Item.prototype.createMarker = function () {
 
 //====== SIDEBAR
 Item.prototype.initHtml = function () {
-  this.itemNode = document.querySelector('#item').cloneNode(true);
+  this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
     console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
   self.itemNode.classList.remove('.item');
