@@ -37,7 +37,6 @@ function initMap () {
         animation: google.maps.Animation.BOUNCE,
       })
       const service = new google.maps.places.PlacesService(map)
-      //console.log(`item géolocation : `, item)
       service.nearbySearch({
         location :pos,
         radius : 500,
@@ -55,26 +54,21 @@ function initMap () {
 //======== AUTOCOMPLETE  =====================================================================================//
 
   const input = document.querySelector('#autocomplete')
-  // autocomplete permet une recherche par lieu
   const autocomplete = new google.maps.places.Autocomplete(input);
 
   autocomplete.addListener('place_changed', function () {
-    //console.log(`autocomplete.getPlace`, autocomplete.getPlace())
     const position = autocomplete.getPlace().geometry.location;
-    //console.log(position)
     const marker = new google.maps.Marker({
       position,
       map,
       animation: google.maps.Animation.BOUNCE
     })
     const service = new google.maps.places.PlacesService(map)
-    //console.log(`item autocomplete : `,item)
-    service.nearbySearch({      
+    service.nearbySearch({
       location :position,
       radius : 500,
       type : ['restaurant']
       }, callback)
-
     // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée
     map.setCenter(position)
     map.setZoom(16)
@@ -88,13 +82,20 @@ function initMap () {
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
   function callback(results, status) {
-    console.log(`results : `, results)
+      console.log(`results : `, results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         const place = results[i]
-        // createMarker(results[i])
-        const item = new Item(results[i].geometry.location, results[i].name, results[i].vicinity, results[i].rating, results[i].photos, results[i].comments);
+        const item = new Item(results[i].id,
+                              results[i].geometry.location,
+                              results[i].name,
+                              results[i].vicinity,
+                              results[i].rating,
+                              results[i].photos,
+                              results[i].comment
+                              );
         item.createMarker();
+        item.initHtml();
       }
     }
   };
