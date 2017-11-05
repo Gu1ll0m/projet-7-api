@@ -29,6 +29,9 @@ Item.prototype.createMarker = function () {
 
 //====== SIDEBAR
 Item.prototype.initHtml = function () {
+
+  console.log(App.listItem);
+
   this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
     console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
@@ -37,5 +40,8 @@ Item.prototype.initHtml = function () {
   document.querySelector('.item__name').textContent = `Nom : ${self.name}`;
   document.querySelector('.item__vicinity').textContent = `Adresse : ${self.vicinity}`;
   document.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+
+  App.listItem.appendChild(self.itemNode);
+
 }
 

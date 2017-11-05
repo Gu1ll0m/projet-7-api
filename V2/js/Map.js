@@ -25,6 +25,9 @@ function initMap () {
 
   // test la geolocation en HTML5.
   if (navigator.geolocation) {
+    var infoWindow = new google.maps.InfoWindow({
+      content: name
+    });
     navigator.geolocation.getCurrentPosition(function(position) {
       const pos = {
         lat: position.coords.latitude,
