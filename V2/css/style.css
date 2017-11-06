@@ -7,6 +7,9 @@
 
 html, body {
   height: 100%;
+  background-color: #121212;
+  border-radius: 5px;
+  border-color: #121212;
 }
 
 /* mise en page partie item */
@@ -15,44 +18,51 @@ html, body {
   width: 25%;
   padding: 0;
   float: left;
-  background-color: #282626;
+  background-color: #00508A;
+  border-color: #00508A;
 }
 
 /* mise en page partie item */
 .item {
   width: 100%;
-  /*padding: 1px;*/
-  margin: 5%;
-  background-color: #282626;
-  color : #DEDEDE;
-  border-color: #282626;
+  padding: 0;
+  background-color: #00508A;
+  color : #121212;
+  border-color: #121212;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 
 /* menu déroulant */
 #filter {
   min-height: 5%;
-  width: 70%;
+  width: 67%;
   padding: 0;
   float: left;
   font-weight: bold;
   font-style: italic;
-  color: white;
+  color: #EAE8DD;
   padding: 5px;
-  background-color: #282626;
+  background-color: #121212;
+  border-radius: 5px;
+  border-color: #121212;
 }
 
 /* refresh */
 #refresh {
   min-height: 5%;
   width: 30%;
-  padding: 0;
-  float: left;
+  padding: 3px;
+  float: right;
   font-weight: bold;
   font-style: italic;
-  color: white;
+  color: #EAE8DD;
   padding: 5px;
-  background-color: #282626;
+  background-color: #121212;
+  border-radius: 5px;
+  border-color: #121212;
 }
 
 
@@ -62,6 +72,9 @@ html, body {
   width: 75%;
   padding: 0;
   float: right;
+  background-color: #121212;
+  border-radius: 5px;
+  border-color: #121212;
 }
 
 /* mise en page partie recherche */
@@ -71,8 +84,9 @@ html, body {
   font-size: 28px;
   font-weight: bold;
   font-style: italic;
-  color: white;
+  color: #121212;
   padding: 1%;
-  background-color: #282626;
+  background-color: #00508A;
+  border-radius: 5px;
+  border-color: #121212;
 }
-
