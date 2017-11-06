@@ -17,7 +17,7 @@
             <input type="text" id="autocomplete" placeholder= "Votre recherche : " />
 
             <div id="sidebar">
-
+            
                 <select id="filter">
                   <option value="liste">Note moyenne pour votre recherche : </option>
                   <option value="1star">1 étoîles</option>
@@ -26,14 +26,16 @@
                   <option value="4star">4 étoîles</option>
                   <option value="5star">5 étoîles</option>
                 </select>
-
+            
+                <button id="refresh" onclick="javascript:location.reload(false);">Recharger la page</button>
+            
                 <div class="item">
                   <p class="item__position"></p>
                   <h2 class="item__name"></h2>
                   <p class="item__vicinity"></p>
                   <p class="item__rating"></p>
                 </div>
-
+            
             </div>
 
             <div id="map"></div>
