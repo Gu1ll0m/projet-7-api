@@ -3,8 +3,9 @@
 //============================================================================================================//
 
 
-//====== RESTAURANT
-//====== CONSTRUCTOR ITEM
+//====== RESTAURANT =========================================================================================//
+//====== CONSTRUCTOR ITEM ===================================================================================//
+
 function Item (id, location, name, vicinity, rating, photos, comment) {
   this.id = id;
   this.location = location;
@@ -15,19 +16,22 @@ function Item (id, location, name, vicinity, rating, photos, comment) {
   this.comment = comment;
 }
 
-//====== CREATION DES MARQUEURS
-//====== FONCTION PROTOTYPALE
+//====== CREATION DES MARQUEURS =============================================================================//
+//====== FONCTION PROTOTYPALE ===============================================================================//
+
 Item.prototype.createMarker = function () {
   var self = this;
   const placeLoc = self.location;
+  const mappy = myMap.map;
   var marker = new google.maps.Marker({
-    map,
+    map: mappy,
     position: placeLoc,
     animation: google.maps.Animation.DROP,
   })
 }
 
-//====== SIDEBAR
+//====== SIDEBAR ===========================================================================================//
+
 Item.prototype.initHtml = function () {
 
   console.log(App.listItem);
@@ -45,26 +49,3 @@ Item.prototype.initHtml = function () {
 
 }
 
-// //====== FILTRE ================================================================================================//
-// function filter() {
-//   filter = document.querySelector('.filter');
-//   choice = filter.selectedIndex;
-//   valeur = select.options[choice].value;
-//   console.log(valeur);
-//   document.querySelector('.filter').value = valeur;
-//   if (valeur[0]) {
-//     return item.results.rating.value <= 1 && itemNode.results.rating.value == "undefined";
-//   }
-//   if (valeur[1]) {
-//     return item.results.rating.value > 1 && item.results.rating.values <= 2 && item.results.rating.value == "undefined";
-//   }
-//   if (valeur[2]) {
-//     return item.results.rating.value > 2 && item.results.rating.value <= 3 && item.results.rating.value == "undefined";
-//   }
-//   if (valeur[3]) {
-//     return item.results.rating.value > 3 && item.results.rating.value <= 4 && item.results.rating.value = ="undefined";
-//   }
-//   else {
-//     return item.results.rating.value <= 5 && item.results.rating.value == "undefined";
-//   }
-// }
