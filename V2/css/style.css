@@ -32,7 +32,7 @@ html, body {
 /* menu déroulant */
 #filter {
   min-height: 5%;
-  width: 100%;
+  width: 70%;
   padding: 0;
   float: left;
   font-weight: bold;
@@ -41,6 +41,20 @@ html, body {
   padding: 5px;
   background-color: #282626;
 }
+
+/* refresh */
+#refresh {
+  min-height: 5%;
+  width: 30%;
+  padding: 0;
+  float: left;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  padding: 5px;
+  background-color: #282626;
+}
+
 
 /* mise en page partie carte */
 #map {
