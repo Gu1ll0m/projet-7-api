@@ -2,14 +2,14 @@
 //====== MAP =================================================================================================//
 //============================================================================================================//
 
-function Map () {
+function myMap () {
   this.map = ""; // api google n'est pas encore chargé
 }
 
 
 //====== INITMAP =============================================================================================//
 
-Map.prototype.initMap = function () {
+myMap.prototype.initMap = function () {
   this.map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 48.8534100,
@@ -24,7 +24,7 @@ Map.prototype.initMap = function () {
 
 //====== GEOLOCALISATION =====================================================================================//
 
-Map.prototype.geolocation = function () {
+myMap.prototype.geolocation = function () {
   var self = this;
     // test la geolocation en HTML5.
   if (navigator.geolocation) {
@@ -61,7 +61,7 @@ Map.prototype.geolocation = function () {
 
 //====== AUTOCOMPLETE ========================================================================================//
 
-Map.prototype.autocomplete = function () {
+myMap.prototype.autocomplete = function () {
   var self = this;
   const input = document.querySelector('#autocomplete')
   const autocomplete = new google.maps.places.Autocomplete(input);
