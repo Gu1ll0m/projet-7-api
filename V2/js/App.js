@@ -13,7 +13,7 @@ function App () {
 App.prototype.refresh = function () {
     var self = this;
     self.refreshButton.addEventListener('click', function () {
-        console.log("OK");
+        console.log("refresh OK");
     })
 }
 
