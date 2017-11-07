@@ -20,7 +20,7 @@ html, body {
   float: left;
   background-color: #00508A;
   border-color: #00508A;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* mise en page partie item */
