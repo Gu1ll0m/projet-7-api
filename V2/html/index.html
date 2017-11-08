@@ -13,48 +13,52 @@
 
 
         <body>
+          
+          <div id="menu">
 
-            <input type="text" id="autocomplete" placeholder= "Votre recherche : " />
+            <input type="text" id="autocomplete" class="menu" placeholder= "Votre recherche : " />
 
-            <div id="sidebar">
+            <button id="refresh" class="menu">Recharger</button>
 
-                <select id="filter">
-                  <option value="liste" selected="selected">Note moyenne : </option>
-                  <option value="1">1 étoîles et moins</option>
-                  <option value="2">2 étoîles</option>
-                  <option value="3">3 étoîles</option>
-                  <option value="4">4 étoîles et plus</option>
-                </select>
+            <select id="filter" class="menu">
+              <option value="liste" selected="selected">Note moyenne : </option>
+              <option value="1">1 étoîles et moins</option>
+              <option value="2">2 étoîles</option>
+              <option value="3">3 étoîles</option>
+              <option value="4">4 étoîles et plus</option>
+            </select>
 
-                <button id="refresh">Recharger</button>
+          </div>
 
-                <div class="item">
-                  <p class="item__position"></p>
-                  <h2 class="item__name"></h2>
-                  <p class="item__vicinity"></p>
-                  <p class="item__rating"></p>
-                </div>
+          <div id="sidebar">
 
+            <div class="item">
+              <p class="item__position"></p>
+              <h2 class="item__name"></h2>
+              <p class="item__vicinity"></p>
+              <p class="item__rating"></p>
             </div>
 
-            <div id="map"></div>
+          </div>
+
+          <div id="map"></div>
 
 
-            <script src="../js/App.js"></script>
-            <script src="../js/Map.js"></script>
-            <script src="../js/Item.js"></script>
-            <!-- <script src="../js/Comments.js"></script> -->
+          <script src="../js/App.js"></script>
+          <script src="../js/Map.js"></script>
+          <script src="../js/Item.js"></script>
+          <!-- <script src="../js/Comments.js"></script> -->
 
-            <script>
-              var App = new App();
-              var myMap = new myMap();
-            </script>
+          <script>
+            var App = new App();
+            var myMap = new myMap();
+          </script>
 
-            <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIBnKJzVPW5Vb_db43wqphVvIQBH3Ils&libraries=places&callback=myMap.initMap">
-            </script>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIBnKJzVPW5Vb_db43wqphVvIQBH3Ils&libraries=places&callback=myMap.initMap">
+          </script>
 
 
-        </body>
+      </body>
 
 </html>
