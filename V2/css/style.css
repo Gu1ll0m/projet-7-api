@@ -1,5 +1,6 @@
 /*Style CSS */
 
+/*====== PAGE ==================================================*/
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,46 @@ html, body {
   border-color: #121212;
 }
 
+
+/*========== MENU =============================================*/
+/* partie menu*/
+#menu {
+  min-height: 5%;
+  width: 100%;
+}
+
+/* 3 boutons*/
+.menu{
+  font-size: 20px;
+  color: #FAFBFC;
+  padding: 8px;
+  background-color: #3F4448;
+  border-radius: 5px;
+  border-color: #121212;
+}
+/* refresh */
+#refresh {
+  margin-left: 2%;
+  width: 9%;
+  float: left;
+}
+
+/* mise en page partie recherche */
+#autocomplete {
+  width: 60%;
+  margin-left: 2%;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* menu déroulant */
+#filter {
+  margin-left: 2%;
+  width: 19%;
+}
+
+
+/*========== PARTIE GAUCHE ======================================*/
 /* mise en page partie item */
 #sidebar {
   height: 95%;
@@ -27,46 +68,16 @@ html, body {
 .item {
   width: 100%;
   padding: 0;
-  background-color: #121212;
-  color : #EAE8DD;
-  border-color: #00508A;
+  background-color: #FAFBFC;
+  color : #121212;
+  border-color: #3F4448;
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
 }
 
 
-/* menu déroulant */
-#filter {
-  min-height: 5%;
-  width: 67%;
-  padding: 0;
-  float: left;
-  font-weight: bold;
-  font-style: italic;
-  color: #EAE8DD;
-  padding: 5px;
-  background-color: #121212;
-  border-radius: 5px;
-  border-color: #121212;
-}
-
-/* refresh */
-#refresh {
-  min-height: 5%;
-  width: 30%;
-  padding: 3px;
-  float: right;
-  font-weight: bold;
-  font-style: italic;
-  color: #EAE8DD;
-  padding: 5px;
-  background-color: #121212;
-  border-radius: 5px;
-  border-color: #121212;
-}
-
-
+/*========== PARTIE MAP =============================================*/
 /* mise en page partie carte */
 #map {
   height: 95%;
@@ -78,16 +89,4 @@ html, body {
   border-color: #121212;
 }
 
-/* mise en page partie recherche */
-#autocomplete {
-  width: 99%;
-  height: 5%;
-  font-size: 28px;
-  font-weight: bold;
-  font-style: italic;
-  color: #121212;
-  padding: 1%;
-  background-color: #00508A;
-  border-radius: 5px;
-  border-color: #121212;
-}
+
