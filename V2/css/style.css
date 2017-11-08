@@ -18,8 +18,8 @@ html, body {
   width: 25%;
   padding: 0;
   float: left;
-  background-color: #00508A;
-  border-color: #00508A;
+  background-color: #121212;
+  border-color: #121212;
   overflow: auto;
 }
 
@@ -27,9 +27,9 @@ html, body {
 .item {
   width: 100%;
   padding: 0;
-  background-color: #00508A;
-  color : #121212;
-  border-color: #121212;
+  background-color: #121212;
+  color : #EAE8DD;
+  border-color: #00508A;
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
