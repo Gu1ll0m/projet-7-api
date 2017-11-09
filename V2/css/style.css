@@ -23,9 +23,9 @@ html, body {
 
 /* 3 boutons*/
 .menu{
-  font-size: 20px;
+  font-size: 16px;
   color: #FAFBFC;
-  padding: 10px;
+  padding: 8px;
   background-color: #3F4448;
   border-radius: 5px;
   border-color: #121212;
