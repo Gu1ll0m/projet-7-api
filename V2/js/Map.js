@@ -97,7 +97,7 @@ function callback(results, status) {
     console.log(`results : `, results)
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
-      const place = results[i]
+      const place = results[i];
       const item = new Item(results[i].id,
                             results[i].geometry.location,
                             results[i].name,
