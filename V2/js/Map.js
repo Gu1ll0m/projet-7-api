@@ -40,7 +40,9 @@ myMap.prototype.geolocation = function () {
       const marker = new google.maps.Marker({
         position: pos,
         map: self.map,
+        title:"Here",
         animation: google.maps.Animation.BOUNCE,
+        icon:""
       })
       const service = new google.maps.places.PlacesService(self.map)
       service.nearbySearch({
@@ -71,8 +73,9 @@ myMap.prototype.autocomplete = function () {
     const marker = new google.maps.Marker({
       position: position,
       map: self.map,
+      title:"Here",
       animation: google.maps.Animation.BOUNCE,
-      icon:"",
+      icon:""
     })
     const service = new google.maps.places.PlacesService(self.map)
     service.nearbySearch({
