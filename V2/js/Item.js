@@ -22,9 +22,8 @@ function Item (id, location, name, vicinity, rating, photos, comment) {
 Item.prototype.createMarker = function () {
   var self = this;
   const placeLoc = self.location;
-  const mappy = myMap.map;
   var marker = new google.maps.Marker({
-    map: mappy,
+    map: myMap.map,
     position: placeLoc,
     animation: google.maps.Animation.DROP,
   })
@@ -34,11 +33,11 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
-  console.log(App.listItem);
+  //console.log(App.listItem);
 
   this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
-    console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
+    //console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
   document.querySelector('.item__name').textContent = `${self.name}`;
