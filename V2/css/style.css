@@ -78,6 +78,15 @@ html, body {
   border-radius: 5px;
 }
 
+/* item visible*/
+.visible {
+  visibility: visible;
+}
+
+/* item caché */
+.cache {
+  visibility: hidden;
+}
 
 /*========== PARTIE MAP =============================================*/
 /* mise en page partie carte */
