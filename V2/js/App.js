@@ -21,23 +21,21 @@ App.prototype.refresh = function () {
     })
 }
 
-// nearbySearch
-
-
-// ici le filter
-// // eventlistener qui écoute le nombre d' étoile
-// listItem.foreach
-// si rating > étoile on affiche
-// sinon classlist .addhide
-// dans item méthode hideItem (enlève le node et le marker)
-
 
 //====== BOUTON FILTRER LES NOTES ==========================================================================//
 App.prototype.filter = function () {
     var self = this;
     self.filterButton.addEventListener('click', function () {
         console.log("OK filter");
+        console.log(self.filterButton);
+        var selectValue = getSelectValue('filter');
         // TODO: cache les item en fonction de leur rating
+        if (selectValue === map.results.rating.value) {
+            document.querySelector('item').className='visible';
+        }
+        else {
+            document.querySelector('item').className='cache';
+        }
     })
 }
 
@@ -63,3 +61,23 @@ window.addEventListener("beforeunload", function (e) {
     e.returnValue = message;
     return message;
 });
+
+
+//====== RETOURNE LA VALEUR DU SELECTEUR FILTER =============================================================//
+function getSelectValue(filter) {
+    //selectElmt.selectedIndex correspond à l'index du tableau options qui est actuellement sélectionné
+    var selectElmt = document.getElementById(filter);
+    return selectElmt.options[selectElmt.selectedIndex].value;
+}
+
+
+
+// nearbySearch
+
+
+// ici le filter
+// // eventlistener qui écoute le nombre d' étoile
+// listItem.foreach
+// si rating > étoile on affiche
+// sinon classlist .addhide
+// dans item méthode hideItem (enlève le node et le marker)
