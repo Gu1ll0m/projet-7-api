@@ -22,10 +22,16 @@ function Item (id, location, name, vicinity, rating, photos, comment) {
 Item.prototype.createMarker = function () {
   var self = this;
   const placeLoc = self.location;
+  var titleInfo =  `
+                  ${self.name}
+                  note moyenne : ${self.rating}
+                  `;
   var marker = new google.maps.Marker({
     map: myMap.map,
     position: placeLoc,
+    title: titleInfo,
     animation: google.maps.Animation.DROP,
+    icon: 'https://cdn3.iconfinder.com/data/icons/map/500/restaurant-32.png'
   })
 }
 
