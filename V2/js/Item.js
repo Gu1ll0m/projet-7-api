@@ -46,11 +46,28 @@ Item.prototype.initHtml = function () {
     //console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
-  document.querySelector('.item__name').textContent = `${self.name}`;
-  document.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
-  document.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+  self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+  self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+  self.itemNode.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+
+	self.itemNode.addEventListener('mouseover', function(evt){
+		console.log(this);
+		// TODO : finish mouseover function here or call a new function
+	});
+
+	self.itemNode.addEventListener('click', function(evt){
+		console.log(this);
+		// TODO : display comments here or call a new function
+	});
 
   App.listItem.appendChild(self.itemNode);
 
 }
 
+// Item.prototype.overListener = function(elm) {
+// 	var self = this;
+// 	elm.addEventListener('mouseover', function(evt){
+// 		console.log(this);
+// 		console.log(evt);
+// 	});
+// }
