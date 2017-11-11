@@ -39,11 +39,8 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
-  //console.log(App.listItem);
-
   this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
-    //console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
@@ -63,11 +60,3 @@ Item.prototype.initHtml = function () {
   App.listItem.appendChild(self.itemNode);
 
 }
-
-// Item.prototype.overListener = function(elm) {
-// 	var self = this;
-// 	elm.addEventListener('mouseover', function(evt){
-// 		console.log(this);
-// 		console.log(evt);
-// 	});
-// }
