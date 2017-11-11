@@ -39,18 +39,24 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
-  //console.log(App.listItem);
-
   this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
-    //console.log(`nom : `, self.name, ` adresse : `, self.vicinity, `moyenne : `, self.rating);
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
-  document.querySelector('.item__name').textContent = `${self.name}`;
-  document.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
-  document.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+  self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+  self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+  self.itemNode.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
+
+	self.itemNode.addEventListener('mouseover', function(evt){
+		console.log(this);
+		// TODO : finish mouseover function here or call a new function
+	});
+
+	self.itemNode.addEventListener('click', function(evt){
+		console.log(this);
+		// TODO : display comments here or call a new function
+	});
 
   App.listItem.appendChild(self.itemNode);
 
 }
-
