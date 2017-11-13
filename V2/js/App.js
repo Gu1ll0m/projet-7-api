@@ -41,7 +41,6 @@ App.prototype.filter = function(maxStars){
     return rating.filter(function(el) {
         return el.toLowercase().indexOf(requete.toLowercase) > -1;
     })
-    console.log(filter('4'));
 }
 
 //====== FERMETURE / ACTUALISATION ==========================================================================//
