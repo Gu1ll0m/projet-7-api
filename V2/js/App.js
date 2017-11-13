@@ -36,6 +36,12 @@ App.prototype.filterListener = function () {
 App.prototype.filter = function(maxStars){
 	console.log('nombre d\'étoiles minimum : ', maxStars);
 	// TODO: finish filter function
+    var self = this;
+    var rating = map.callback.results.rating;
+    return rating.filter(function(el) {
+        return el.toLowercase().indexOf(requete.toLowercase) > -1;
+    })
+    console.log(filter('4'));
 }
 
 //====== FERMETURE / ACTUALISATION ==========================================================================//
