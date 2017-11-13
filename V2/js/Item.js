@@ -6,14 +6,15 @@
 //====== RESTAURANT =========================================================================================//
 //====== CONSTRUCTOR ITEM ===================================================================================//
 
-function Item (id, location, name, vicinity, rating, photos, comment) {
+function Item (id, location, name, vicinity, rating, photos, comments) {
   this.id = id;
   this.location = location;
   this.name = name;
   this.vicinity = vicinity;
   this.rating = rating;
   this.photos = photos;
-  this.comment = comment;
+  this.comments = comments;
+  //console.log(this.id, this. name, this. rating, this.comments);
 }
 
 //====== CREATION DES MARQUEURS =============================================================================//
@@ -23,15 +24,17 @@ Item.prototype.createMarker = function () {
   var self = this;
   const placeLoc = self.location;
   var titleInfo =  `
-                  ${self.name}
-                  note moyenne : ${self.rating}
-                  `;
+    ${self.name}
+    note moyenne : ${self.rating}
+    id : ${self.id}
+    photo : ${self.photos}
+    `;
   var marker = new google.maps.Marker({
     map: myMap.map,
     position: placeLoc,
     title: titleInfo,
     animation: google.maps.Animation.DROP,
-    icon: 'https://cdn3.iconfinder.com/data/icons/map/500/restaurant-32.png'
+    icon: 'https://cdn3.iconfinder.com/data/icons/map/500/restaurant-32.png',
   })
 }
 
@@ -47,16 +50,27 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   self.itemNode.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
 
-	self.itemNode.addEventListener('mouseover', function(evt){
-		console.log(this);
-		// TODO : finish mouseover function here or call a new function
-	});
-
 	self.itemNode.addEventListener('click', function(evt){
 		console.log(this);
 		// TODO : display comments here or call a new function
-	});
+    evt.target.style.color = '#4532E6';
+    self.itemNode.querySelector('.item__photos').textContent = `${self.photos}`;
+    self.itemNode.querySelector('.item__comments').textContent = `${self.comments}`;
+    setTimeout(function() {
+      evt.target.style.color = "";
+    }, 500);
+    }, false);
 
   App.listItem.appendChild(self.itemNode);
-
 }
+
+
+
+// TODO : mouseover marker
+// // self.itemNode.addEventListener('mouseover', function(evt){
+//    // met en surbrillance la cible de mouseover
+//    evt.target.style.color = '#4532E6';
+//    setTimeout(function() {
+//      evt.target.style.color = "";
+//    }, 500);
+//    }, false);
