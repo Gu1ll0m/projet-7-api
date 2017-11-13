@@ -107,7 +107,7 @@ function callback(results, status) {
                             results[i].vicinity,
                             results[i].rating,
                             results[i].photos,
-                            results[i].comment
+                            results[i].comments
                             );
       item.createMarker();
       item.initHtml();
