@@ -54,8 +54,11 @@ Item.prototype.initHtml = function () {
 		console.log(this);
 		// TODO : display comments here or call a new function
     evt.target.style.color = '#4532E6';
+    // TODO : faire match les photos
     self.itemNode.querySelector('.item__photos').textContent = `${self.photos}`;
-    self.itemNode.querySelector('.item__comments').textContent = `${self.comments}`;
+    // TODO : faire match les commentaires
+    self.itemNode.removeAttribute('hidden');
+    self.itemNode.querySelector('.item__comments').textContent = `commentaires : ${self.comments}`;
     setTimeout(function() {
       evt.target.style.color = "";
     }, 500);
@@ -63,14 +66,3 @@ Item.prototype.initHtml = function () {
 
   App.listItem.appendChild(self.itemNode);
 }
-
-
-
-// TODO : mouseover marker
-// // self.itemNode.addEventListener('mouseover', function(evt){
-//    // met en surbrillance la cible de mouseover
-//    evt.target.style.color = '#4532E6';
-//    setTimeout(function() {
-//      evt.target.style.color = "";
-//    }, 500);
-//    }, false);
