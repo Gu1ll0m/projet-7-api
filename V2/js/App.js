@@ -7,8 +7,10 @@ function App () {
     this.listItem = document.getElementById('sidebar');
     this.refreshButton = document.getElementById('refresh');
     this.filterButton = document.getElementById('filter');
+    this.filterRating = document.querySelector('.item__rating').value;
     this.refresh();
     this.filterListener();
+    this.filter();
 }
 
 
@@ -36,11 +38,12 @@ App.prototype.filterListener = function () {
 App.prototype.filter = function(maxStars){
 	console.log('nombre d\'étoiles minimum : ', maxStars);
 	// TODO: finish filter function
-    var self = this;
-    var rating = map.callback.results.rating;
-    return rating.filter(function(el) {
-        return el.toLowercase().indexOf(requete.toLowercase) > -1;
-    })
+
+
+    // mauvaise direction = au lieu de filtrer les éléments déjà affiché :
+    // - effacer les markers + les items
+    // - refaire une requete avec le filter
+    // - afficher les nouveaux markers et items
 }
 
 //====== FERMETURE / ACTUALISATION ==========================================================================//
