@@ -46,9 +46,9 @@ myMap.prototype.geolocation = function () {
       })
       const service = new google.maps.places.PlacesService(self.map)
       service.nearbySearch({
-        location :pos,
-        radius : 500,
-        type : ['restaurant']
+        location:pos,
+        radius: 500,
+        type: ['restaurant']
       }, callback);
     }, function() {
         handleLocationError(true, infoWindow, self.map.getCenter())
