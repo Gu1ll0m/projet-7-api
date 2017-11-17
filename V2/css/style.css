@@ -1,6 +1,6 @@
 /*Style CSS */
 
-/*====== PAGE ==================================================*/
+/*====== PAGE ===============================================================================================================================================*/
 * {
   margin: 0;
   padding: 0;
@@ -11,11 +11,10 @@ html, body {
   background-color: #121212;
   border-radius: 5px;
   border-color: #121212;
-  theme-color: #db5945;
 }
 
 
-/*========== MENU =============================================*/
+/*========== MENU ===========================================================================================================================================*/
 /* partie menu*/
 #menu {
   min-height: 5%;
@@ -34,13 +33,13 @@ html, body {
 /* refresh */
 #refresh {
   margin-left: 2%;
-  width: 9%;
+  width: 8%;
   float: left;
 }
 
 /* mise en page partie recherche */
 #autocomplete {
-  width: 60%;
+  width: 57%;
   margin-left: 2%;
   font-style: italic;
   font-weight: bold;
@@ -49,11 +48,18 @@ html, body {
 /* menu déroulant */
 #filter {
   margin-left: 2%;
-  width: 21%;
+  width: 15%;
 }
 
+/* valider */
+#ok {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 8%;
+  float: right;
+}
 
-/*========== PARTIE GAUCHE ======================================*/
+/*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
   height: 95%;
@@ -62,6 +68,7 @@ html, body {
   float: left;
   background-color: #121212;
   border-color: #121212;
+  visibility: visible;
   overflow: auto;
 }
 
@@ -77,15 +84,21 @@ html, body {
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
-  visibility: visible;
 }
 
 .item__photos, .item__comments {
   visibility: hidden;
 }
 
+.hidde {
+  visibility: hidden;
+}
 
-/*========== PARTIE MAP =============================================*/
+.show {
+  visibility: visible;
+}
+
+/*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
   height: 95%;
