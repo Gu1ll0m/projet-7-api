@@ -6,7 +6,6 @@
 
           <title>BME (-_______-)</title>
           <link rel="stylesheet" type="text/css" href="../css/style.css" />
-          <meta name="theme-color" content="#db5945">
           <meta name="viewport" content="initial-scale=1.0">
           <meta charset="utf-8">
 
@@ -17,21 +16,23 @@
 
           <div id="menu">
 
+            <button id="refresh" class="menu">Actualiser</button>
+
             <input type="text" id="autocomplete" class="menu" placeholder= "Votre recherche : " />
 
-            <button id="refresh" class="menu">Recharger</button>
-
             <select id="filter" class="menu">
-              <option value="liste" selected="selected">Note moyenne : </option>
+              <option value="liste" selected="selected">Note moyenne et validez : </option>
               <option value="1">1 étoîle</option>
               <option value="2">2 étoîles</option>
               <option value="3">3 étoîles</option>
               <option value="4">4 étoîles et plus</option>
             </select>
 
+            <button id="ok" class="menu">Valider</button>
+
           </div>
 
-          <div id="sidebar">
+          <div id="sidebar" class="sidebar">
 
             <div class="item">
               <p class="item__photos"></p>
