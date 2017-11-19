@@ -19,6 +19,10 @@ html, body {
 #menu {
   min-height: 5%;
   width: 100%;
+  margin-top: 1%;
+  text-align: center;
+  font-weight: bold;
+  border-color: #121212;
 }
 
 /* 3 boutons*/
@@ -29,6 +33,7 @@ html, body {
   background-color: #3F4448;
   border-radius: 5px;
   border-color: #121212;
+  box-shadow: 1px 1px 0px #3F4448;
 }
 /* refresh */
 #refresh {
@@ -101,13 +106,81 @@ html, body {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 95%;
-  width: 75%;
+  height: 94%;
+  width: 74%;
   padding: 0;
   float: right;
   background-color: #121212;
   border-radius: 5px;
-  border-color: #121212;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #3F4448;
 }
 
 
+
+
+/*========== MEDIA QUERIES ===================================================================================================================================*/
+@media all and (max-width: 1024px)
+{
+  *{
+    width: auto;
+  }
+
+  #menu {
+    height: 10%;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+  }
+
+  /* mise en page partie recherche */
+  #autocomplete {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  /* refresh */
+  #refresh {
+    width: 20%;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  /* menu déroulant */
+  #filter {
+    width: 47%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  /* valider */
+  #ok {
+    width: 20%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  #sidebar {
+    width: 96%;
+    height: 20%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  #map {
+    width: 96%;
+    height: 70%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-color: #121212;
+  }
+
+
+}
