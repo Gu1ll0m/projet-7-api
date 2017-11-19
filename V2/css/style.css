@@ -6,33 +6,44 @@
   padding: 0;
 }
 
+*::-webkit-scrollbar { display: none; }
+
 html, body {
   height: 100%;
-  background-color: #121212;
+  background-color: #3F4448;
   border-radius: 5px;
-  border-color: #121212;
+  border-color: #3F4448;
 }
 
+a {
+  color: #FAFBFC;
+}
 
 /*========== MENU ===========================================================================================================================================*/
 /* partie menu*/
 #menu {
-  min-height: 5%;
+  position: relative;
+  height: 5%;
   width: 100%;
-  margin-top: 1%;
+  padding-top: 1%;
   text-align: center;
   font-weight: bold;
+  background-color: #3F4448;
+  border-style: solid;
   border-color: #121212;
+  border-width: 1px;
 }
 
 /* 3 boutons*/
 .menu{
   font-size: 16px;
-  color: #FAFBFC;
+  color: #DFDFDF;
   padding: 8px;
-  background-color: #3F4448;
+  background-color: #121212;
+  border-style: solid;
   border-radius: 5px;
   border-color: #121212;
+  border-width: 1px;
   box-shadow: 1px 1px 0px #3F4448;
 }
 /* refresh */
@@ -71,24 +82,21 @@ html, body {
   width: 25%;
   padding: 0;
   float: left;
-  background-color: #121212;
-  border-color: #121212;
+  background-color: #3F4448;
   visibility: visible;
   overflow: auto;
 }
 
 /* mise en page partie item */
 .item {
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 1%;
-  padding: 0;
-  background-color: #FAFBFC;
+  width: 98%;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: #DFDFDF;
   color : #121212;
   border-style: solid;
   border-width: 1px;
-  border-radius: 5px;
+  border-color: #121212;
 }
 
 .item__photos, .item__comments {
@@ -106,18 +114,42 @@ html, body {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 94%;
-  width: 74%;
+  height: 86%;
+  width: 75%;
   padding: 0;
   float: right;
   background-color: #121212;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #3F4448;
 }
 
+/*========== FOOTER ==========================================================================================================================================*/
+/* mise en page partie footer */
+#footer{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: 5%;
+  padding-top: 1%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #3F4448;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #121212;
+}
 
+#button-twitter {
+  text-align: center;
+  width: 25%;
+  font-size: 16px;
+  padding: 6px;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #121212;
+}
 
 
 /*========== MEDIA QUERIES ===================================================================================================================================*/
@@ -132,14 +164,17 @@ html, body {
     width: 100%;
     padding: 1%;
     text-align: center;
+    background-color: #3CB371;
   }
 
   /* mise en page partie recherche */
   #autocomplete {
-    width: 96%;
+    width: 94%;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
+    color: #EED2EE;
+    font-size: 10px;
   }
 
   /* refresh */
@@ -148,6 +183,8 @@ html, body {
     float: left;
     margin-left: 2%;
     margin-right: 2%;
+    color: #EED2EE;
+    font-size: 10px;
   }
 
   /* menu déroulant */
@@ -155,6 +192,8 @@ html, body {
     width: 47%;
     margin-left: 2%;
     margin-right: 2%;
+    color: #EED2EE;
+    font-size: 10px;
   }
 
   /* valider */
@@ -163,23 +202,44 @@ html, body {
     float: right;
     margin-left: 2%;
     margin-right: 2%;
+    color: #EED2EE;
+    font-size: 10px;
   }
 
   #sidebar {
-    width: 96%;
+    width: 100%;
     height: 20%;
-    margin-left: 2%;
-    margin-right: 2%;
     text-align: center;
-    flex-direction: column;
+    padding: 0;
+  }
+
+  .item {
+    background-color: #EED2EE;
+    font-size: 10px;
+    width: 100%;
+    padding: 0;
   }
 
   #map {
-    width: 96%;
-    height: 70%;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 100%;
+    height: 64%;
     border-color: #121212;
+    background-color: #66CDAA;
+  }
+
+  #footer {
+    background-color: #3CB371;
+    width: 100%;
+  }
+
+  #button-twitter {
+    height: 60%;
+    width: 60%;
+    text-align: center;
+    padding-bottom: : 1%;
+    margin-bottom: 1%;
+    font-size: 8px;
+    color: #EED2EE;
   }
 
 
