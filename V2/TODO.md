@@ -22,21 +22,17 @@ Modification de marker.
   }
   map.addListener('click', function(event){
     addMarker(event.latLng, map)
-  }) -->
+  }) 
 
-
-<!--  dans nearbySearch passer contour de la fenêtre à la place d' item
-utiliser un bouton pour supprimer et recharger les nouveaux items via getcenter ?
-
-sidebar => google pogressif web app
-this.itemNode = document.querySelector('.item--template').cloneNode(true);
-var self = this;
-
-self.itemNode.classList.remove('item--template');
-self.itemNode.removeAttribute('hidden');
-self.itemNode.querySelector('.item__name').textContent = self.name;
-self.itemNode.querySelector('.item__adress').textContent = self.address;
-self.itemNode.querySelector('.item__stars').textContent = self.rating;
-
-filtre
 -->
+
+
+
+<!-- filtre 
+En partie fonctionnel, ne filtre pas précisément les éléments.
+A retravailler -->
+
+<!-- 
+pour vider une div => document.getElementById('madiv').innerHTML = "";
+-->
+
