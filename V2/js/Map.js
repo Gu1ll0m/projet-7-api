@@ -107,7 +107,7 @@ function callback(results, status) {
                             results[i].name,
                             results[i].vicinity,
                             results[i].rating,
-                            results[i].photos,
+                            results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}),
                             results[i].comments,
                             );
       item.createMarker();
