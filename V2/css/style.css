@@ -82,10 +82,10 @@ a {
   margin-right: 1%;
   background-color: #DFDFDF;
   color : #121212;
-}
+  border-top: solid;
+  border-color: #121212;
+  border-width: 1px;
 
-.item__photos, .item__comments {
-  visibility: hidden;
 }
 
 /*========== PARTIE MAP =====================================================================================================================================*/
