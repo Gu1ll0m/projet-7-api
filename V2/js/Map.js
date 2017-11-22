@@ -25,10 +25,10 @@ myMap.prototype.initMap = function () {
 //====== GEOLOCALISATION ===================================================================================================================================//
 
 myMap.prototype.geolocation = function () {
-  var self = this;
+  const self = this;
     // test la geolocation en HTML5.
   if (navigator.geolocation) {
-    var infoWindow = new google.maps.InfoWindow({
+    const infoWindow = new google.maps.InfoWindow({
       content: name
     });
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -64,7 +64,7 @@ myMap.prototype.geolocation = function () {
 //====== AUTOCOMPLETE ======================================================================================================================================//
 
 myMap.prototype.autocomplete = function () {
-  var self = this;
+  const self = this;
   const input = document.querySelector('#autocomplete')
   const autocomplete = new google.maps.places.Autocomplete(input);
 
@@ -108,7 +108,7 @@ function callback(results, status) {
                             results[i].vicinity,
                             results[i].rating,
                             results[i].photos,
-                            results[i].comments
+                            results[i].comments,
                             );
       item.createMarker();
       item.initHtml();
@@ -125,5 +125,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.')
 };
-
 
