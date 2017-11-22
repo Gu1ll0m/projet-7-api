@@ -21,15 +21,15 @@ function Item (id, location, name, vicinity, rating, photos, comments) {
 //====== FONCTION PROTOTYPALE ===============================================================================================================================//
 
 Item.prototype.createMarker = function () {
-  var self = this;
+  const self = this;
   const placeLoc = self.location;
-  var titleInfo =  `
+  const titleInfo =  `
     ${self.name}
     note moyenne : ${self.rating}
     id : ${self.id}
     photo : ${self.photos}
     `;
-  var marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
     map: myMap.map,
     position: placeLoc,
     title: titleInfo,
@@ -43,14 +43,14 @@ Item.prototype.createMarker = function () {
 Item.prototype.initHtml = function () {
 
   this.itemNode = document.querySelector('.item').cloneNode(true);
-  var self = this;
+  const self = this;
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   self.itemNode.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
 
-	self.itemNode.addEventListener('click', function(evt){
+	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
 		console.log(this);
 		// TODO : display comments here or call a new function
     evt.target.style.color = '#4532E6';
@@ -58,16 +58,11 @@ Item.prototype.initHtml = function () {
     self.itemNode.querySelector('.item__photos').textContent = `${self.photos}`;
     // TODO : faire match les commentaires
     self.itemNode.removeAttribute('hidden');
-    self.itemNode.querySelector('.item__comments').textContent = `commentaires : ${self.comments}`;
+    self.itemNode.querySelector('.item__comments').textContent = `${self.comments}`;
     setTimeout(function() {
       evt.target.style.color = "";
-    }, 500);
+      }, 500);
     }, false);
 
   App.listItem.appendChild(self.itemNode);
 }
-
-
-
-
-
