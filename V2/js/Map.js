@@ -15,7 +15,7 @@ myMap.prototype.initMap = function () {
       lat: 48.8534100,
       lng: 2.3488000
     },
-    zoom: 16
+    zoom: 16,
   })
   this.geolocation();
   this.autocomplete();
@@ -29,7 +29,7 @@ myMap.prototype.geolocation = function () {
     // test la geolocation en HTML5.
   if (navigator.geolocation) {
     const infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: name,
     });
     navigator.geolocation.getCurrentPosition(function(position) {
       const pos = {
@@ -42,7 +42,7 @@ myMap.prototype.geolocation = function () {
         map: self.map,
         title:"Here",
         animation: google.maps.Animation.BOUNCE,
-        icon:""
+        icon: ''
       })
       const service = new google.maps.places.PlacesService(self.map)
       service.nearbySearch({
@@ -75,7 +75,7 @@ myMap.prototype.autocomplete = function () {
       map: self.map,
       title:"Here",
       animation: google.maps.Animation.BOUNCE,
-      icon:""
+      icon: ''
     })
     const service = new google.maps.places.PlacesService(self.map)
     service.nearbySearch({
@@ -97,7 +97,7 @@ myMap.prototype.autocomplete = function () {
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 
-function callback(results, status) {
+function callback(results, status, PlaceSearchPagination) {
     console.log(`results : `, results)
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
@@ -107,11 +107,28 @@ function callback(results, status) {
                             results[i].name,
                             results[i].vicinity,
                             results[i].rating,
-                            results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}),
+                            results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 100}),
                             results[i].comments,
                             );
+
+      const url = results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100});
+      const image = document.createElement('img');
+      
+      changePhoto();
+      addPhoto();      
+      
       item.createMarker();
       item.initHtml();
+
+      function changePhoto (){
+        image.src = url;
+      }
+
+      function addPhoto () {
+        App.listItem.appendChild(image);
+      }
+      
+
     }
   }
 };
@@ -125,4 +142,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.')
 };
+
+
+
+
 
