@@ -4,6 +4,7 @@
 
 function myMap () {
   this.map = ""; // api google n'est pas encore chargé
+	this.PlaceService = "";
 }
 
 
@@ -16,7 +17,8 @@ myMap.prototype.initMap = function () {
       lng: 2.3488000
     },
     zoom: 16,
-  })
+  });
+	this.PlaceService = new google.maps.places.PlacesService(this.map);
   this.geolocation();
   this.autocomplete();
 }
@@ -44,12 +46,12 @@ myMap.prototype.geolocation = function () {
         animation: google.maps.Animation.BOUNCE,
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
       })
-      const service = new google.maps.places.PlacesService(self.map)
+      const service = self.PlaceService;
       service.nearbySearch({
         location:pos,
         radius: 500,
         type: ['restaurant']
-      }, callback);
+      }, self.callback);
     }, function() {
         handleLocationError(true, infoWindow, self.map.getCenter())
       })
@@ -77,12 +79,12 @@ myMap.prototype.autocomplete = function () {
       animation: google.maps.Animation.BOUNCE,
       icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
-    const service = new google.maps.places.PlacesService(self.map)
+    const service = self.PlaceService;
     service.nearbySearch({
       location :position,
       radius : 500,
       type : ['restaurant']
-      }, callback)
+		}, self.callback)
     // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée
     self.map.setCenter(position);
     self.map.setZoom(16);
@@ -97,37 +99,25 @@ myMap.prototype.autocomplete = function () {
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 
-function callback(results, status, PlaceSearchPagination) {
-    console.log(`results : `, results)
+myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
+	var self = this;
+  console.log(`results : `, results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
-      const place = results[i];
-      const item = new Item(results[i].id,
+			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
+      const item = new Item(self.map,
+														PlaceService,
+														results[i].place_id,
                             results[i].geometry.location,
                             results[i].name,
                             results[i].vicinity,
                             results[i].rating,
-                            results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 100}),
+                            results[i].photos,
                             results[i].comments,
                             );
 
-      const url = results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100});
-      const image = document.createElement('img');
-      
-      changePhoto();
-      addPhoto();      
-      
       item.createMarker();
       item.initHtml();
-
-      function changePhoto (){
-        image.src = url;
-      }
-
-      function addPhoto () {
-        App.listItem.appendChild(image);
-      }
-      
 
     }
   }
@@ -142,8 +132,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.')
 };
-
-
-
-
-
