@@ -42,7 +42,7 @@ myMap.prototype.geolocation = function () {
         map: self.map,
         title:"Here",
         animation: google.maps.Animation.BOUNCE,
-        icon: ''
+        icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
       })
       const service = new google.maps.places.PlacesService(self.map)
       service.nearbySearch({
@@ -75,7 +75,7 @@ myMap.prototype.autocomplete = function () {
       map: self.map,
       title:"Here",
       animation: google.maps.Animation.BOUNCE,
-      icon: ''
+      icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
     const service = new google.maps.places.PlacesService(self.map)
     service.nearbySearch({
