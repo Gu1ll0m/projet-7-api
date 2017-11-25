@@ -34,7 +34,7 @@ Item.prototype.createMarker = function () {
     position: placeLoc,
     title: titleInfo,
     animation: google.maps.Animation.DROP,
-    icon: 'http://cdn3.iconfinder.com/icons/38152/download/png/37',
+    icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
 }
 
