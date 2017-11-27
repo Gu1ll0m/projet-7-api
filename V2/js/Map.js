@@ -9,7 +9,7 @@ function myMap () {
 
 
 //====== INITMAP ===========================================================================================================================================//
-
+// map de base cntré sur Paris par défault
 myMap.prototype.initMap = function () {
   this.map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -38,7 +38,8 @@ myMap.prototype.geolocation = function () {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       }
-      self.map.setCenter(pos)
+      self.map.setCenter(pos) // centre la map sur la position de la géolocalisation
+      // ajout du marker
       const marker = new google.maps.Marker({
         position: pos,
         map: self.map,
@@ -46,6 +47,7 @@ myMap.prototype.geolocation = function () {
         animation: google.maps.Animation.BOUNCE,
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
       })
+      // nearbySearch 
       const service = self.PlaceService;
       service.nearbySearch({
         location:pos,
