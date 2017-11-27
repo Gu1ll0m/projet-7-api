@@ -40,6 +40,22 @@ Item.prototype.createMarker = function () {
     animation: google.maps.Animation.DROP,
     icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
+
+  // ADD MARKER via click sur la map
+  google.maps.event.addListener(myMap.map, 'click', function (event) {
+    const titleInfo =  `
+      id : ${self.id}
+      position : ${event.latLng}
+    `;
+    new google.maps.Marker({
+      map: myMap.map,
+      position: event.latLng,
+      draggable: true,
+      icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/country.png',
+      title: titleInfo
+    });
+  });
+
   self.relation();
 }
 
@@ -75,12 +91,9 @@ Item.prototype.initHtml = function () {
 
     // temps d' arrêt de l' event click
 	  setTimeout(function() {
-      // on remet la couleur initiale
 	    evt.target.style.color = "";
-      // on cache item__comments et item__addcomments
 	    self.itemNode.querySelector('.item__comments').textContent = '';
 	    //self.itemNode.querySelector('.item__addcomments').textContent = ``;
-      // on vide les photos
       imageElm.src = '';
 	    }, 15000);
 	  }, false);
@@ -100,7 +113,7 @@ Item.prototype.getDetails = function() {
 			// log comments
 			console.log(place.reviews);
 			// Todo : add Comments in html
-      self.itemNode.querySelector('.item__comments').textContent = `Commentaires : ${place.reviews[0].text}, ${place.reviews[0].relative_time_description}`;
+      self.itemNode.querySelector('.item__comments').textContent = `Commentaires : " ${place.reviews[0].text} ", ${place.reviews[0].relative_time_description}`;
 		}
 	}
 }
@@ -114,18 +127,3 @@ Item.prototype.relation = function() {
 }
 
 
-//====== ADD MARKER =============================================================================================================================================//
-
-function createPhotoMarker(place) {
-  var photos = place.photos;
-  if (!photos) {
-    return;
-  }
-
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location,
-    title: place.name,
-    icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png'
-  });
-}
