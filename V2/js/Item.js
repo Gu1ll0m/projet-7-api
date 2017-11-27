@@ -32,7 +32,6 @@ Item.prototype.createMarker = function () {
     ${self.name}
     note moyenne : ${self.rating}
     id : ${self.id}
-    commentaires : ${self.comments}
     `;
   const marker = new google.maps.Marker({
     map: myMap.map,
@@ -41,6 +40,7 @@ Item.prototype.createMarker = function () {
     animation: google.maps.Animation.DROP,
     icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
+  self.relation();
 }
 
 //====== SIDEBAR =========================================================================================================================================//
@@ -55,31 +55,35 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   self.itemNode.querySelector('.item__rating').textContent = `Note moyenne : ${self.rating}`;
 
-	// image
-	var imageElm = document.createElement('img');
-	imageElm.src = self.photos;
-	self.itemNode.appendChild(imageElm);
-
-	// mouseover listener
-	self.itemNode.querySelector('.item__name').addEventListener('mouseover', function(evt){
-	  evt.target.style.color = '#af0101';
-	  self.itemNode.removeAttribute('hidden');
-	  self.itemNode.removeAttribute('hidden');
-	  self.itemNode.querySelector('.item__comments').textContent = `commentaires : ${self.comments}`;
-	  self.itemNode.querySelector('.item__addcomments').textContent = `ajouter un commentaire : `
-	  setTimeout(function() {
-	    evt.target.style.color = "";
-	    self.itemNode.querySelector('.item__comments').textContent = '';
-	    self.itemNode.querySelector('.item__addcomments').textContent = ``;
-	    }, 5000);
-	  }, false);
-
 	// click listener
-	self.itemNode.addEventListener('click', function(evt){
-		// TODO : if already open -> close comments
-		// else -> getDetails
-		self.getDetails();
-	});
+	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
+	  evt.target.style.color = '#af0101';
+    // photo
+    var imageElm = document.createElement('img');
+    imageElm.src = self.photos;
+    self.itemNode.appendChild(imageElm);
+    
+	  self.itemNode.removeAttribute('hidden');
+	  self.itemNode.removeAttribute('hidden');
+	  //self.itemNode.querySelector('.item__addcomments').textContent = `ajouter un commentaire : `
+
+    // TODO : ajout commentaires de l' api
+    // if already open -> close comments
+    // else -> getDetails
+    self.getDetails();
+    self.relation();
+
+    // temps d' arrêt de l' event click
+	  setTimeout(function() {
+      // on remet la couleur initiale
+	    evt.target.style.color = "";
+      // on cache item__comments et item__addcomments
+	    self.itemNode.querySelector('.item__comments').textContent = '';
+	    //self.itemNode.querySelector('.item__addcomments').textContent = ``;
+      // on vide les photos
+      imageElm.src = '';
+	    }, 15000);
+	  }, false);
 
   App.listItem.appendChild(self.itemNode);
 }
@@ -96,8 +100,17 @@ Item.prototype.getDetails = function() {
 			// log comments
 			console.log(place.reviews);
 			// Todo : add Comments in html
+      self.itemNode.querySelector('.item__comments').textContent = `Commentaires : ${place.reviews[0].text}, ${place.reviews[0].relative_time_description}`;
 		}
 	}
+}
+
+//====== MOUSEOVER SIDEBAR / MARKER =============================================================================================================================//
+// TODO : mouseover sur sidebar modifie l'animation du marker correspondant
+// TODO : clic sur le marker = clic sur la sidebar
+Item.prototype.relation = function() {
+  var self = this;
+  console.log (self.id)
 }
 
 
@@ -113,6 +126,6 @@ function createPhotoMarker(place) {
     map: map,
     position: place.geometry.location,
     title: place.name,
-    icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
+    icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png'
   });
 }
