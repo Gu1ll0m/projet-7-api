@@ -21,6 +21,7 @@ myMap.prototype.initMap = function () {
 	this.PlaceService = new google.maps.places.PlacesService(this.map);
   this.geolocation();
   this.autocomplete();
+  this.addMarkerClick();
 }
 
 
@@ -39,7 +40,7 @@ myMap.prototype.geolocation = function () {
         lng: position.coords.longitude
       }
       self.map.setCenter(pos)
-      
+
       const marker = new google.maps.Marker({
         position: pos,
         map: self.map,
@@ -47,7 +48,7 @@ myMap.prototype.geolocation = function () {
         animation: google.maps.Animation.BOUNCE,
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
       })
-      // nearbySearch 
+      // nearbySearch
       const service = self.PlaceService;
       service.nearbySearch({
         location:pos,
@@ -94,6 +95,7 @@ myMap.prototype.autocomplete = function () {
 };
 
 
+
 //==========================================================================================================================================================//
 //======== FONCTIONS GLOBALES  =============================================================================================================================//
 //==========================================================================================================================================================//
@@ -115,7 +117,6 @@ myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
                             results[i].vicinity,
                             results[i].rating,
                             results[i].photos,
-                            results[i].comments,
                             );
 
       item.createMarker();
@@ -124,6 +125,26 @@ myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
     }
   }
 };
+
+
+// ====== ADD MARKER via click sur la map
+myMap.prototype.addMarkerClick = function () {
+  var self = this;
+  google.maps.event.addListener(myMap.map, 'click', function (event) {
+    var title = prompt("Entrez le nom du nouveau restaurant : ");
+    var newRestau = new Item(self.map,
+                            self.PlaceService,
+                            null,
+                            event.latLng,
+                            title,
+                            null,
+                            null,
+                            null,
+                            );
+    newRestau.createMarker()
+    newRestau.initHtml();
+  });
+}
 
 
 //====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================================================//
