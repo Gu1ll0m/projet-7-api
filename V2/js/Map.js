@@ -38,8 +38,8 @@ myMap.prototype.geolocation = function () {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       }
-      self.map.setCenter(pos) // centre la map sur la position de la géolocalisation
-      // ajout du marker
+      self.map.setCenter(pos)
+      
       const marker = new google.maps.Marker({
         position: pos,
         map: self.map,
@@ -87,7 +87,7 @@ myMap.prototype.autocomplete = function () {
       radius : 500,
       type : ['restaurant']
 		}, self.callback)
-    // centre la map sur la position indiqué par l'utilisateur et fait un zoom adaptée
+
     self.map.setCenter(position);
     self.map.setZoom(16);
   })
