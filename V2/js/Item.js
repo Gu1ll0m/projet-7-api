@@ -6,7 +6,7 @@
 //====== RESTAURANT =========================================================================================================================================//
 //====== CONSTRUCTOR ITEM ===================================================================================================================================//
 
-function Item (map, service, id, location, name, vicinity, rating, photos, comments) {
+function Item (map, service, id, location, name, vicinity, rating, photos) {
 	this.map = map;
 	this.service = service;
   this.id = id;
@@ -19,7 +19,7 @@ function Item (map, service, id, location, name, vicinity, rating, photos, comme
 	} else {
 		this.photos = "";
 	}
-  this.comments = comments;
+  this.item = "";
 }
 
 
@@ -41,22 +41,6 @@ Item.prototype.createMarker = function () {
     icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
 
-  // ADD MARKER via click sur la map
-  google.maps.event.addListener(myMap.map, 'click', function (event) {
-    const titleInfo =  `
-      id : ${self.id}
-      position : ${event.latLng}
-    `;
-    new google.maps.Marker({
-      map: myMap.map,
-      position: event.latLng,
-      draggable: true,
-      icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/country.png',
-      title: titleInfo
-    });
-  });
-
-  self.relation();
 }
 
 //====== SIDEBAR =========================================================================================================================================//
@@ -78,7 +62,7 @@ Item.prototype.initHtml = function () {
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
-    
+
 	  self.itemNode.removeAttribute('hidden');
 	  self.itemNode.removeAttribute('hidden');
 	  //self.itemNode.querySelector('.item__addcomments').textContent = `ajouter un commentaire : `
@@ -118,12 +102,5 @@ Item.prototype.getDetails = function() {
 	}
 }
 
-//====== MOUSEOVER SIDEBAR / MARKER =============================================================================================================================//
-// TODO : mouseover sur sidebar modifie l'animation du marker correspondant
-// TODO : clic sur le marker = clic sur la sidebar
-Item.prototype.relation = function() {
-  var self = this;
-  console.log (self.id)
-}
 
 
