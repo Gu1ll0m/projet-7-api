@@ -3,38 +3,38 @@
 //============================================================================================================================================================//
 
 
-//====== CONSTRUCTOR =========================================================================================================================================//
+// //====== CONSTRUCTOR =========================================================================================================================================//
 
-function Comments (comments) {
-  this.comments = comments;
-}
-
-
-//====== CREATION COMMENTS ===================================================================================================================================//
-
-Comments.prototype.createComments = function () {
-  const self = this;
-  const comments = {
-    com : self.comments.value
-  }
-}
+// function Comments (comments) {
+//   this.comments = comments;
+// }
 
 
-//====== AJOUT COMMENTS ======================================================================================================================================//
+// //====== CREATION COMMENTS ===================================================================================================================================//
 
-Comments.prototype.addComments = function () {
-  const self = this;
-  return (
-      <div className="card" >
-        <form className="add__Comments">
+// Comments.prototype.createComments = function () {
+//   const self = this;
+//   const comments = {
+//     com : self.comments.value
+//   }
+// }
 
-        <input type="text" class="comments" placeholder= "Votre commentaire : " />
 
-        <button type="submit"> Ajouter votre commentaire</button>
+// //====== AJOUT COMMENTS ======================================================================================================================================//
+
+// Comments.prototype.addComments = function () {
+//   const self = this;
+//   return (
+//       <div className="card" >
+//         <form className="add__Comments">
+
+//         <input type="text" class="comments" placeholder= "Votre commentaire : " />
+
+//         <button type="submit"> Ajouter votre commentaire</button>
         
-        </form>
+//         </form>
       
-      </div>
-    )
-}
+//       </div>
+//     )
+// }
 
