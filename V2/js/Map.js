@@ -132,13 +132,14 @@ myMap.prototype.addMarkerClick = function () {
   var self = this;
   google.maps.event.addListener(myMap.map, 'click', function (event) {
     var title = prompt("Entrez le nom du nouveau restaurant : ");
+    var adress = prompt("Saisissez l'adresse : ")
     var newRestau = new Item(self.map,
                             self.PlaceService,
                             null,
                             event.latLng,
                             title,
-                            null,
-                            null,
+                            adress,
+                            undefined,
                             null,
                             );
     newRestau.createMarker()
