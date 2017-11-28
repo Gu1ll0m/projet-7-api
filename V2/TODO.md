@@ -13,28 +13,9 @@ Affichez aussi la **photo Google Street View** grâce à l'API correspondante. =
 Modification de marker. => à dev
 
 
-<!-- //====== AJOUTER DES MARKERS
-  function addMarker(position, map) {
-    const marker = new google.maps.Marker({
-      position,
-      map,
-      draggable: true
-    })
-  }
-  map.addListener('click', function(event){
-    addMarker(event.latLng, map)
-  }) 
-
--->
-
-
-
 <!-- filtre 
 En partie fonctionnel, ne filtre pas précisément les éléments.
 A retravailler -->
 
-<!-- 
-pour vider une div => document.getElementById('madiv').innerHTML = "";
--->
 
 
