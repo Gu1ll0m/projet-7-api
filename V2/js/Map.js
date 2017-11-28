@@ -148,6 +148,13 @@ myMap.prototype.addMarkerClick = function () {
 }
 
 
+//====== FONCTION CLEAR ======================================================================================================================================//
+myMap.prototype.clear = function () {
+    const self = this;
+    self.itemNode = document.querySelector('.item');
+    self.itemNode.textContent = '';
+}
+
 //====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================================================//
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
