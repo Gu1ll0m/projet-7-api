@@ -51,6 +51,7 @@ App.prototype.filter = function(maxStars){
 }
 // TODO : amélioration du filtre
 
+
 //====== FERMETURE / ACTUALISATION ===========================================================================================================================//
 window.addEventListener("beforeunload", function (e) {
     const message = "";
