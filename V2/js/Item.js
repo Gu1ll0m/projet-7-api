@@ -1,165 +1,106 @@
-//==========================================================================================================================================================//
-//====== MAP ===============================================================================================================================================//
-//==========================================================================================================================================================//
+//============================================================================================================================================================//
+//====== ITEM ================================================================================================================================================//
+//============================================================================================================================================================//
 
-function myMap () {
-  this.map = ""; // api google n'est pas encore chargé
-	this.PlaceService = "";
+
+//====== RESTAURANT =========================================================================================================================================//
+//====== CONSTRUCTOR ITEM ===================================================================================================================================//
+
+function Item (map, service, id, location, name, vicinity, rating, photos, link) {
+	this.map = map;
+	this.service = service;
+  this.id = id;
+  this.location = location;
+  this.name = name;
+  this.vicinity = vicinity;
+  this.rating = rating;
+	if(photos != undefined) {
+		this.photos = photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200});
+	} else {
+		this.photos = "http://racine.cccommunication.biz/v1/img/photo/photos_defaut/pas0BRnew.png";
+	}
+  this.link = "";
 }
 
 
-//====== INITMAP ===========================================================================================================================================//
-// map de base cntré sur Paris par défault
-myMap.prototype.initMap = function () {
-  this.map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 48.8534100,
-      lng: 2.3488000
-    },
-    zoom: 16,
-  });
-	this.PlaceService = new google.maps.places.PlacesService(this.map);
-  this.geolocation();
-  this.autocomplete();
-  this.addMarkerClick();
-}
+//====== CREATION DES MARQUEURS =============================================================================================================================//
 
-
-//====== GEOLOCALISATION ===================================================================================================================================//
-
-myMap.prototype.geolocation = function () {
+Item.prototype.createMarker = function () {
   const self = this;
-    // test la geolocation en HTML5.
-  if (navigator.geolocation) {
-    const infoWindow = new google.maps.InfoWindow({
-      content: name,
-    });
-    navigator.geolocation.getCurrentPosition(function(position) {
-      const pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      }
-      self.map.setCenter(pos)
-
-      const marker = new google.maps.Marker({
-        position: pos,
-        map: self.map,
-        title:"Here",
-        animation: google.maps.Animation.BOUNCE,
-        icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
-      })
-      // nearbySearch
-      const service = self.PlaceService;
-      service.nearbySearch({
-        location:pos,
-        radius: 500,
-        type: ['restaurant']
-      }, self.callback);
-    }, function() {
-        handleLocationError(true, infoWindow, self.map.getCenter())
-      })
-    } else {
-      // le navigateur ne supporte pas la géolocation
-      handleLocationError(false, infoWindow, self.map.getCenter())
-    }
-
-}
-
-
-//====== AUTOCOMPLETE ======================================================================================================================================//
-
-myMap.prototype.autocomplete = function () {
-  const self = this;
-  const input = document.querySelector('#autocomplete')
-  const autocomplete = new google.maps.places.Autocomplete(input);
-
-  autocomplete.addListener('place_changed', function () {
-    const position = autocomplete.getPlace().geometry.location;
-    const marker = new google.maps.Marker({
-      position: position,
-      map: self.map,
-      title:"Here",
-      animation: google.maps.Animation.BOUNCE,
-      icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
-    })
-    const service = self.PlaceService;
-    service.nearbySearch({
-      location :position,
-      radius : 500,
-      type : ['restaurant']
-		}, self.callback)
-
-    self.map.setCenter(position);
-    self.map.setZoom(16);
+  const placeLoc = self.location;
+  const titleInfo =  `
+      ${self.name}
+      ${self.vicinity}
+      ${self.rating}
+    `;
+  const marker = new google.maps.Marker({
+    map: myMap.map,
+    position: placeLoc,
+    title: titleInfo,
+    animation: google.maps.Animation.DROP,
+    icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
-};
 
+}
 
+//====== SIDEBAR =========================================================================================================================================//
 
-//==========================================================================================================================================================//
-//======== FONCTIONS GLOBALES  =============================================================================================================================//
-//==========================================================================================================================================================//
+Item.prototype.initHtml = function () {
 
+  this.itemNode = document.querySelector('.item').cloneNode(true);
+  const self = this;
+  self.itemNode.classList.remove('.item');
+  self.itemNode.removeAttribute('hidden');
+  self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+  self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+  self.itemNode.querySelector('.item__rating').textContent = `${self.rating}`;
+  self.itemNode.querySelector('.item__rating').style.fontSize = '1.6em';
+  self.itemNode.querySelector('.item__rating').style.backgroundColor = '#FC6354';
+  self.itemNode.querySelector('.item__rating').style.maxWidth = '8%';
+  self.itemNode.querySelector('.item__rating').style.textAlign = 'center';
+  self.itemNode.querySelector('.item__rating').style.borderRadius = '50px';
+  self.itemNode.querySelector('.item__rating').style.color = '#FFFFFF';
 
-//====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
+	// click listener
+	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
+	  evt.target.style.color = '#FC6354';
+    // photo
+    var imageElm = document.createElement('img');
+    imageElm.src = self.photos;
+    self.itemNode.appendChild(imageElm);
 
-myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
+	  self.itemNode.removeAttribute('hidden');
+    self.itemNode.querySelector('.item__addComment').style.display = 'inline';
+
+    // commentaires
+    self.getDetails();
+
+    // temps d' arrêt de l' event click
+	  setTimeout(function() {
+	    evt.target.style.color = "";
+	    self.itemNode.querySelector('.item__comment').textContent = '';
+      imageElm.src = '';
+      self.itemNode.querySelector('.item__addComment').style.display = 'none';
+	    }, 15000);
+	  }, false);
+
+  App.listItem.appendChild(self.itemNode);
+}
+
+//====== GET DETAILS ===========================================================================================================================================//
+
+Item.prototype.getDetails = function() {
 	var self = this;
-  console.log(`results : `, results);
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (let i = 0; i < results.length; i++) {
-			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
-      const item = new Item(self.map,
-														PlaceService,
-														results[i].place_id,
-                            results[i].geometry.location,
-                            results[i].name,
-                            results[i].vicinity,
-                            results[i].rating,
-                            results[i].photos,
-                            );
+	// details request on the place (to get comments )
+	self.service.getDetails({"placeId": self.id}, detailsCallback);
 
-      item.createMarker();
-      item.initHtml();
-
-    }
-  }
-};
-
-
-// ====== ADD MARKER via click sur la map
-myMap.prototype.addMarkerClick = function () {
-  var self = this;
-  google.maps.event.addListener(myMap.map, 'click', function (event) {
-    var title = prompt("Entrez le nom du nouveau restaurant : ");
-    var adress = prompt("Saisissez l'adresse : ")
-    var newRestau = new Item(self.map,
-                            self.PlaceService,
-                            null,
-                            event.latLng,
-                            title,
-                            adress,
-                            undefined,
-                            null,
-                            );
-    newRestau.createMarker()
-    newRestau.initHtml();
-  });
+	function detailsCallback(place, status) {
+		if (status == google.maps.places.PlacesServiceStatus.OK) {
+			//console.log(place.reviews);
+      self.itemNode.querySelector('.item__comment').textContent = `Commentaire écrit par ${place.reviews[0].author_name}, ${place.reviews[0].relative_time_description} : " ${place.reviews[0].text} " `;
+		}
+	}
 }
 
 
-//====== FONCTION CLEAR ======================================================================================================================================//
-myMap.prototype.clear = function () {
-    const self = this;
-    self.itemNode = document.querySelector('.item');
-    self.itemNode.textContent = '';
-}
 
-//====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================================================//
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-    'Error: The Geolocation service failed.' :
-    'Error: Your browser doesn\'t support geolocation.')
-};
