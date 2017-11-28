@@ -29,6 +29,7 @@ a {
   width: 100%;
   padding-top: 1%;
   text-align: center;
+  font-size: 1.2em;
   font-style: italic;
   font-weight: bold;
   background-color: #2D5BE3;
@@ -36,10 +37,10 @@ a {
 
 /* 3 boutons*/
 .menu{
-  font-size: 16px;
-  color: #DFDFDF;
+  color: #FFFFFF;
   padding: 8px;
   background-color: #121212;
+  font-size: 0.8em;
   font-style: italic;
   font-weight: bold;
   border-style: solid;
@@ -88,6 +89,7 @@ a {
   margin-right: 1%;
   background-color: #FFFFFF;
   color : #2D5BE3;
+  font-size: 1em;
   border-bottom: solid;
   border-color: #2D5BE3;
   border-width: 1px;
@@ -96,7 +98,7 @@ a {
 
 #addComment {
   display: none;
-  font-size: 12px;
+  font-size: 1em;
   color: #2D5BE3;
   width: 50%;
   float: right;
@@ -139,7 +141,7 @@ a {
 #button-twitter {
   text-align: center;
   width: 25%;
-  font-size: 16px;
+  font-size: 1em;
   font-style: italic;
   font-weight: bold;
   padding: 6px;
@@ -212,7 +214,7 @@ a {
   }
 
   .item {
-    background-color: #DFDFDF;
+    background-color: #FFFFFF;
     font-size: 10px;
     width: 100%;
     padding: 0;
