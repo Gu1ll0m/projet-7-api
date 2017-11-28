@@ -6,15 +6,17 @@
   padding: 0;
 }
 
-*::-webkit-scrollbar { display: none; }
+*::-webkit-scrollbar { 
+  display: none; 
+}
 
 html, body {
   height: 100%;
-  background-color: #3F4448;
+  background-color: #FFFFFF;
 }
 
 a {
-  color: #FAFBFC;
+  color: #DFDFDF;
   font-weight: bold;
 }
 
@@ -27,8 +29,9 @@ a {
   width: 100%;
   padding-top: 1%;
   text-align: center;
+  font-style: italic;
   font-weight: bold;
-  background-color: #3F4448;
+  background-color: #2D5BE3;
 }
 
 /* 3 boutons*/
@@ -37,6 +40,8 @@ a {
   color: #DFDFDF;
   padding: 8px;
   background-color: #121212;
+  font-style: italic;
+  font-weight: bold;
   border-style: solid;
   border-radius: 5px;
   border-color: #121212;
@@ -68,11 +73,10 @@ a {
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
-  height: 92%;
-  width: 23%;
-  margin-left: 1%;
+  height: 93%;
+  width: 25%;
   float: left;
-  background-color: #DFDFDF;
+  background-color: #FFFFFF;
   visibility: visible;
   overflow: auto;
 }
@@ -82,30 +86,35 @@ a {
   width: 98%;
   margin-left: 1%;
   margin-right: 1%;
-  background-color: #DFDFDF;
-  color : #121212;
-  border-top: solid;
-  border-color: #121212;
+  background-color: #FFFFFF;
+  color : #2D5BE3;
+  border-bottom: solid;
+  border-color: #2D5BE3;
   border-width: 1px;
 
 }
 
-.item__photos {
-  height: 100px;
-  width: 100px;
-  visibility: visible;
-  border-color: #121212;
+#addComment {
+  display: none;
+  font-size: 12px;
+  color: #2D5BE3;
+  width: 50%;
+  float: right;
+  background-color: #E6E6FA;
+  font-style: italic;
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #E6E6FA;
   border-width: 1px;
-
 }
-
 
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
   height: 86%;
   width: 74%;
-  margin-right: 1%;
+  padding-right: 1%;
   padding: 0;
   float: right;
   background-color: #121212;
@@ -122,14 +131,17 @@ a {
   height: 5%;
   padding-top: 1%;
   text-align: center;
+  font-style: italic;
   font-weight: bold;
-  background-color: #3F4448;
+  background-color: #FFFFFF;
 }
 
 #button-twitter {
   text-align: center;
   width: 25%;
   font-size: 16px;
+  font-style: italic;
+  font-weight: bold;
   padding: 6px;
   color: #DFDFDF;
   background-color: #121212;
@@ -156,7 +168,6 @@ a {
     width: 100%;
     padding: 1%;
     text-align: center;
-    background-color: #af0101;
   }
 
   /* mise en page partie recherche */
@@ -198,7 +209,6 @@ a {
     text-align: center;
     padding: 0;
     margin: 0;
-    background-color: #DFDFDF;
   }
 
   .item {
@@ -218,7 +228,6 @@ a {
   }
 
   #footer {
-    background-color: #af0101;
     width: 100%;
   }
 
@@ -229,7 +238,6 @@ a {
     padding-bottom: : 1%;
     margin-bottom: 1%;
     font-size: 8px;
-    color: #EED2EE;
   }
 
 }
