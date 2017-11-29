@@ -6,8 +6,8 @@
   padding: 0;
 }
 
-*::-webkit-scrollbar { 
-  display: none; 
+*::-webkit-scrollbar {
+  display: none;
 }
 
 html, body {
@@ -25,9 +25,9 @@ a {
 /* partie menu*/
 #menu {
   position: relative;
-  height: 5%;
+  max-height: 30%;
   width: 100%;
-  padding-top: 1%;
+  padding : 1%;
   text-align: center;
   font-size: 1.2em;
   font-style: italic;
@@ -76,7 +76,7 @@ a {
 /* mise en page partie item */
 #sidebar {
   height: 93%;
-  width: 25%;
+  width: 30%;
   float: left;
   background-color: #FFFFFF;
   visibility: visible;
@@ -100,8 +100,8 @@ em {
 /* mise en page partie item */
 .item {
   width: 100%;
-  margin-left: 1%;
-  margin-right: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
   background-color: #FFFFFF;
   color : #2D5BE3;
   font-size: 1em;
@@ -130,10 +130,11 @@ em {
 /* mise en page partie carte */
 #map {
   height: 86%;
-  width: 75%;
+  width: 70%;
   padding: 0;
   float: right;
   background-color: #121212;
+  position: relative;
 }
 
 
@@ -143,7 +144,7 @@ em {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 75%;
+  width: 70%;
   height: 5%;
   padding-top: 1%;
   text-align: center;
@@ -154,7 +155,7 @@ em {
 
 #button-twitter {
   text-align: center;
-  width: 25%;
+  max-width: 50%;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
