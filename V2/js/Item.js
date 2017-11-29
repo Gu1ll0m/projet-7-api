@@ -54,7 +54,7 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   self.itemNode.querySelector('.item__rating').textContent = `${self.rating}`;
-  self.itemNode.querySelector('.item__rating').style.fontSize = '1.4em';
+  self.itemNode.querySelector('.item__rating').style.fontSize = '1em';
   self.itemNode.querySelector('.item__rating').style.backgroundColor = '#FC6354';
   self.itemNode.querySelector('.item__rating').style.maxWidth = '6%';
   self.itemNode.querySelector('.item__rating').style.textAlign = 'center';
@@ -68,15 +68,13 @@ Item.prototype.initHtml = function () {
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
-
     self.itemNode.style.backgroundColor = '#F4F9FC';
-	  self.itemNode.removeAttribute('hidden');
-    self.itemNode.querySelector('.item__addComment').style.display = 'inline';
-
-    // commentaires
+    // API comments
     self.getDetails();
-
-    // temps d' arrêt de l' event click
+    // add comments by user
+    self.itemNode.removeAttribute('hidden');
+    self.itemNode.querySelector('.item__addComment').style.display = 'inline';
+    // stop click event
 	  setTimeout(function() {
 	    evt.target.style.color = "";
       self.itemNode.style.backgroundColor = '#FFFFFF';
