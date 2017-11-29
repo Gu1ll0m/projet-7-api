@@ -54,9 +54,9 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   self.itemNode.querySelector('.item__rating').textContent = `${self.rating}`;
-  self.itemNode.querySelector('.item__rating').style.fontSize = '1.6em';
+  self.itemNode.querySelector('.item__rating').style.fontSize = '1.4em';
   self.itemNode.querySelector('.item__rating').style.backgroundColor = '#FC6354';
-  self.itemNode.querySelector('.item__rating').style.maxWidth = '8%';
+  self.itemNode.querySelector('.item__rating').style.maxWidth = '6%';
   self.itemNode.querySelector('.item__rating').style.textAlign = 'center';
   self.itemNode.querySelector('.item__rating').style.borderRadius = '50px';
   self.itemNode.querySelector('.item__rating').style.color = '#FFFFFF';
@@ -69,6 +69,7 @@ Item.prototype.initHtml = function () {
     imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
 
+    self.itemNode.style.backgroundColor = '#F4F9FC';
 	  self.itemNode.removeAttribute('hidden');
     self.itemNode.querySelector('.item__addComment').style.display = 'inline';
 
@@ -78,6 +79,7 @@ Item.prototype.initHtml = function () {
     // temps d' arrêt de l' event click
 	  setTimeout(function() {
 	    evt.target.style.color = "";
+      self.itemNode.style.backgroundColor = '#FFFFFF';
 	    self.itemNode.querySelector('.item__comment').textContent = '';
       imageElm.src = '';
       self.itemNode.querySelector('.item__addComment').style.display = 'none';
