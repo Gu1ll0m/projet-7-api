@@ -51,6 +51,7 @@ a {
 }
 /* refresh */
 #refresh {
+  text-align: center;
   margin-left: 2%;
   width: 10%;
   float: left;
@@ -58,16 +59,16 @@ a {
 
 /* mise en page partie recherche */
 #autocomplete {
-  width: 60%;
-  margin-left: 2%;
+  width: 57%;
   font-style: italic;
   font-weight: bold;
 }
 
 /* menu déroulant */
 #filter {
-  margin-left: 2%;
+  margin-right: 2%;
   width: 15%;
+  float: right;
 }
 
 
@@ -82,16 +83,30 @@ a {
   overflow: auto;
 }
 
+/* div info */
+#info {
+  width: 100%;
+  float: left;
+  padding : 2%;
+  background-color: #F2F2F2;
+  color : #121212;
+  font-size: 1.2em;
+}
+
+em {
+  font-weight: bold;
+}
+
 /* mise en page partie item */
 .item {
-  width: 98%;
+  width: 100%;
   margin-left: 1%;
   margin-right: 1%;
   background-color: #FFFFFF;
   color : #2D5BE3;
   font-size: 1em;
   border-bottom: solid;
-  border-color: #2D5BE3;
+  border-color: #EFEFF4;
   border-width: 1px;
 
 }
@@ -115,8 +130,7 @@ a {
 /* mise en page partie carte */
 #map {
   height: 86%;
-  width: 74%;
-  padding-right: 1%;
+  width: 75%;
   padding: 0;
   float: right;
   background-color: #121212;
