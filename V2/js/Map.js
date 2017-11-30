@@ -28,20 +28,20 @@ myMap.prototype.initMap = function () {
 //====== GEOLOCALISATION ===================================================================================================================================//
 
 myMap.prototype.geolocation = function () {
-  const self = this;
+  var self = this;
     // test la geolocation en HTML5.
   if (navigator.geolocation) {
-    const infoWindow = new google.maps.InfoWindow({
+    var infoWindow = new google.maps.InfoWindow({
       content: name,
     });
     navigator.geolocation.getCurrentPosition(function(position) {
-      const pos = {
+      var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       }
       self.map.setCenter(pos)
 
-      const marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: pos,
         map: self.map,
         title:"Here",
@@ -49,7 +49,7 @@ myMap.prototype.geolocation = function () {
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
       })
       // nearbySearch
-      const service = self.PlaceService;
+      var service = self.PlaceService;
       service.nearbySearch({
         location:pos,
         radius: 500,
@@ -69,20 +69,20 @@ myMap.prototype.geolocation = function () {
 //====== AUTOCOMPLETE ======================================================================================================================================//
 
 myMap.prototype.autocomplete = function () {
-  const self = this;
-  const input = document.querySelector('#autocomplete')
-  const autocomplete = new google.maps.places.Autocomplete(input);
+  var self = this;
+  var input = document.querySelector('#autocomplete')
+  var autocomplete = new google.maps.places.Autocomplete(input);
 
   autocomplete.addListener('place_changed', function () {
-    const position = autocomplete.getPlace().geometry.location;
-    const marker = new google.maps.Marker({
+    var position = autocomplete.getPlace().geometry.location;
+    var marker = new google.maps.Marker({
       position: position,
       map: self.map,
       title:"Here",
       animation: google.maps.Animation.BOUNCE,
       icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
-    const service = self.PlaceService;
+    var service = self.PlaceService;
     service.nearbySearch({
       location :position,
       radius : 500,
@@ -109,7 +109,7 @@ myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
 			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
-      const item = new Item(self.map,
+      var item = new Item(self.map,
 														PlaceService,
 														results[i].place_id,
                             results[i].geometry.location,
@@ -150,7 +150,7 @@ myMap.prototype.addMarkerClick = function () {
 
 //====== FONCTION CLEAR ======================================================================================================================================//
 myMap.prototype.clear = function () {
-    const self = this;
+    var self = this;
     self.itemNode = document.querySelector('.item');
     self.itemNode.textContent = '';
 }
