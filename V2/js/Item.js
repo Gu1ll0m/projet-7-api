@@ -26,14 +26,14 @@ function Item (map, service, id, location, name, vicinity, rating, photos, link)
 //====== CREATION DES MARQUEURS =============================================================================================================================//
 
 Item.prototype.createMarker = function () {
-  const self = this;
-  const placeLoc = self.location;
-  const titleInfo =  `
+  var self = this;
+  var placeLoc = self.location;
+  var titleInfo =  `
       ${self.name}
       ${self.vicinity}
       ${self.rating}
     `;
-  const marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
     map: myMap.map,
     position: placeLoc,
     title: titleInfo,
@@ -48,7 +48,7 @@ Item.prototype.createMarker = function () {
 Item.prototype.initHtml = function () {
 
   this.itemNode = document.querySelector('.item').cloneNode(true);
-  const self = this;
+  var self = this;
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
@@ -56,7 +56,7 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__rating').textContent = `${self.rating}`;
   self.itemNode.querySelector('.item__rating').style.fontSize = '1em';
   self.itemNode.querySelector('.item__rating').style.backgroundColor = '#FC6354';
-  self.itemNode.querySelector('.item__rating').style.maxWidth = '6%';
+  self.itemNode.querySelector('.item__rating').style.maxWidth = '15%';
   self.itemNode.querySelector('.item__rating').style.textAlign = 'center';
   self.itemNode.querySelector('.item__rating').style.borderRadius = '50px';
   self.itemNode.querySelector('.item__rating').style.color = '#FFFFFF';
