@@ -8,7 +8,6 @@ function App () {
     this.itemNode = document.querySelector('.item');
     this.refreshButton = document.getElementById('refresh');
     this.filterButton = document.getElementById('filter');
-    this.filterRating = document.querySelector('.item__rating');
     this.refresh();
     this.filterListener();
 }
@@ -16,7 +15,7 @@ function App () {
 
 //====== BOUTON RECHARGER LA PAGE ============================================================================================================================//
 App.prototype.refresh = function () {
-    const self = this;
+    var self = this;
     self.refreshButton.addEventListener('click', function () {
         window.location.reload();
     })
@@ -24,10 +23,10 @@ App.prototype.refresh = function () {
 
 //====== BOUTON FILTRER LES NOTES ============================================================================================================================//
 App.prototype.filterListener = function () {
-    const self = this;
+    var self = this;
     self.filterButton.addEventListener('change', function (event) {
 		// the value of the selected 'option'
-		const selectedStars = event.target.selectedOptions[0].attributes[0].nodeValue;
+		var selectedStars = event.target.selectedOptions[0].attributes[0].nodeValue;
 		// call the filter with this value
         self.filter(selectedStars);
     })
@@ -36,27 +35,28 @@ App.prototype.filterListener = function () {
 //====== FILTRE LA LISTE DES ITEMS ===========================================================================================================================//
 App.prototype.filter = function(maxStars){
     console.log('nombre d\'étoiles minimum : ', maxStars);
-  const self = this;
+  var self = this;
     //console.log(self.listItem.children.length);
     for(let i = 0; i < self.listItem.children.length; i++ ){
-        const itemStars = self.listItem.children[i].querySelector('.item__rating').innerHTML;
-        console.log (itemStars);
-        if (itemStars < maxStars) {
+        var itemStars = self.listItem.children[i].querySelector('.item__rating');
+        console.log(typeof(self.listItem.children[i].querySelector('.item__rating')));
+        console.log(itemStars);
+        if (itemStars < maxStars && itemStars > maxStars + 0.99) {
+            //self.listItem.children[i].classList.add('hidde')
             self.listItem.children[i].remove('sidebar');
             self.listItem.children[i].removeAttribute('.visible');
         } else {
+            //self.listItem.children[i].classList.remove('hidde')
             self.listItem.children[i].remove('sidebar');
         }
     }
 }
-// TODO : amélioration du filtre
 
+// TODO : amélioration du filtre
 
 //====== FERMETURE / ACTUALISATION ===========================================================================================================================//
 window.addEventListener("beforeunload", function (e) {
-    const message = "";
+    var message = "";
     e.returnValue = message;
     return message;
 });
-
-
