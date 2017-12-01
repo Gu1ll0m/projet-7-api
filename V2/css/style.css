@@ -72,34 +72,41 @@ a {
 }
 
 
-/*========== PARTIE GAUCHE ==================================================================================================================================*/
-/* mise en page partie item */
-#sidebar {
-  height: 93%;
-  width: 30%;
-  float: left;
-  background-color: #FFFFFF;
-  visibility: visible;
-  overflow: auto;
-}
-
+/*========== INFO ===========================================================================================================================================*/
 /* div info */
 #info {
-  width: 100%;
+  width: 28%;
+  padding: 1%;
   float: left;
-  padding : 2%;
+  text-align: center;
   background-color: #F2F2F2;
   color : #121212;
   font-size: 1.2em;
+  position: relative;
 }
 
 em {
   font-weight: bold;
 }
 
+
+/*========== PARTIE GAUCHE ==================================================================================================================================*/
+/* mise en page partie item */
+#sidebar {
+  height: 88%;
+  width: 30%;
+  float: left;
+  background-color: #FFFFFF;
+  visibility: visible;
+  overflow: auto;
+  position : fixed;
+  bottom: 0;
+  left: 0;
+}
+
 /* mise en page partie item */
 .item {
-  width: 100%;
+  width: 98%;
   padding-left: 1%;
   padding-right: 1%;
   background-color: #FFFFFF;
@@ -111,6 +118,7 @@ em {
 
 }
 
+/* ajout de commentaires*/
 #addComment {
   display: none;
   font-size: 1em;
@@ -125,6 +133,12 @@ em {
   border-color: #E6E6FA;
   border-width: 1px;
 }
+
+/* classe hidde */
+.hidde {
+  visibility: hidden;
+}
+
 
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
