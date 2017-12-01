@@ -36,23 +36,19 @@ App.prototype.filterListener = function () {
 App.prototype.filter = function(maxStars){
     console.log('nombre d\'étoiles minimum : ', maxStars);
   var self = this;
-    //console.log(self.listItem.children.length);
-    for(let i = 0; i < self.listItem.children.length; i++ ){
+    for(var i = 0; i < self.listItem.children.length; i++ ){
         var itemStars = self.listItem.children[i].querySelector('.item__rating');
-        console.log(typeof(self.listItem.children[i].querySelector('.item__rating')));
+        itemStars = itemStars.innerHTML;
         console.log(itemStars);
-        if (itemStars < maxStars && itemStars > maxStars + 0.99) {
-            //self.listItem.children[i].classList.add('hidde')
-            self.listItem.children[i].remove('sidebar');
-            self.listItem.children[i].removeAttribute('.visible');
+        if (itemStars >= maxStars && itemStars < maxStars + 0.99 || maxStars === 'noFilter') {
+            // show item
+            self.listItem.children[i].style.display = 'inline';
         } else {
-            //self.listItem.children[i].classList.remove('hidde')
-            self.listItem.children[i].remove('sidebar');
+            // hidde item
+            self.listItem.children[i].style.display = 'none';
         }
     }
 }
-
-// TODO : amélioration du filtre
 
 //====== FERMETURE / ACTUALISATION ===========================================================================================================================//
 window.addEventListener("beforeunload", function (e) {
