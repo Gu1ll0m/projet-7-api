@@ -103,11 +103,11 @@ myMap.prototype.autocomplete = function () {
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 
-myMap.prototype.callback = function(results, status, PlaceSearchPagination) {
+myMap.prototype.callback = function(results, status) {
 	var self = this;
   console.log(`results : `, results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (let i = 0; i < results.length; i++) {
+    for (var i = 0; i < results.length; i++) {
 			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
       var item = new Item(self.map,
 														PlaceService,
