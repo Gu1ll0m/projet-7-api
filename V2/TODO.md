@@ -10,4 +10,3 @@ Affichez aussi la **photo Google Street View** grâce à l'API correspondante. =
 4. Permettre l'**ajout d'un avis** sur un restaurant existant. => OK
 
 5. Permettre l'**ajout d'un restaurant**, en cliquant sur un lieu spécifique de la carte. => OK
-Modification de marker. => à dev
