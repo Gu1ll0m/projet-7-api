@@ -40,7 +40,6 @@ myMap.prototype.geolocation = function () {
         lng: position.coords.longitude
       }
       self.map.setCenter(pos)
-
       var marker = new google.maps.Marker({
         position: pos,
         map: self.map,
@@ -88,7 +87,6 @@ myMap.prototype.autocomplete = function () {
       radius : 500,
       type : ['restaurant']
 		}, self.callback)
-
     self.map.setCenter(position);
     self.map.setZoom(16);
   })
@@ -107,7 +105,7 @@ myMap.prototype.callback = function(results, status) {
 	var self = this;
   console.log(`results : `, results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length; i++) {
 			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
       var item = new Item(self.map,
 														PlaceService,
@@ -118,10 +116,8 @@ myMap.prototype.callback = function(results, status) {
                             results[i].rating,
                             results[i].photos,
                             );
-
       item.createMarker();
       item.initHtml();
-
     }
   }
 };
