@@ -13,11 +13,17 @@
 html, body {
   height: 100%;
   background-color: #FFFFFF;
+  overflow: hidden;
 }
 
 a {
   color: #DFDFDF;
   font-weight: bold;
+}
+
+a:focus {
+  outline: 2px solid;
+  outline-offset: .15em;
 }
 
 
