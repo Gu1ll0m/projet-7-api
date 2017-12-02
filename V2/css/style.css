@@ -233,7 +233,7 @@ em {
 
   /* refresh */
   #refresh {
-    max-width: 20%;
+    max-width: 30%;
     float: left;
     margin-left: 2%;
     margin-bottom: 2%;
@@ -244,7 +244,7 @@ em {
 
   /* menu déroulant */
   #filter {
-    width: 35%;
+    width: 30%;
     float: right;
     margin-right: 2%;
     margin-bottom: 2%;
@@ -267,9 +267,9 @@ em {
   .item {
     background-color: #FFFFFF;
     font-size: 10px;
-    width: 100%;  
-    padding-left: 1%;
-    padding-right: 1%;
+    width: 90%;  
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .item__comment__author {
