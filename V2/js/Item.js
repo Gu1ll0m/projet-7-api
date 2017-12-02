@@ -68,15 +68,17 @@ Item.prototype.initHtml = function () {
 
 	  evt.target.style.color = '#FC6354';
     // photo
-    var imageElm = document.createElement('img');
-    if (imageElm != null) {
-      imageElm.src = self.photos;
-    self.itemNode.appendChild(imageElm);
-    } else {
-      imageElm.src = '';
+    var imageElm = document.getElementsByClassName('classImage');
+    console.log(`imageElm :` , imageElm);
+    if (!imageElm[0]) {
+      var imgElm = document.createElement('img');
+      imgElm.className = "classImage";
+      imgElm.src = self.photos;
+      self.itemNode.appendChild(imgElm);
+      console.log(`imageElm appendChild :` , imageElm);
     }
+    console.log(`typeof :` , typeof(imageElm));
     self.itemNode.style.backgroundColor = '#F4F9FC';
-    console.log(imageElm);
 
     // API comments
     self.getDetails();
@@ -114,4 +116,3 @@ Item.prototype.getDetails = function() {
 		}
 	}
 }
-
