@@ -68,12 +68,11 @@ Item.prototype.initHtml = function () {
 
 	  evt.target.style.color = '#FC6354';
     self.itemNode.style.backgroundColor = '#F4F9FC';
-
     // photo
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
-    //console.log(`imageElm :` , imageElm);
+    console.log(imageElm);
 
     // if (!imageElm[0]) {
     //   var imgElm = document.createElement('img');
@@ -83,7 +82,6 @@ Item.prototype.initHtml = function () {
     //   console.log(`imageElm appendChild :` , imageElm);
     // }
     //console.log(`typeof :` , typeof(imageElm));
-    //
 
     // API comments
     self.getDetails();
@@ -96,7 +94,10 @@ Item.prototype.initHtml = function () {
 	  setTimeout(function() {
 	    evt.target.style.color = "";
       self.itemNode.style.backgroundColor = '#FFFFFF';
+      self.itemNode.querySelector('.item__comment__info').textContent = "";
+      self.itemNode.querySelector('.item__comment__author').textContent = "";
 	    self.itemNode.querySelector('.item__comment').textContent = "";
+      self.itemNode.querySelector('.item__comment__time').textContent = "";
       imageElm.src = "";
       self.itemNode.querySelector('.item__addComment').style.display = 'none';
 	    }, 15000);
@@ -117,7 +118,11 @@ Item.prototype.getDetails = function() {
 	function detailsCallback(place, status) {
 		if (status == google.maps.places.PlacesServiceStatus.OK) {
 			//console.log(place.reviews);
-      self.itemNode.querySelector('.item__comment').textContent = `Commentaire écrit par ${place.reviews[0].author_name}, ${place.reviews[0].relative_time_description} : " ${place.reviews[0].text} " `;
+      self.itemNode.querySelector('.item__comment__info').textContent =`Commentaire écrit par : `
+      self.itemNode.querySelector('.item__comment__author').textContent = ` ${place.reviews[0].author_name} `;
+      self.itemNode.querySelector('.item__comment').textContent =  `" ${place.reviews[0].text} " `;
+      self.itemNode.querySelector('.item__comment__time').textContent = `${place.reviews[0].relative_time_description}.`;
 		}
 	}
 }
+
