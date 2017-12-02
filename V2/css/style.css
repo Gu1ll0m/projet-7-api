@@ -127,6 +127,21 @@ em {
 
 }
 
+.item__comment__info {
+  max-width: 100%;
+  float: left;
+}
+
+.item__comment__author {
+  max-width: 100%;
+  font-weight: bold;
+}
+
+.item__comment__time {
+  max-width: 100%;
+  font-style: italic;
+}
+
 /* ajout de commentaires*/
 #addComment {
   display: none;
@@ -199,7 +214,7 @@ em {
   }
 
   #menu {
-    height: 10%;
+    max-height: 20%;
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -210,7 +225,7 @@ em {
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
-    min-width: 90%;
+    max-width: 40%;
     text-align: center;
     color: #EED2EE;
     font-size: 10px;
@@ -218,10 +233,10 @@ em {
 
   /* refresh */
   #refresh {
-    width: 20%;
+    max-width: 20%;
     float: left;
     margin-left: 2%;
-    margin-top: 2%;
+    margin-bottom: 2%;
     text-align: center;
     color: #EED2EE;
     font-size: 10px;
@@ -229,19 +244,22 @@ em {
 
   /* menu déroulant */
   #filter {
-    width: 60%;
+    width: 35%;
     float: right;
     margin-right: 2%;
-    margin-top: 2%;
+    margin-bottom: 2%;
     text-align: center;
     color: #EED2EE;
     font-size: 10px;
   }
 
+  #info {
+  display: none;
+  }
+
   #sidebar {
     width: 100%;
-    height: 20%;
-    text-align: center;
+    height: 42%;
     padding: 0;
     margin: 0;
   }
@@ -249,14 +267,26 @@ em {
   .item {
     background-color: #FFFFFF;
     font-size: 10px;
-    width: 100%;
-    padding: 0;
-    margin :0;
+    width: 100%;  
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .item__comment__author {
+    min-width: 10%;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .item__comment__time {
+    min-width: 10%;
+    text-align: left;
+    float: left;
   }
 
   #map {
     width: 100%;
-    height: 64%;
+    height: 50%;
     background-color: #af0101;
     padding: 0;
     margin: 0;
