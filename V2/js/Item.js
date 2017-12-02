@@ -6,7 +6,7 @@
 //====== RESTAURANT =========================================================================================================================================//
 //====== CONSTRUCTOR ITEM ===================================================================================================================================//
 
-function Item (map, service, id, location, name, vicinity, rating, photos, link) {
+function Item (map, service, id, location, name, vicinity, rating, photos) {
 	this.map = map;
 	this.service = service;
   this.id = id;
@@ -19,7 +19,6 @@ function Item (map, service, id, location, name, vicinity, rating, photos, link)
 	} else {
 		this.photos = "http://racine.cccommunication.biz/v1/img/photo/photos_defaut/pas0BRnew.png";
 	}
-  this.link = "";
 }
 
 
@@ -51,8 +50,11 @@ Item.prototype.initHtml = function () {
   var self = this;
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
+  // add name
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+  // add adress
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+  // add rating
   self.itemNode.querySelector('.item__rating').textContent = `${self.rating}`;
   self.itemNode.querySelector('.item__rating').style.fontSize = '1em';
   self.itemNode.querySelector('.item__rating').style.backgroundColor = '#FC6354';
@@ -63,17 +65,26 @@ Item.prototype.initHtml = function () {
 
 	// click listener
 	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
+
 	  evt.target.style.color = '#FC6354';
     // photo
     var imageElm = document.createElement('img');
-    imageElm.src = self.photos;
+    if (imageElm != null) {
+      imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
+    } else {
+      imageElm.src = '';
+    }
     self.itemNode.style.backgroundColor = '#F4F9FC';
+    console.log(imageElm);
+
     // API comments
     self.getDetails();
+
     // add comments by user
     self.itemNode.removeAttribute('hidden');
-    self.itemNode.querySelector('.item__addComment').style.display = 'inline';
+    self.itemNode.querySelector('.item__addComment').style.display = 'block';
+
     // stop click event
 	  setTimeout(function() {
 	    evt.target.style.color = "";
@@ -85,9 +96,11 @@ Item.prototype.initHtml = function () {
 	  }, false);
 
   App.listItem.appendChild(self.itemNode);
+
 }
 
-//====== GET DETAILS ===========================================================================================================================================//
+
+//====== GET DETAILS ==========================================================================================================================//
 
 Item.prototype.getDetails = function() {
 	var self = this;
@@ -101,6 +114,4 @@ Item.prototype.getDetails = function() {
 		}
 	}
 }
-
-
 
