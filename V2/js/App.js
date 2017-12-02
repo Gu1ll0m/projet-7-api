@@ -34,21 +34,22 @@ App.prototype.filterListener = function () {
 
 //====== FILTRE LA LISTE DES ITEMS ===========================================================================================================================//
 App.prototype.filter = function(maxStars){
-    console.log('nombre d\'étoiles minimum : ', maxStars);
+    //console.log('nombre d\'étoiles minimum : ', maxStars);
   var self = this;
     for(var i = 0; i < self.listItem.children.length; i++ ){
         var itemStars = self.listItem.children[i].querySelector('.item__rating');
         itemStars = itemStars.innerHTML;
-        console.log(itemStars);
-        if (itemStars >= maxStars && itemStars < maxStars + 0.99 || maxStars === 'noFilter') {
+        //console.log(itemStars);
+        if (itemStars >= maxStars && itemStars <= maxStars + 1 || maxStars === 'noFilter') {
             // show item
-            self.listItem.children[i].style.display = 'inline';
+            self.listItem.children[i].style.display = 'block';
         } else {
             // hidde item
-            self.listItem.children[i].style.display = 'none';
+            self.listItem.children[i].style.display = 'none';   
         }
     }
 }
+
 
 //====== FERMETURE / ACTUALISATION ===========================================================================================================================//
 window.addEventListener("beforeunload", function (e) {
