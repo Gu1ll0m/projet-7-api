@@ -59,7 +59,7 @@ a {
 
 /* mise en page partie recherche */
 #autocomplete {
-  width: 57%;
+  width: 55%;
   font-style: italic;
   font-weight: bold;
 }
@@ -67,7 +67,7 @@ a {
 /* menu déroulant */
 #filter {
   margin-right: 2%;
-  width: 15%;
+  width: 20%;
   float: right;
 }
 
@@ -96,7 +96,10 @@ em {
   height: 88%;
   width: 30%;
   float: left;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF;  
+  border-bottom: solid;
+  border-color: #EFEFF4;
+  border-width: 1px;
   visibility: visible;
   overflow: auto;
   position : fixed;
@@ -107,14 +110,14 @@ em {
 /* mise en page partie item */
 .item {
   width: 98%;
+  background-color: #FFFFFF;
   padding-left: 1%;
   padding-right: 1%;
-  background-color: #FFFFFF;
-  color : #2D5BE3;
-  font-size: 1em;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
+  color : #2D5BE3;
+  font-size: 1em;
 
 }
 
@@ -132,11 +135,6 @@ em {
   border-radius: 5px;
   border-color: #E6E6FA;
   border-width: 1px;
-}
-
-/* classe hidde */
-.hidde {
-  visibility: hidden;
 }
 
 
