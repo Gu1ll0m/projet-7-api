@@ -1,0 +1,227 @@
+/*Style CSS */
+
+/*====== PAGE ===============================================================================================================================================*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+a {
+  color: #DFDFDF;
+  font-weight: bold;
+}
+
+a:focus {
+  outline: 2px solid;
+  outline-offset: .15em;
+}
+
+
+/*========== MENU ===========================================================================================================================================*/
+/* partie menu*/
+#menu {
+  position: relative;
+  max-height: 30%;
+  width: 100%;
+  padding : 1%;
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: bold;
+  background-color: #2D5BE3;
+}
+
+/* 2 boutons*/
+.menu{
+  color: #FFFFFF;
+  padding: 8px;
+  background-color: #121212;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #121212;
+  border-width: 1px;
+  box-shadow: 1px 1px 0px #3F4448;
+}
+/* refresh */
+#refresh {
+  text-align: center;
+  margin-left: 2%;
+  width: 10%;
+  float: left;
+}
+
+/* mise en page partie recherche */
+#autocomplete {
+  width: 80%;
+  margin-right: 2%;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*========== PARTIE GAUCHE ==================================================================================================================================*/
+/* mise en page partie item */
+#sidebar {
+  height: 93%;
+  width: 30%;
+  float: left;
+  background-color: #FFFFFF;  
+  border-bottom: solid;
+  border-color: #EFEFF4;
+  border-width: 1px;
+  visibility: visible;
+  overflow: auto;
+  position : relative;
+}
+
+/* mise en page partie item */
+.item {
+  width: 98%;
+  background-color: #FFFFFF;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-bottom: solid;
+  border-color: #EFEFF4;
+  border-width: 1px;
+  color : #2D5BE3;
+  font-size: 1em;
+
+}
+
+/*========== PARTIE MAP =====================================================================================================================================*/
+/* mise en page partie carte */
+#map {
+  height: 86%;
+  width: 70%;
+  padding: 0;
+  float: right;
+  background-color: #121212;
+  position: relative;
+}
+
+
+/*========== FOOTER ==========================================================================================================================================*/
+/* mise en page partie footer */
+#footer{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 5%;
+  padding-top: 1%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  background-color: #FFFFFF;
+}
+
+#button-twitter {
+  text-align: center;
+  max-width: 50%;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  padding: 6px;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #121212;
+}
+
+
+/*============================================================================================================================================================*/
+/*========== MEDIA QUERIES ===================================================================================================================================*/
+/*============================================================================================================================================================*/
+/*========== ECRAN SUPERIEUR A 1024px ========================================================================================================================*/
+@media all and (max-width: 1024px)
+{
+  *{
+    width: auto;
+
+  }
+
+  #menu {
+    max-height: 20%;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+  }
+
+  /* mise en page partie recherche */
+  #autocomplete {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    max-width: 60%;
+    text-align: center;
+    color: #EED2EE;
+    font-size: 10px;
+  }
+
+  /* refresh */
+  #refresh {
+    max-width: 30%;
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    color: #EED2EE;
+    font-size: 10px;
+  }
+
+
+  #info {
+  display: none;
+  }
+
+  #sidebar {
+    width: 100%;
+    height: 42%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .item {
+    background-color: #FFFFFF;
+    font-size: 10px;
+    width: 90%;  
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #map {
+    width: 100%;
+    height: 50%;
+    background-color: #af0101;
+    padding: 0;
+    margin: 0;
+  }
+
+  #footer {
+    width: 100%;
+  }
+
+  #button-twitter {
+    height: 60%;
+    width: 60%;
+    text-align: center;
+    padding-bottom: : 1%;
+    margin-bottom: 1%;
+    font-size: 8px;
+  }
+
+}
