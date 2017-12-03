@@ -61,7 +61,6 @@ myMap.prototype.geolocation = function () {
       // le navigateur ne supporte pas la géolocation
       handleLocationError(false, infoWindow, self.map.getCenter())
     }
-
 }
 
 
@@ -91,7 +90,6 @@ myMap.prototype.autocomplete = function () {
     self.map.setZoom(16);
   })
 };
-
 
 
 //==========================================================================================================================================================//
