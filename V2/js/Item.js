@@ -39,8 +39,8 @@ Item.prototype.createMarker = function () {
     animation: google.maps.Animation.DROP,
     icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/restaurant.png',
   })
-
 }
+
 
 //====== SIDEBAR =========================================================================================================================================//
 
@@ -72,20 +72,8 @@ Item.prototype.initHtml = function () {
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
     self.itemNode.appendChild(imageElm);
-    console.log(imageElm);
-
-    // if (!imageElm[0]) {
-    //   var imgElm = document.createElement('img');
-    //   imgElm.className = "classImage";
-    //   imgElm.src = self.photos;
-    //   self.itemNode.appendChild(imgElm);
-    //   console.log(`imageElm appendChild :` , imageElm);
-    // }
-    //console.log(`typeof :` , typeof(imageElm));
-
     // API comments
     self.getDetails();
-
     // add comments by user
     self.itemNode.removeAttribute('hidden');
     self.itemNode.querySelector('.item__addComment').style.display = 'block';
