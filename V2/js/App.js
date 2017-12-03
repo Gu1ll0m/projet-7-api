@@ -21,16 +21,18 @@ App.prototype.refresh = function () {
     })
 }
 
+
 //====== BOUTON FILTRER LES NOTES ============================================================================================================================//
 App.prototype.filterListener = function () {
     var self = this;
     self.filterButton.addEventListener('change', function (event) {
-		// the value of the selected 'option'
-		var selectedStars = event.target.selectedOptions[0].attributes[0].nodeValue;
-		// call the filter with this value
+        // the value of the selected 'option'
+        var selectedStars = event.target.selectedOptions[0].attributes[0].nodeValue;
+        // call the filter with this value
         self.filter(selectedStars);
     })
 }
+
 
 //====== FILTRE LA LISTE DES ITEMS ===========================================================================================================================//
 App.prototype.filter = function(maxStars){
