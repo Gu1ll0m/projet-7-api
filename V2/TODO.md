@@ -10,3 +10,15 @@ Affichez aussi la **photo Google Street View** grâce à l'API correspondante. =
 4. Permettre l'**ajout d'un avis** sur un restaurant existant. => OK
 
 5. Permettre l'**ajout d'un restaurant**, en cliquant sur un lieu spécifique de la carte. => OK
+
+
+<!-- filtre photo, Item.js l-75 
+
+	// if (!imageElm[0]) {
+    //   var imgElm = document.createElement('img');
+    //   imgElm.className = "classImage";
+    //   imgElm.src = self.photos;
+    //   self.itemNode.appendChild(imgElm);
+    //   console.log(`imageElm appendChild :` , imageElm);
+    // }
+    //console.log(`typeof :` , typeof(imageElm)); -->
