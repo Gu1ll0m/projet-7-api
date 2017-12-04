@@ -48,7 +48,7 @@ App.prototype.filter = function(maxStars){
             self.listItem.children[i].style.display = 'block';
         } else {
             // hidde item
-            self.listItem.children[i].style.display = 'none';   
+            self.listItem.children[i].style.display = 'none';
         }
     }
 }
