@@ -100,7 +100,7 @@ em {
 /* mise en page partie item */
 #sidebar {
   height: 88%;
-  width: 30%;
+  width: 31%;
   float: left;
   background-color: #FFFFFF;
   border-bottom: solid;
@@ -111,14 +111,15 @@ em {
   position : fixed;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 
 /* mise en page partie item */
 .item {
-  width: 98%;
+  width: 97%;
   background-color: #FFFFFF;
   padding-left: 1%;
-  padding-right: 1%;
+  padding-right: 2%;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
@@ -149,12 +150,13 @@ em {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 86%;
+  height: 87%;
   width: 70%;
   padding: 0;
   float: right;
   background-color: #121212;
   position: relative;
+  z-index: 2;
 }
 
 
@@ -171,6 +173,7 @@ em {
   font-style: italic;
   font-weight: bold;
   background-color: #FFFFFF;
+  z-index: 2;
 }
 
 #button-twitter {
