@@ -51,7 +51,7 @@ Item.prototype.initHtml = function () {
 
   self.itemNode.classList.remove('.item');
   self.itemNode.removeAttribute('hidden');
-  
+
   // add name
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
   // add rating
@@ -79,7 +79,7 @@ Item.prototype.initHtml = function () {
   //}
   // add adress
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
-	
+
   // click listener
 	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
 
@@ -94,11 +94,11 @@ Item.prototype.initHtml = function () {
     // add close
     var closeElm = document.createElement('img');
     closeElm.src = "../img/close.png";
-    closeElm.id = "closeElmId"
+    closeElm.class = "closeElmClass"
     self.itemNode.appendChild(closeElm);
 
     // click close div
-    closeElmId.addEventListener('click', function(evt){
+    closeElm.addEventListener('click', function(evt){
       evt.target.style.color = "";
       self.itemNode.style.backgroundColor = '#FFFFFF';
       // comment
