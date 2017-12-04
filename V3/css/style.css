@@ -102,7 +102,7 @@ em {
   height: 88%;
   width: 30%;
   float: left;
-  background-color: #FFFFFF;  
+  background-color: #FFFFFF;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
@@ -127,14 +127,6 @@ em {
 
 }
 
-.close {
-  float: right;
-}
-
-.item__name {
-  width: 90%;
-}
-
 .item__rating {
   visibility: hidden;
 }
@@ -151,22 +143,6 @@ em {
 .item__comment__time {
   max-width: 100%;
   font-style: italic;
-}
-
-/* ajout de commentaires*/
-#addComment {
-  display: none;
-  font-size: 1em;
-  color: #2D5BE3;
-  width: 50%;
-  float: right;
-  background-color: #E6E6FA;
-  font-style: italic;
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #E6E6FA;
-  border-width: 1px;
 }
 
 
@@ -278,7 +254,7 @@ em {
   .item {
     background-color: #FFFFFF;
     font-size: 10px;
-    width: 90%;  
+    width: 90%;
     padding-left: 5%;
     padding-right: 5%;
   }
