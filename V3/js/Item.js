@@ -54,11 +54,13 @@ Item.prototype.initHtml = function () {
 
   // add name
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+  // add adress
+  self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   // add rating
   x = Math.floor(self.rating);
   self.itemNode.querySelector('.item__rating').textContent = `${x}`;
   console.log(x);
-  var starElm = document.createElement('img')
+  var starElm = document.createElement('img');
   starElm.id = "starElmID";
   if (x === 1) {
     starElm.src = "../img/1_star.png";
@@ -73,16 +75,11 @@ Item.prototype.initHtml = function () {
   } else {
     starElm.src = "../img/0_star.png";
   }
-  //for(var i = 0; i < self.itemNode.children.length; i++ ){
-    //self.itemNode.insertBefore(starElm, self.itemNode.children[i].getElementById("commentInfoId"));
-    self.itemNode.appendChild(starElm);
-  //}
-  // add adress
-  self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+  self.itemNode.appendChild(starElm);
+
 
   // click listener
 	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
-
 	  evt.target.style.color = '#FC6354';
     self.itemNode.style.backgroundColor = '#F4F9FC';
     // photo
@@ -99,7 +96,7 @@ Item.prototype.initHtml = function () {
 
     // click close div
     closeElm.addEventListener('click', function(evt){
-      evt.target.style.color = "";
+      self.itemNode.querySelector('.item__name').style.color = "#2D5BE3";
       self.itemNode.style.backgroundColor = '#FFFFFF';
       // comment
       self.itemNode.querySelector('.item__comment__info').textContent = "";
