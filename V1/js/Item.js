@@ -76,13 +76,9 @@ Item.prototype.initHtml = function () {
     setTimeout(function() {
       evt.target.style.color = "";
       self.itemNode.style.backgroundColor = '#FFFFFF';
-      self.itemNode.querySelector('.item__comment__info').textContent = "";
-      self.itemNode.querySelector('.item__comment__author').textContent = "";
       self.itemNode.querySelector('.item__comment').textContent = "";
-      self.itemNode.querySelector('.item__comment__time').textContent = "";
       imageElm.src = "";
-      self.itemNode.querySelector('.item__addComment').style.display = 'none';
-      }, 15000);
+      }, 5000);
     }, false);
 
   App.listItem.appendChild(self.itemNode);
