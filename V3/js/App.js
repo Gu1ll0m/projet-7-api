@@ -6,8 +6,8 @@
 function App () {
     this.listItem = document.querySelector('#sidebar');
     this.itemNode = document.querySelector('.item');
-    this.refreshButton = document.getElementById('refresh');
-    this.filterButton = document.getElementById('filter');
+    this.refreshButton = document.getElementById('button-refresh');
+    this.filterButton = document.getElementById('select-filter');
     this.refresh();
     this.filterListener();
 }
