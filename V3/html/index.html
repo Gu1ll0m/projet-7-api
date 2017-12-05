@@ -12,6 +12,8 @@
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
           <meta charset="utf-8">
+           <!-- Bootstrap -->
+          <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
         </head>
 
@@ -20,9 +22,9 @@
 
           <div id="menu">
 
-            <input type="text" id="autocomplete" class="menu" placeholder= "Votre recherche : " />
+            <input type="text" id="input-autocomplete" class="btn btn-primary btn-lg" placeholder= "Votre recherche : " />
 
-            <select id="filter" class="menu">
+            <select id="select-filter" class="btn btn-primary btn-lg">
               <option disabled selected="selected"> Nombre d' étoile : </option>
               <option value="noFilter"> Pas de filtre </option>
               <option value="1"> 1 étoile </option>
@@ -32,7 +34,7 @@
               <option value="5"> 5 étoiles </option>
             </select>
 
-            <button id="refresh" class="menu">Actualiser</button>
+            <button id="button-refresh">Actualiser</button>
 
           </div>
 
@@ -55,8 +57,32 @@
 
           <div id="footer">
             <button id="button-twitter">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
+            <!-- Bouton execution modal -->
+            <button id="button-modal"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Lancer la modal
+            </button>
           </div>
+            
+         <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+              Exemple de modal
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+            
+          <!-- Bootstrap -->
 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+          <script src="../js/bootstrap.min.js"></script>
+            
           <!-- JS -->           
 
           <script src="../js/App.js"></script>
