@@ -59,40 +59,38 @@ Item.prototype.initHtml = function () {
   // add rating
   x = Math.floor(self.rating);
   self.itemNode.querySelector('.item__rating').textContent = `${x}`;
+  self.itemNode.querySelector('.item__rating').style.display = "none";
   console.log(x);
   var starElm = document.createElement('img');
   starElm.id = "starElmID";
-  if (x === 1) {
-    starElm.src = "../img/1_star.png";
-  } else if (x === 2) {
-    starElm.src = "../img/2_stars.png";
-  } else if (x === 3) {
-    starElm.src = "../img/3_stars.png";
-  } else if (x === 4) {
-    starElm.src = "../img/4_stars.png";
-  } else if (x === 5) {
-    starElm.src = "../img/5_stars.png";
-  } else {
-    starElm.src = "../img/0_star.png";
-  }
-  self.itemNode.appendChild(starElm);
+  
+  if (x === 1) {starElm.src = "../img/1_star.png";} 
+  else if (x === 2) {starElm.src = "../img/2_stars.png";} 
+  else if (x === 3) {starElm.src = "../img/3_stars.png";} 
+  else if (x === 4) {starElm.src = "../img/4_stars.png";} 
+  else if (x === 5) {starElm.src = "../img/5_stars.png";} 
+  else {starElm.src = "../img/0_star.png";};
+  
+  //self.itemNode.appendChild(starElm);
+  var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.item__vicinity'));
 
 
   // click listener
 	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
 	  evt.target.style.color = '#FC6354';
     self.itemNode.style.backgroundColor = '#F4F9FC';
+    // API comments
+    self.getDetails()
+    //var commentsApi = self.itemNode.insertBefore(self.getDetails(), self.itemNode.querySelector('.item__rating'));
     // photo
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
-    self.itemNode.appendChild(imageElm);
-    // API comments
-    self.getDetails();
+    var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.item__rating'));
     // add close
     var closeElm = document.createElement('img');
     closeElm.src = "../img/close.png";
     closeElm.class = "closeElmClass"
-    self.itemNode.appendChild(closeElm);
+    var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.item__vicinity'));
 
     // click close div
     closeElm.addEventListener('click', function(evt){
