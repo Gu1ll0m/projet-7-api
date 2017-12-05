@@ -71,6 +71,7 @@ a:focus {
 /* mise en page partie recherche */
 #autocomplete {
   width: 60%;
+  text-align: left;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
@@ -137,6 +138,7 @@ em {
   width: 102%;
   margin-right: 3%;
   margin-left: 1%;
+  padding-right: 3%;
   background-color: #FFFFFF;;
   border-bottom: solid;
   border-color: #EFEFF4;
@@ -146,9 +148,18 @@ em {
 
 }
 
+.item__name{
+  width: 90%;
+}
+
+.closeElmClass {
+  float: right;
+}
+
 .item__rating {
   visibility: hidden;
 }
+
 .item__comment__info {
   max-width: 100%;
   float: left;
@@ -216,6 +227,16 @@ em {
   border-color: #121212;
 }
 
+.modal-header {
+  background-color: #2D5BE3;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #121212;
+  border-width: 1px;
+}
 
  /*============================================================================================================================================================*/
 /*========== MEDIA QUERIES ===================================================================================================================================*/
