@@ -12,7 +12,7 @@
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
           <meta charset="utf-8">
-           <!-- Bootstrap -->
+          <!-- Bootstrap -->
           <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
         </head>
@@ -22,9 +22,9 @@
 
           <div id="menu">
 
-            <input type="text" id="input-autocomplete" class="btn btn-primary btn-lg" placeholder= "Votre recherche : " />
+            <input type="text" id="autocomplete" class="btn btn-primary btn-lg" placeholder= "Votre recherche : " />
 
-            <select id="select-filter" class="btn btn-primary btn-lg">
+            <select id="filter" class="btn btn-primary btn-lg">
               <option disabled selected="selected"> Nombre d' étoile : </option>
               <option value="noFilter"> Pas de filtre </option>
               <option value="1"> 1 étoile </option>
@@ -34,36 +34,36 @@
               <option value="5"> 5 étoiles </option>
             </select>
 
-            <button id="button-refresh">Actualiser</button>
+            <button id="refresh" class="btn btn-primary btn-lg">Actualiser</button>
 
           </div>
 
-          <div id="info"><em>Restaurants</em> suggérés à proximité de votre recherche </div>
+          <div id="info"<em>Restaurants</em> suggérés à proximité de votre recherche </div>
 
-          <div id="sidebar" class="sidebar">
+          <div id="sidebar">
               <div class="item">
-              <h2 class="item__name"></h2>
-              <p class="item__vicinity"></p>
+              <h3 class="item__name"></h2>
+              <p id="item__vicinity__id" class="item__vicinity"></p>
               <p class="item__rating"></p>
-              <p class="item__comment__info">
+              <p class="item__comment__info"></p>
               <p class="item__comment__author"></p>
               <p class="item__comment"></p>
               <p class="item__comment__time"></p>
             </div>
-
           </div>
 
-          <div id="map"></div>
+        <div id="map"></div>
 
-          <div id="footer">
-            <button id="button-twitter">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
-            <!-- Bouton execution modal -->
-            <button id="button-modal"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        <div id="footer">
+          <button id="button-twitter" class="btn btn-primary btn-lg">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
+          <!-- Bouton execution modal -->
+          <button id="button-modal"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             Lancer la modal
-            </button>
-          </div>
-            
-         <!-- Modal -->
+          </button>
+        </div>
+
+
+        <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -77,12 +77,14 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-            
+
+
+
           <!-- Bootstrap -->
 
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
           <script src="../js/bootstrap.min.js"></script>
-            
+
           <!-- JS -->           
 
           <script src="../js/App.js"></script>
