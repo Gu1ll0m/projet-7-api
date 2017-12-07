@@ -77,11 +77,10 @@ Item.prototype.initHtml = function () {
 
   // click listener
 	self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
-	  evt.target.style.color = '#FC6354';
+    evt.target.style.color = "#FC6354";
     self.itemNode.style.backgroundColor = '#F4F9FC';
     // API comments
     self.getDetails()
-    //var commentsApi = self.itemNode.insertBefore(self.getDetails(), self.itemNode.querySelector('.item__rating'));
     // photo
     var imageElm = document.createElement('img');
     imageElm.src = self.photos;
@@ -89,20 +88,22 @@ Item.prototype.initHtml = function () {
     // add close
     var closeElm = document.createElement('img');
     closeElm.src = "../img/close.png";
-    closeElm.class = "closeElmClass"
     var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.item__vicinity'));
+    // modal
+    self.itemNode.querySelector('#button-modal').style.display = "block";
+    //self.itemNode.appendChild('#button-modal');
 
     // click close div
     closeElm.addEventListener('click', function(evt){
       self.itemNode.querySelector('.item__name').style.color = "#2D5BE3";
       self.itemNode.style.backgroundColor = '#FFFFFF';
       // comment
-      self.itemNode.querySelector('.item__comment__info').textContent = "";
       self.itemNode.querySelector('.item__comment__author').textContent = "";
       self.itemNode.querySelector('.item__comment').textContent = "";
       self.itemNode.querySelector('.item__comment__time').textContent = "";
       imageElm.src = "";
       closeElm.src = "";
+      self.itemNode.querySelector('#button-modal').style.display = "none";
     })
 
   })
@@ -126,7 +127,7 @@ Item.prototype.getDetails = function() {
       self.itemNode.querySelector('.item__comment__author').textContent = ` ${place.reviews[0].author_name} `;
       self.itemNode.querySelector('.item__comment').textContent =  `" ${place.reviews[0].text} " `;
       self.itemNode.querySelector('.item__comment__time').textContent = `${place.reviews[0].relative_time_description}.`;
-		}
+		} 
 	}
 }
 
