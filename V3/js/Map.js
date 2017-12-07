@@ -123,10 +123,25 @@ myMap.prototype.callback = function(results, status) {
 
 // ====== ADD MARKER via click sur la map
 myMap.prototype.addMarkerClick = function () {
+  this.itemNode = document.querySelector('.item').cloneNode(true);
   var self = this;
+
+  self.itemNode.classList.remove('.item');
+  self.itemNode.removeAttribute('hidden');
+
   google.maps.event.addListener(myMap.map, 'click', function (event) {
-    var title = prompt("Entrez le nom du nouveau restaurant : ");
-    var adress = prompt("Saisissez l'adresse : ")
+    //var title = prompt("Entrez le nom du nouveau restaurant : ");
+    //var adress = prompt("Saisissez l'adresse : ")
+
+    self.itemNode.querySelector('#modal1').style.display = "block";
+    console.log(typeof(modal1));
+    var title = document.querySelector('#nameItem');
+    title = self.nameItem.value;
+    var adress = document.querySelector('#adressItem');
+    adress = self.adressItem.value; 
+
+    console.log(modal1);
+
     var newRestau = new Item(self.map,
                             self.PlaceService,
                             null,
@@ -136,11 +151,38 @@ myMap.prototype.addMarkerClick = function () {
                             undefined,
                             null,
                             );
-    newRestau.createMarker()
-    newRestau.initHtml();
+
+    self.itemNode.querySelector('#modal1-valid').addEventListener('click', function(evt){
+      if (title != "" || adress != "" || rating != "") {
+        newRestau.createMarker()
+        newRestau.initHtml();
+      }
+    }) 
   });
 }
 
+// // ====== ADD MARKER via click sur la map
+// myMap.prototype.addMarkerClick = function () {
+
+//   google.maps.event.addListener(myMap.map, 'click', function (event) {
+//     var title = prompt("Entrez le nom du nouveau restaurant : ");
+//     var adress = prompt("Saisissez l'adresse : ")
+//     var rating = prompt("saississez votre notre entre 1 et 5 :")
+//     var newRestau = new Item(self.map,
+//                             self.PlaceService,
+//                             null,
+//                             event.latLng,
+//                             title,
+//                             adress,
+//                             rating,
+//                             null,
+//                             );
+//     if (title != "" || adress != "" || rating != "") {
+//       newRestau.createMarker()
+//       newRestau.initHtml();
+//     }
+//   });
+// }
 
 //====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================================================//
 
