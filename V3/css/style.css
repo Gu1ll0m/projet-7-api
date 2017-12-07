@@ -117,7 +117,7 @@ em {
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
-  height: 91%;
+  height: 88%;
   width: 31%;
   float: left;
   padding-right: 1%;
@@ -139,7 +139,7 @@ em {
   margin-right: 3%;
   margin-left: 1%;
   padding-right: 3%;
-  background-color: #FFFFFF;;
+  background-color: #FFFFFF;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
@@ -150,10 +150,6 @@ em {
 
 .item__name{
   width: 90%;
-}
-
-.closeElmClass {
-  float: right;
 }
 
 .item__rating {
@@ -175,6 +171,71 @@ em {
   font-style: italic;
 }
 
+/* Modal comments */
+#button-modal {
+  float: right;
+  margin-right: 5%;
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #2D5BE3;
+  background-color: #FC6354;
+  border-color: #FC6354;
+  display: none;
+}
+
+.modal-header {
+  background-color: #2D5BE3;
+  font-size: 1em;
+  font-weight: bold;
+  border-style: solid;
+  border-color: #121212;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.modal-body {  
+  background-color: #F4F9FC;
+  font-size: 0.8em;
+  border-style: solid;
+  border-color: #121212;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+#modal-valid {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
+}
+
+/* Modal item */
+#button-modal1 {
+  float: right;
+  margin-right: 5%;
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
+}
+
+#modal1-valid {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
+}
 
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
@@ -215,28 +276,6 @@ em {
   border-color: #121212;
 }
 
-#button-modal {
-  float: right;
-  margin-right: 1%;
-  text-align: center;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-  color: #DFDFDF;
-  background-color: #121212;
-  border-color: #121212;
-}
-
-.modal-header {
-  background-color: #2D5BE3;
-  font-size: 0.8em;
-  font-style: italic;
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #121212;
-  border-width: 1px;
-}
 
  /*============================================================================================================================================================*/
 /*========== MEDIA QUERIES ===================================================================================================================================*/
