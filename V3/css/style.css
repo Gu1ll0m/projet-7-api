@@ -39,6 +39,7 @@ a:focus {
   font-style: italic;
   font-weight: bold;
   background-color: #2D5BE3;
+  z-index: 2;
 }
 
 /* 3 boutons*/
@@ -96,7 +97,7 @@ a:focus {
 
 /*========== INFO ===========================================================================================================================================*/
 /* div info */
-#info {
+/*#info {
   float: left;
   width: 30%;
   height: 5%;
@@ -107,19 +108,21 @@ a:focus {
   font-size: 1.2em;
   position: relative;
   z-index: 2;
-}
+}*/
 
-em {
+/*em {
   font-weight: bold;
 }
-
+*/
 
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
-  height: 88%;
+  height: 94%;
   width: 31%;
   float: left;
+  padding-top: 0;
+  margin-top: 0;
   padding-right: 1%;
   background-color: #FFFFFF;
   border-bottom: solid;
@@ -179,9 +182,9 @@ em {
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
-  color: #2D5BE3;
-  background-color: #FC6354;
-  border-color: #FC6354;
+  color: #FFFFFF;
+  background-color: #2D5BE3;
+  border-color: #2D5BE3;
   display: none;
 }
 
@@ -215,18 +218,6 @@ em {
 }
 
 /* Modal item */
-#button-modal1 {
-  float: right;
-  margin-right: 5%;
-  text-align: center;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-  color: #DFDFDF;
-  background-color: #121212;
-  border-color: #121212;
-}
-
 #modal1-valid {
   text-align: center;
   font-size: 1em;
@@ -276,6 +267,17 @@ em {
   border-color: #121212;
 }
 
+#button-modal1 {
+  float: right;
+  margin-right: 5%;
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
+}
 
  /*============================================================================================================================================================*/
 /*========== MEDIA QUERIES ===================================================================================================================================*/
@@ -334,9 +336,10 @@ em {
 
   #sidebar {
     width: 105%;
-    height: 47%;
+    height: 45%;
     padding: 0;
     margin: 0;
+    z-index: 2;
   }
 
   .item {
@@ -365,15 +368,32 @@ em {
     background-color: #af0101;
     padding: 0;
     margin: 0;
+    position: relative;
   }
 
   #footer {
     width: 100%;
+    background-color: #2D5BE3;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 5%;
   }
 
   #button-twitter {
-    height: 60%;
-    width: 60%;
+    float: left;
+    width: 30%;
+    margin-left: 2%;
+    text-align: center;
+    padding-bottom: : 1%;
+    margin-bottom: 1%;
+    font-size: 8px;
+  }
+
+  #button-modal1 {
+    float: right;
+    width: 30%;
+    margin-right: 2%;
     text-align: center;
     padding-bottom: : 1%;
     margin-bottom: 1%;
