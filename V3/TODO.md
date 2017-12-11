@@ -28,14 +28,18 @@
 
 
 ## Points à retravailler:
-1. Ajout des commentaires: il s'agit de les ajouter à une liste en html, avec une note (comme le json de l'énoncé le suggère), une fois qu'on appuie sur un bouton valider. Si ça doit prendre trop d'espace, on peut décaler la liste des commentaires avec la description du restaurant dans une 
+1. Ajout des commentaires: il s'agit de les ajouter à une liste en html, avec une note (comme le json de l'énoncé le suggère), une fois qu'on appuie sur un bouton valider. Si ça doit prendre trop d'espace, on peut décaler la liste des commentaires avec la description du restaurant dans une modale => à dev
 
-2. De même, pour l'ajout d'un restaurant, on peut mettre en place une modale; on peut utiliser Bootstrap par exemple ou n'importe quelle librairie permettant de faire facilement des modales pour éviter les prompt qui font "hack de dernière minute" et pas "finition professionnelle".
+2. De même, pour l'ajout d'un restaurant, on peut mettre en place une modale; on peut utiliser Bootstrap par exemple ou n'importe quelle librairie permettant de faire facilement des modales pour éviter les prompt qui font "hack de dernière minute" et pas "finition professionnelle". => OK
 
-3. Intégration des 2 restaurants demandés par l'énoncé; il s'agit de s'avoir s'abstraire d'une représentation imposée pour intégrer des données de sources différentes et hétérogènes
+3. Intégration des 2 restaurants demandés par l'énoncé; il s'agit de s'avoir s'abstraire d'une représentation imposée pour intégrer des données de sources différentes et hétérogènes => à dev
 
 4. Représentation des notes en "étoiles" (sinon on ne parlerait pas d'étoiles dans l'énoncé), même si ce n'est pas la modification la plus importante. => OK
 
 5. On peut aussi s'arranger pour éviter le setTimeout pour refermer les infos restaurant. (un bouton croix en haut à gauche? On referme au clic sur le titre si c'est déjà ouvert... ?) => OK
 
 6. Undefined quand on ajoute un restaurant! => OK
+
+
+
+
