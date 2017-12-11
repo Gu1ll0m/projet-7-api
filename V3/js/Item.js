@@ -62,14 +62,14 @@ Item.prototype.initHtml = function () {
   self.itemNode.querySelector('.item__rating').style.display = "none";
   var starElm = document.createElement('img');
   starElm.id = "starElmID";
-  
-  if (x === 1) {starElm.src = "../img/1_star.png";} 
-  else if (x === 2) {starElm.src = "../img/2_stars.png";} 
-  else if (x === 3) {starElm.src = "../img/3_stars.png";} 
-  else if (x === 4) {starElm.src = "../img/4_stars.png";} 
-  else if (x === 5) {starElm.src = "../img/5_stars.png";} 
+
+  if (x === 1) {starElm.src = "../img/1_star.png";}
+  else if (x === 2) {starElm.src = "../img/2_stars.png";}
+  else if (x === 3) {starElm.src = "../img/3_stars.png";}
+  else if (x === 4) {starElm.src = "../img/4_stars.png";}
+  else if (x === 5) {starElm.src = "../img/5_stars.png";}
   else {starElm.src = "../img/0_star.png";};
-  
+
   //self.itemNode.appendChild(starElm);
   var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.item__vicinity'));
 
@@ -89,7 +89,18 @@ Item.prototype.initHtml = function () {
     closeElm.src = "../img/close.png";
     var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.item__vicinity'));
     // modal
-    self.itemNode.querySelector('#button-modal').style.display = "block";    
+    self.itemNode.querySelector('#button-modal').style.display = "block";
+    document.body.querySelector('#modal-valid').addEventListener('click', function (evt){
+      console.log(self);
+        var modal = document.body.querySelector('#myModal');
+        var pseudo = modal.querySelector('#pseudoId').value;
+        var commentaire = modal.querySelector('#commentaireId').value;
+        var note = modal.querySelector('#ratingId').value;
+        var comment = new Comment(pseudo, note, commentaire, self.itemNode);
+        comment.initHtml();
+        self.itemNode.querySelector('#button-modal').style.display = "none";
+    })
+
 
     // click close div
     closeElm.addEventListener('click', function(evt){
@@ -126,7 +137,7 @@ Item.prototype.getDetails = function() {
       self.itemNode.querySelector('.item__comment__author').textContent = ` ${place.reviews[0].author_name} `;
       self.itemNode.querySelector('.item__comment').textContent =  `" ${place.reviews[0].text} " `;
       self.itemNode.querySelector('.item__comment__time').textContent = `${place.reviews[0].relative_time_description}.`;
-		} 
+		}
 	}
 }
 
