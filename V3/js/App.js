@@ -42,8 +42,7 @@ App.prototype.filter = function(maxStars){
     for(var i = 0; i < self.listItem.children.length; i++ ){
         var itemStars = self.listItem.children[i].querySelector('.item__rating');
         itemStars = itemStars.innerHTML;
-        x = Math.floor(itemStars);
-        console.log(x);
+        x = Math.round(itemStars);
         if (itemStars >= maxStars && itemStars <= maxStars + 1 || maxStars === 'noFilter') {
             // show item
             self.listItem.children[i].style.display = 'block';
