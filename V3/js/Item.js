@@ -50,17 +50,16 @@ Item.prototype.initHtml = function () {
   var self = this;
 
   self.itemNode.classList.remove('.item');
-  self.itemNode.removeAttribute('hidden');
+  self.itemNode.removeAttribute('block');
 
   // add name
   self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
   // add adress
   self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
   // add rating
-  x = Math.floor(self.rating);
+  x = Math.round(self.rating);
   self.itemNode.querySelector('.item__rating').textContent = `${x}`;
   self.itemNode.querySelector('.item__rating').style.display = "none";
-  console.log(x);
   var starElm = document.createElement('img');
   starElm.id = "starElmID";
   
@@ -90,14 +89,14 @@ Item.prototype.initHtml = function () {
     closeElm.src = "../img/close.png";
     var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.item__vicinity'));
     // modal
-    self.itemNode.querySelector('#button-modal').style.display = "block";
-    //self.itemNode.appendChild('#button-modal');
+    self.itemNode.querySelector('#button-modal').style.display = "block";    
 
     // click close div
     closeElm.addEventListener('click', function(evt){
       self.itemNode.querySelector('.item__name').style.color = "#2D5BE3";
       self.itemNode.style.backgroundColor = '#FFFFFF';
       // comment
+      self.itemNode.querySelector('.item__comment__info').textContent ="";
       self.itemNode.querySelector('.item__comment__author').textContent = "";
       self.itemNode.querySelector('.item__comment').textContent = "";
       self.itemNode.querySelector('.item__comment__time').textContent = "";
