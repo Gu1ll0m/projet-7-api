@@ -40,7 +40,7 @@
           </div>
 
 
-          <div id="info"<em>Restaurants</em> suggérés à proximité de votre recherche </div>
+          <!-- <div id="info"<em>Restaurants</em> suggérés à proximité de votre recherche </div> -->
 
 
           <div id="sidebar">
@@ -123,13 +123,19 @@
                           <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
                         </p>
                 </form>
-                <form class="modal-adress">
+                <form class="modal-item-adress">
                         <p>
                           <label for="item-adress">Adresse du restaurant : </label>
                           <input type="text" class="form-control" name="adress-item" id="adressItem" placeholder="Adresse" size="74" row="3" maxlength="200" />
                         </p>
                 </form>
-                <button id="modal1-valid" class="btn btn-primary btn-lg">Validez</button>
+                <form class="modal-item-rating">
+                        <p>
+                          <label for="pseudo">Votre note : </label>
+                          <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
+                        </p>
+                </form>
+                <!-- <button id="modal1-valid" class="btn btn-primary btn-lg">Validez</button> -->
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
