@@ -31,7 +31,7 @@ a:focus {
 /* partie menu*/
 #menu {
   position: relative;
-  max-height: 30%;
+  height: 10%;
   width: 100%;
   padding : 1%;
   text-align: center;
@@ -83,8 +83,8 @@ a:focus {
 
 /* menu déroulant */
 #filter {
-  float: right; 
-  width: 15%; 
+  float: right;
+  width: 15%;
   text-align: center;
   font-size: 1em;
   font-style: italic;
@@ -118,8 +118,8 @@ a:focus {
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
-  height: 94%;
-  width: 31%;
+  height: 90%;
+  width: 32%;
   float: left;
   padding-top: 0;
   margin-top: 0;
@@ -198,7 +198,7 @@ a:focus {
   border-radius: 5px;
 }
 
-.modal-body {  
+.modal-body {
   background-color: #F4F9FC;
   font-size: 0.8em;
   border-style: solid;
@@ -231,7 +231,7 @@ a:focus {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 86%;
+  height: 80%;
   width: 70%;
   padding: 0;
   float: right;
@@ -248,7 +248,7 @@ a:focus {
   bottom: 0;
   right: 0;
   width: 70%;
-  height: 7%;
+  height: 10%;
   padding-top: 1%;
   text-align: center;
   font-style: italic;
