@@ -28,124 +28,123 @@
             <input type="text" id="autocomplete" class="btn btn-primary btn-lg" placeholder= "Votre recherche : " />
 
             <select id="filter" class="btn btn-primary btn-lg">
-              <option disabled selected="selected"> Nombre d' étoile : </option>
-              <option value="noFilter"> Pas de filtre </option>
-              <option value="1"> 1 étoile </option>
-              <option value="2"> 2 étoiles </option>
-              <option value="3"> 3 étoiles</option>
-              <option value="4"> 4 étoiles</option>
-              <option value="5"> 5 étoiles </option>
+                <option disabled selected="selected"> Nombre d' étoile : </option>
+                <option value="noFilter"> Pas de filtre </option>
+                <option value="1"> 1 étoile </option>
+                <option value="2"> 2 étoiles </option>
+                <option value="3"> 3 étoiles</option>
+                <option value="4"> 4 étoiles</option>
+                <option value="5"> 5 étoiles </option>
             </select>
 
           </div>
 
 
-          <!-- <div id="info"<em>Restaurants</em> suggérés à proximité de votre recherche </div> -->
-
-
           <div id="sidebar">
-              <div class="item">
-              <h3 id="item__name__id" class="item__name"></h2>
-              <p id="item__vicinity__id" class="item__vicinity"></p>
-              <p class="item__comment__info"></p>
-              <p class="item__comment__author"></p>
-              <p class="item__comment"></p>
-              <p class="item__comment__time"></p>
-              <p class="item__rating"></p>
-              <!-- Bouton execution modal -->
-              <button id="button-modal"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                Ajouter un commentaire
-              </button>
+            <div class="item">
+                <h3 id="item__name__id" class="item__name"></h2>
+                <p id="item__vicinity__id" class="item__vicinity"></p>
+                <p class="item__comment__info"></p>
+                <p class="item__comment__author"></p>
+                <p class="item__comment"></p>
+                <p class="item__comment__time"></p>
+                <p class="item__rating"></p>
+                <!-- Bouton execution modal -->
+                <button id="button-modal"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                  Ajouter un commentaire
+                </button>
             </div>
           </div>
 
 
-        <div id="map"></div>
+          <div id="map"></div>
 
 
-        <div id="footer">
-          <button id="button-twitter" class="btn btn-primary btn-lg">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
-          <!-- Bouton execution modal -->
-          <button id="button-modal1"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
-            Ajouter un restaurant
-          </button>
-        </div>
-
-
-
-        <!-- Modal Comment-->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajoutez votre commentaire</h4>
-              </div>
-              <div class="modal-body">
-                <form class="modal-name" method="post" >
-                        <p>
-                          <label for="pseudo">Votre pseudo : </label>
-                          <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo" size="80" maxlength="20" />
-                        </p>
-                </form>
-                <form class="modal-comment">
-                        <p>
-                          <label for="pseudo">Votre commentaire : </label>
-                          <input type="text" class="form-control" name="commentaire" id="commentaireId" placeholder="Votre commentaire" size="74" row="3" maxlength="200" />
-                        </p>
-                </form>
-                <form class="modal-rating">
-                        <p>
-                          <label for="pseudo">Votre note : </label>
-                          <input type="number" class="form-control" name="note" id="ratingId" min="0" max="5" size="50" maxlength="1" />
-                        </p>
-                </form>
-                <button id="modal-valid" class="btn btn-primary btn-lg">Validez</button>
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+          <div id="footer">
+              <button id="button-twitter" class="btn btn-primary btn-lg">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
+              <!-- Bouton execution modal -->
+              <button id="button-modal1"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+                Ajouter un restaurant
+              </button>
+          </div>
 
 
 
-        <!-- Modal add item-->
-        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" id="button__validation__id" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajoutez un restaurant</h4>
-              </div>
-              <div class="modal-body">
-                <form class="modal-item-name" method="post" >
-                        <p>
-                          <label for="item-name">Nom du restaurant : </label>
-                          <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
-                        </p>
-                </form>
-                <form class="modal-item-adress">
-                        <p>
-                          <label for="item-adress">Adresse du restaurant : </label>
-                          <input type="text" class="form-control" name="adress-item" id="adressItem" placeholder="Adresse" size="74" row="3" maxlength="200" />
-                        </p>
-                </form>
-                <form class="modal-item-rating">
-                        <p>
-                          <label for="pseudo">Votre note : </label>
-                          <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
-                        </p>
-                </form>
-                <!-- <button id="modal1-valid" class="btn btn-primary btn-lg">Validez</button> -->
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+          <!-- Modal Comment-->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Ajoutez votre commentaire</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="modal-name" method="post" >
+                      <p>
+                        <label for="pseudo">Votre pseudo : </label>
+                        <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo" size="80" maxlength="20" />
+                      </p>
+                  </form>
+                  <form class="modal-comment">
+                      <p>
+                        <label for="pseudo">Votre commentaire : </label>
+                        <input type="text" class="form-control" name="commentaire" id="commentaireId" placeholder="Votre commentaire" size="74" row="3" maxlength="2000" />
+                      </p>
+                  </form>
+                  <form class="modal-rating">
+                      <p>
+                        <label for="pseudo">Votre note : </label>
+                        <input type="number" class="form-control" name="note" id="ratingId" min="0" max="5" size="50" maxlength="1" />
+                      </p>
+                  </form>
+                  <button id="modal-valid" class="btn btn-primary btn-lg">Validez</button>
+                  <button id="myReset" class="btn btn-primary btn-lg">Reset</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
 
-        <div class="comment" hidden>
-          <div class="comment__name"></div>
-          <div class="comment__rating"></div>
-          <div class="comment__comment"></div>
-        </div>
+
+
+          <!-- Modal add item-->
+          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" id="button__validation__id" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Ajoutez un restaurant</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="modal-item-name" method="post" >
+                      <p>
+                        <label for="item-name">Nom du restaurant : </label>
+                        <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
+                      </p>
+                  </form>
+                  <form class="modal-item-adress">
+                      <p>
+                        <label for="item-adress">Adresse du restaurant : </label>
+                        <input type="text" class="form-control" name="adress-item" id="adressItem" placeholder="Adresse" size="74" row="3" maxlength="200" />
+                      </p>
+                  </form>
+                  <form class="modal-item-rating">
+                      <p>
+                        <label for="pseudo">Votre note : </label>
+                        <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
+                      </p>
+                  </form>
+                  <!-- <button id="modal1-valid" class="btn btn-primary btn-lg">Validez</button> -->
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+
+          <div id="add__comment" class="comment" hidden>
+              <div class="comment__name"></div>
+              <div class="comment__rating"></div>
+              <div class="comment__comment"></div>
+          </div>
 
 
           <!-- Bootstrap -->
