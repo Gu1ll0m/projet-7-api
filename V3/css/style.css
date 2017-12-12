@@ -31,7 +31,7 @@ a:focus {
 /* partie menu*/
 #menu {
   position: relative;
-  height: 10%;
+  max-height: 10%;
   width: 100%;
   padding : 1%;
   text-align: center;
@@ -45,7 +45,7 @@ a:focus {
 /* 3 boutons*/
 .menu{
   color: #FFFFFF;
-  padding: 8px;
+  padding: 4px;
   background-color: #121212;
   font-size: 0.8em;
   font-style: italic;
@@ -95,51 +95,29 @@ a:focus {
 }
 
 
-/*========== INFO ===========================================================================================================================================*/
-/* div info */
-/*#info {
-  float: left;
-  width: 30%;
-  height: 5%;
-  padding-top: 1%;
-  text-align: center;
-  background-color: #F2F2F2;
-  color : #121212;
-  font-size: 1.2em;
-  position: relative;
-  z-index: 2;
-}*/
-
-/*em {
-  font-weight: bold;
-}
-*/
-
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
 #sidebar {
-  height: 90%;
+  max-height: 92%;
   width: 32%;
   float: left;
   padding-top: 0;
   margin-top: 0;
-  padding-right: 1%;
+  padding-right: 2%;
   background-color: #FFFFFF;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
   visibility: visible;
   overflow: auto;
-  position : fixed;
-  bottom: 0;
-  left: 0;
+  position : absolute;
   z-index: 1;
 }
 
 /* mise en page partie item */
 .item {
   width: 102%;
-  margin-right: 3%;
+  margin-right: 5%;
   margin-left: 1%;
   padding-right: 3%;
   background-color: #FFFFFF;
@@ -231,7 +209,7 @@ a:focus {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 80%;
+  height: 87%;
   width: 70%;
   padding: 0;
   float: right;
@@ -248,7 +226,7 @@ a:focus {
   bottom: 0;
   right: 0;
   width: 70%;
-  height: 10%;
+  height: 6%;
   padding-top: 1%;
   text-align: center;
   font-style: italic;
@@ -291,7 +269,7 @@ a:focus {
   }
 
   #menu {
-    max-height: 20%;
+    height: 5%;
     width: 100%;
     padding: 1%;
     text-align: center;
