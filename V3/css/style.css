@@ -152,6 +152,7 @@ a:focus {
   font-style: italic;
 }
 
+
 /* Modal comments */
 #button-modal {
   float: right;
@@ -195,16 +196,6 @@ a:focus {
   border-color: #121212;
 }
 
-/* Modal item */
-#modal1-valid {
-  text-align: center;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-  color: #DFDFDF;
-  background-color: #121212;
-  border-color: #121212;
-}
 
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
