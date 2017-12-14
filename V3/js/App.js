@@ -4,10 +4,10 @@
 
 
 function App () {
-    this.listItem = document.querySelector('#sidebar');
+    this.listItem = document.querySelector('#sidebarId');
     this.itemNode = document.querySelector('.item');
-    this.refreshButton = document.getElementById('refresh');
-    this.filterButton = document.getElementById('filter');
+    this.refreshButton = document.getElementById('refreshId');
+    this.filterButton = document.getElementById('filterId');
     this.refresh();
     this.filterListener();
 }
@@ -40,7 +40,7 @@ App.prototype.filter = function(maxStars){
     //console.log('nombre d\'étoiles : ', maxStars);
   var self = this;
     for(var i = 0; i < self.listItem.children.length; i++ ){
-        var itemStars = self.listItem.children[i].querySelector('.item__rating');
+        var itemStars = self.listItem.children[i].querySelector('.itemRatingClass');
         itemStars = itemStars.innerHTML;
         x = Math.round(itemStars);
         if (itemStars >= maxStars && itemStars <= maxStars + 1 || maxStars === 'noFilter') {
