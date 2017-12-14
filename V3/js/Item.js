@@ -47,18 +47,19 @@ Item.prototype.createMarker = function () {
 Item.prototype.initHtml = function () {
 
     this.itemNode = document.querySelector('.item').cloneNode(true);
+    this.closeElm = document.getElementsByClassName("close")[0].cloneNode(true);
     var self = this;
 
     self.itemNode.classList.remove('.item');
     self.itemNode.removeAttribute('block');
     // add name
-    self.itemNode.querySelector('.item__name').textContent = `${self.name}`;
+    self.itemNode.querySelector('.itemNameClass').textContent = `${self.name}`;
     // add adress
-    self.itemNode.querySelector('.item__vicinity').textContent = `${self.vicinity}`;
+    self.itemNode.querySelector('.itemVicinityClass').textContent = `${self.vicinity}`;
     // add rating
     x = Math.round(self.rating);
-    self.itemNode.querySelector('.item__rating').textContent = `${x}`;
-    self.itemNode.querySelector('.item__rating').style.display = "none";
+    self.itemNode.querySelector('.itemRatingClass').textContent = `${x}`;
+    self.itemNode.querySelector('.itemRatingClass').style.display = "none";
     var starElm = document.createElement('img');
     starElm.id = "starElmID";
     // png en fonction de la note
@@ -69,10 +70,10 @@ Item.prototype.initHtml = function () {
     else if (x === 5) {starElm.src = "../img/5_stars.png";}
     else {starElm.src = "../img/0_star.png";};
     // insertion PNG avant l' adress
-    var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.item__vicinity'));
+    var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.itemVicinityClass'));
 
     // click listener
-    self.itemNode.querySelector('.item__name').addEventListener('click', function(evt){
+    self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
         evt.target.style.color = "#FC6354";
         self.itemNode.style.backgroundColor = '#F4F9FC';
         // API comments
@@ -80,15 +81,15 @@ Item.prototype.initHtml = function () {
         // photo
         var imageElm = document.createElement('img');
         imageElm.src = self.photos;
-        var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.item__rating'));
+        var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.itemRatingClass'));
         // add close
         var closeElm = document.createElement('img');
         closeElm.src = "../img/close.png";
-        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.item__vicinity'));
+        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
 
         // modal comment
-        self.itemNode.querySelector('#button-modal').style.display = "block";
-        document.body.querySelector('#modal-valid').addEventListener('click', function (evt){
+        self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
+        document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', function (evt){
           console.log("validation");
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
@@ -97,26 +98,32 @@ Item.prototype.initHtml = function () {
             var note = modal.querySelector('#ratingId').value;
             var comment = new Comment(pseudo, note, commentaire, self.itemNode);
             comment.initHtml();
-            self.itemNode.querySelector('#button-modal').style.display = "none";
+            self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             $modal.modal('toggle');
             // reset modal
             $(".modal-body input").val("");
+            if (comment == true) {
+                self.itemNode.querySelector('#myModalLabel').style.display = "none";
+            }
         })
+        // add comment
+        var commentNode = document.body.querySelector('.commentClass');
+        commentNode.style.display= "block";
 
 
         closeElm.addEventListener('click', function(evt){
-            self.itemNode.querySelector('.item__name').style.color = "#2D5BE3";
+            self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
             self.itemNode.style.backgroundColor = '#FFFFFF';
             // comment
-            self.itemNode.querySelector('.item__comment__info').textContent ="";
-            self.itemNode.querySelector('.item__comment__author').textContent = "";
-            self.itemNode.querySelector('.item__comment').textContent = "";
-            self.itemNode.querySelector('.item__comment__time').textContent = "";
+            self.itemNode.querySelector('.itemCommentInfoClass').textContent ="";
+            self.itemNode.querySelector('.itemCommentAuthorClass').textContent = "";
+            self.itemNode.querySelector('.itemCommentClass').textContent = "";
+            self.itemNode.querySelector('.itemCommentTimeClass').textContent = "";
             imageElm.src = "";
             closeElm.src = "";
-            self.itemNode.querySelector('#button-modal').style.display = "none";
-            var commentNode = document.body.querySelector('.comment').cloneNode(true);
-            commentNode.querySelector('.comment__name').textContent = "";
+            self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
+            var commentNode = document.body.querySelector('.commentClass');
+            commentNode.style.display = "none";
           })
       })
 
@@ -135,10 +142,10 @@ Item.prototype.getDetails = function() {
     function detailsCallback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             //console.log(place.reviews);
-            self.itemNode.querySelector('.item__comment__info').textContent =`Commentaire écrit par : `
-            self.itemNode.querySelector('.item__comment__author').textContent = ` ${place.reviews[0].author_name} `;
-            self.itemNode.querySelector('.item__comment').textContent =  `" ${place.reviews[0].text} " `;
-            self.itemNode.querySelector('.item__comment__time').textContent = `${place.reviews[0].relative_time_description}.`;
+            self.itemNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
+            self.itemNode.querySelector('.itemCommentAuthorClass').textContent = ` ${place.reviews[0].author_name} `;
+            self.itemNode.querySelector('.itemCommentClass').textContent =  `" ${place.reviews[0].text} " `;
+            self.itemNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[0].relative_time_description}.`;
         }
     }
 }
