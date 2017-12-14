@@ -18,17 +18,17 @@ function Comment (name, rating, comment, itemNode) {
 Comment.prototype.initHtml = function () {
 	var self = this;
 
-    var commentNode = document.body.querySelector('.comment').cloneNode(true);
+    var commentNode = document.body.querySelector('.commentClass').cloneNode(true);
     commentNode.removeAttribute("hidden");
     // pseudo
-    commentNode.querySelector('.comment__name').style.display = "block";
-    commentNode.querySelector('.comment__name').textContent = `Votre pseudo : ${self.name}`;
+    commentNode.querySelector('.commentNameClass').style.display = "block";
+    commentNode.querySelector('.commentNameClass').textContent = `Votre pseudo : ${self.name}`;
     // note
 	x = Math.floor(self.rating);
-	commentNode.querySelector('.comment__rating').textContent = "";
-	commentNode.querySelector('.comment__rating').style.display = "block";
-	commentNode.querySelector('.comment__rating').textContent = `${x}`;
-	commentNode.querySelector('.comment__rating').style.display = "none";
+	commentNode.querySelector('.commentRatingClass').textContent = "";
+	commentNode.querySelector('.commentRatingClass').style.display = "block";
+	commentNode.querySelector('.commentRatingClass').textContent = `${x}`;
+	commentNode.querySelector('.commentRatingClass').style.display = "none";
 	var starElm = document.createElement('img');
 	starElm.id = "starElmID";
 	if (x === 1) {starElm.src = "../img/1_star.png";}
@@ -37,10 +37,10 @@ Comment.prototype.initHtml = function () {
 	else if (x === 4) {starElm.src = "../img/4_stars.png";}
 	else if (x === 5) {starElm.src = "../img/5_stars.png";}
 	else {starElm.src = "../img/0_star.png";};
-	var starElm = commentNode.insertBefore(starElm, commentNode.querySelector('.comment__comment'));
+	var starElm = commentNode.insertBefore(starElm, commentNode.querySelector('.commentCommentClass'));
     // commentaire
-    commentNode.querySelector('.comment__comment').style.display = "block";
-    commentNode.querySelector('.comment__comment').textContent = `Votre commentaire : " ${self.comment} "`;
+    commentNode.querySelector('.commentCommentClass').style.display = "block";
+    commentNode.querySelector('.commentCommentClass').textContent = `Votre commentaire : " ${self.comment} "`;
 
     self.itemNode.appendChild(commentNode);
 
