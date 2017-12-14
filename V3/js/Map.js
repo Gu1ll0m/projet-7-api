@@ -133,6 +133,8 @@ myMap.prototype.addMarkerClick = function () {
         var title = modal.querySelector('#nameItem').value;
         var adress = modal.querySelector('#adressItem').value;
         var rating = modal.querySelector('#ratingItem').value;
+        // reset modal
+        $(".modal-body input").val("");
         //$modal.modal('toggle');
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
