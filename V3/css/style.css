@@ -57,7 +57,7 @@ a:focus {
   box-shadow: 1px 1px 0px #3F4448;
 }
 /* refresh */
-#refresh {
+#refreshId  {
   float: left;
   width: 15%;
   text-align: center;
@@ -70,7 +70,7 @@ a:focus {
 }
 
 /* mise en page partie recherche */
-#autocomplete {
+#autocompleteId {
   width: 60%;
   text-align: left;
   font-size: 1em;
@@ -82,7 +82,7 @@ a:focus {
 }
 
 /* menu déroulant */
-#filter {
+#filterId {
   float: right;
   width: 15%;
   text-align: center;
@@ -97,7 +97,7 @@ a:focus {
 
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
-#sidebar {
+#sidebarId {
   max-height: 92%;
   width: 32%;
   float: left;
@@ -129,32 +129,31 @@ a:focus {
 
 }
 
-.item__name{
+.itemNameClass{
   width: 90%;
 }
 
-.item__rating {
+.itemRatingClass {
   visibility: hidden;
 }
 
-.item__comment__info {
+.itemCommentInfoClass {
   max-width: 100%;
   float: left;
 }
 
-.item__comment__author {
+.itemCommentAuthorClass, .commentNameClass {
   max-width: 100%;
   font-weight: bold;
 }
 
-.item__comment__time {
+.itemCommentTimeClass {
   max-width: 100%;
   font-style: italic;
 }
 
-
 /* Modal comments */
-#button-modal {
+#buttonModalAddCommentId {
   float: right;
   margin-right: 5%;
   text-align: center;
@@ -186,7 +185,7 @@ a:focus {
   border-radius: 5px;
 }
 
-#modal-valid {
+#buttonModalValidCommentId {
   text-align: center;
   font-size: 1em;
   font-style: italic;
@@ -212,7 +211,7 @@ a:focus {
 
 /*========== FOOTER ==========================================================================================================================================*/
 /* mise en page partie footer */
-#footer{
+#footerId{
   position: fixed;
   bottom: 0;
   right: 0;
@@ -226,7 +225,7 @@ a:focus {
   z-index: 2;
 }
 
-#button-twitter {
+#buttonTwitterId {
   text-align: center;
   font-size: 1em;
   font-style: italic;
@@ -236,7 +235,7 @@ a:focus {
   border-color: #121212;
 }
 
-#button-modal1 {
+#buttonModal1AddCommentId {
   float: right;
   margin-right: 5%;
   text-align: center;
@@ -267,7 +266,7 @@ a:focus {
   }
 
   /* mise en page partie recherche */
-  #autocomplete {
+  #autocompleteId {
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
@@ -278,7 +277,7 @@ a:focus {
   }
 
   /* refresh */
-  #refresh {
+  #refreshId {
     max-width: 30%;
     float: left;
     margin-left: 2%;
@@ -289,7 +288,7 @@ a:focus {
   }
 
   /* menu déroulant */
-  #filter {
+  #filterId {
     width: 30%;
     float: right;
     margin-right: 2%;
@@ -303,7 +302,7 @@ a:focus {
   display: none;
   }
 
-  #sidebar {
+  #sidebarId {
     width: 105%;
     height: 45%;
     padding: 0;
@@ -319,13 +318,13 @@ a:focus {
     padding-right: 5%;
   }
 
-  .item__comment__author {
+  .itemCommentAuthorClass, ..commentNameClass {
     min-width: 10%;
     font-weight: bold;
     text-align: left;
   }
 
-  .item__comment__time {
+  .itemCommentTimeClass {
     min-width: 10%;
     text-align: left;
     float: left;
@@ -340,7 +339,7 @@ a:focus {
     position: relative;
   }
 
-  #footer {
+  #footerId {
     width: 100%;
     background-color: #2D5BE3;
     position: fixed;
@@ -349,7 +348,7 @@ a:focus {
     height: 5%;
   }
 
-  #button-twitter {
+  #buttonTwitterId {
     float: left;
     width: 30%;
     margin-left: 2%;
@@ -359,7 +358,7 @@ a:focus {
     font-size: 8px;
   }
 
-  #button-modal1 {
+  #buttonModal1AddCommentId {
     float: right;
     width: 30%;
     margin-right: 2%;
