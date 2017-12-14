@@ -26,6 +26,43 @@
     //console.log(`typeof :` , typeof(imageElm)); -->
 
 
+<!-- https://www.w3schools.com/howto/howto_css_modals.asp
+
+	MODAL JS
+
+	// Get the <span> element that closes the modal
+	// var span = document.getElementsByClassName("close")[0];
+	// document.getElementsByClassName("close")[0].style.display = "block";        
+	// // click close div
+	// span.onclick = function() {
+	//     console.log(self.itemNode);
+	//     self.itemNode.style.display = "none";
+	// } 
+
+	MODAL HTML 
+	<span class="close">&times;</span>
+
+	MODAL CSS
+
+	/* The Close Button */
+	.close {
+	    color: #aaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	    display: none;
+	}
+
+	.close:hover,
+	.close:focus {
+	    color: black;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+
+-->
+
 
 ## Points à retravailler:
 1. Ajout des commentaires: il s'agit de les ajouter à une liste en html, avec une note (comme le json de l'énoncé le suggère), une fois qu'on appuie sur un bouton valider. Si ça doit prendre trop d'espace, on peut décaler la liste des commentaires avec la description du restaurant dans une modale => à dev
