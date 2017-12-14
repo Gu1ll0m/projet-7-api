@@ -68,7 +68,7 @@ myMap.prototype.geolocation = function () {
 
 myMap.prototype.autocomplete = function () {
     var self = this;
-    var input = document.querySelector('#autocomplete')
+    var input = document.querySelector('#autocompleteId')
     var autocomplete = new google.maps.places.Autocomplete(input);
 
     autocomplete.addListener('place_changed', function () {
