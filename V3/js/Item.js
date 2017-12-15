@@ -85,31 +85,31 @@ Item.prototype.initHtml = function () {
         // add close
         var closeElm = document.createElement('img');
         closeElm.src = "../img/close.png";
-        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
+        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));        
+        // add comment
+        var commentNode = document.body.querySelector('.commentClass');
+        commentNode.style.display= "block";
 
         // modal comment
         self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
+
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', function (evt){
-          console.log("validation");
+            console.log("validation");
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
             var pseudo = modal.querySelector('#pseudoId').value;
             var commentaire = modal.querySelector('#commentaireId').value;
             var note = modal.querySelector('#ratingId').value;
             var comment = new Comment(pseudo, note, commentaire, self.itemNode);
-            comment.initHtml();
-            self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
-            $modal.modal('toggle');
-            // reset modal
-            $(".modal-body input").val("");
             if (comment == true) {
                 self.itemNode.querySelector('#myModalLabel').style.display = "none";
-            }
+            }    
+            comment.initHtml();
+            self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
+            $modal.modal('toggle');        
+            // reset modal
+            $(".modal-body input").val("");
         })
-        // add comment
-        var commentNode = document.body.querySelector('.commentClass');
-        commentNode.style.display= "block";
-
 
         closeElm.addEventListener('click', function(evt){
             self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
