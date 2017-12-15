@@ -157,7 +157,6 @@ a:focus {
   border-style: solid;
   border-color: #121212;
   border-width: 1px;
-  border-radius: 5px;
 }
 
 .modal-body {
@@ -166,10 +165,9 @@ a:focus {
   border-style: solid;
   border-color: #121212;
   border-width: 1px;
-  border-radius: 5px;
 }
 
-#buttonModalValidCommentId {
+#buttonModalValidCommentId, #buttonModalAddCloseId {
   text-align: center;
   font-size: 1em;
   font-style: italic;
@@ -183,7 +181,7 @@ a:focus {
 /*========== PARTIE MAP =====================================================================================================================================*/
 /* mise en page partie carte */
 #map {
-  height: 82%;
+  height: 83%;
   width: 70%;
   padding: 0;
   float: right;
