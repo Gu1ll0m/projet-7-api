@@ -135,7 +135,7 @@ myMap.prototype.addMarkerClick = function () {
         var rating = modal.querySelector('#ratingItem').value;
         // reset modal
         $(".modal-body input").val("");
-        //$modal.modal('toggle');
+        
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
                                     self.PlaceService,
@@ -151,6 +151,12 @@ myMap.prototype.addMarkerClick = function () {
 
         }
     })
+    document.body.querySelector('#buttonModalAddCloseId').addEventListener('click', function (){
+            console.log("close");
+            var $modal = $('#myModal1');
+            var modal = document.body.querySelector('#myModal1');
+            $modal.modal('toggle');
+        })
 }
 
 
