@@ -92,8 +92,8 @@ Item.prototype.initHtml = function () {
 
         // modal comment
         self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
-
-        document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', function (evt){
+        document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation) 
+        function validation (event) {
             console.log("validation");
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
@@ -101,15 +101,16 @@ Item.prototype.initHtml = function () {
             var commentaire = modal.querySelector('#commentaireId').value;
             var note = modal.querySelector('#ratingId').value;
             var comment = new Comment(pseudo, note, commentaire, self.itemNode);
-            if (comment == true) {
-                self.itemNode.querySelector('#myModalLabel').style.display = "none";
-            }    
             comment.initHtml();
+            if (comment == true) {
+                self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
+            }    
             self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             $modal.modal('toggle');        
             // reset modal
             $(".modal-body input").val("");
-        })
+            document.body.querySelector('#buttonModalValidCommentId').removeEventListener('click', validation);
+        }
 
         closeElm.addEventListener('click', function(evt){
             self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
