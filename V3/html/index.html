@@ -71,7 +71,7 @@
 
 
           <!-- Modal Comment-->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="myModal" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -82,7 +82,7 @@
                   <form class="modal-name" method="post" >
                       <p>
                         <label for="pseudo">Votre pseudo : </label>
-                        <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo" size="80" maxlength="20" />
+                        <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo"/>
                       </p>
                   </form>
                   <form class="modal-comment">
@@ -106,15 +106,15 @@
 
 
           <!-- Modal add item-->
-          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="myModal1" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" id="buttonModalValidItemId" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   <h4 class="modal-title" id="myModalLabel">Ajoutez un restaurant</h4>
                 </div>
-                <div class="modal-body">
-                  <form class="modal-item-name" method="post" >
+                <div class="modal-body">                  
+                   <form class="modal-item-name" method="post" >
                       <p>
                         <label for="item-name">Nom du restaurant : </label>
                         <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
@@ -132,6 +132,7 @@
                         <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
                       </p>
                   </form>
+                  <button id="buttonModalAddCloseId" class="btn btn-primary btn-lg">Fermez</button>
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
