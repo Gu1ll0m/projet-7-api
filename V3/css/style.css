@@ -80,6 +80,24 @@ a:focus {
 
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
+
+#jsonId {
+  max-height: 92%;
+  width: 32%;
+  float: left;
+  padding-top: 0;
+  margin-top: 0;
+  padding-right: 2%;
+  background-color: #FFFFFF;
+  border-bottom: solid;
+  border-color: #EFEFF4;
+  border-width: 1px;
+  visibility: visible;
+  overflow: auto;
+  position : absolute;
+  z-index: 2;
+}
+
 #sidebarId {
   max-height: 92%;
   width: 32%;
@@ -95,6 +113,18 @@ a:focus {
   overflow: auto;
   position : absolute;
   z-index: 1;
+}
+
+#buttonChargerJsonId {
+  width: 30%;
+  margin: 1%;
+  text-align: center;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
 }
 
 /* mise en page partie item */
@@ -240,7 +270,7 @@ a:focus {
   }
 
   #menu {
-    height: 5%;
+    max-height: 8%;
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -284,11 +314,41 @@ a:focus {
   }
 
   #sidebarId {
+    width: 100%;
+    height: 40%;
+    padding-left: -1%;
+    margin: 0;
+    position: fixed;
+    left: 0;
+    bottom: 8%;
+    background-color: #2D5BE3;
+    z-index: 2;
+  }
+
+  #jsonId {
     width: 105%;
-    height: 45%;
+    height: 42%;
     padding: 0;
     margin: 0;
-    z-index: 2;
+    position: fixed;
+    left: 0;
+    bottom: 8%;
+  }
+
+  #buttonChargerJsonId {
+  width: 30%;
+  margin: 1%;
+  text-align: center;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+  color: #DFDFDF;
+  background-color: #121212;
+  border-color: #121212;
+  position: fixed;
+  left: 0;
+  bottom: 8%;
+  z-index: 2;
   }
 
   .item {
@@ -313,7 +373,7 @@ a:focus {
 
   #map {
     width: 100%;
-    height: 50%;
+    height: 47%;
     background-color: #af0101;
     padding: 0;
     margin: 0;
@@ -326,12 +386,12 @@ a:focus {
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 5%;
+    max-height: 8%;
   }
 
   #buttonTwitterId {
     float: left;
-    width: 30%;
+    width: 40%;
     margin-left: 2%;
     text-align: center;
     padding-bottom: : 1%;
