@@ -7,9 +7,7 @@
           <title>B_A_E (-____-)</title>
 
           <!-- CSS -->
-
           <link rel="stylesheet" type="text/css" href="../css/style.css" />
-
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
           <meta charset="utf-8">
           <!-- Bootstrap -->
@@ -17,9 +15,7 @@
 
         </head>
 
-
         <body>
-
 
           <div id="menu">
 
@@ -60,9 +56,7 @@
             </div>
           </div>
 
-
           <div id="map"></div>
-
 
           <div id="footerId">
               <button id="buttonTwitterId" class="btn btn-primary btn-lg">B_A_E proposé par <a href=" https://twitter.com/Gu1ll0m" target="_blank">Guillaume Zucchi</a></button>
@@ -71,8 +65,6 @@
                 Ajouter un restaurant
               </button>
           </div>
-
-
 
           <!-- Modal add item-->
           <div class="modal fade" id="myModal1" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -107,41 +99,37 @@
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 
-
-          <!-- <template id="myModalComment"> -->
-              <div class="modal fade" id="myModal" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" id="myModalLabel">Ajoutez votre commentaire</h4>
-                          </div>
-                          <div class="modal-body">
-                              <form class="modal-name" method="post" >
-                                  <p>
-                                  <label for="pseudo">Votre pseudo : </label>
-                                  <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo"/>
-                                  </p>
-                              </form>
-                              <form class="modal-comment">
-                                  <p>
-                                  <label for="pseudo">Votre commentaire : </label>
-                                  <input type="text" class="form-control" name="commentaire" id="commentaireId" placeholder="Votre commentaire" size="74" row="3" maxlength="2000" />
-                                  </p>
-                              </form>
-                              <form class="modal-rating">
-                                  <p>
-                                  <label for="pseudo">Votre note : </label>
-                                  <input type="number" class="form-control" name="note" id="ratingId" min="0" max="5" size="50" maxlength="1" />
-                                  </p>
-                              </form>
-                              <button id="buttonModalValidCommentId" class="btn btn-primary btn-lg">Validez</button>
-                          </div>
+          <div class="modal fade" id="myModal" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="myModalLabel">Ajoutez votre commentaire</h4>
+                      </div>
+                      <div class="modal-body">
+                          <form class="modal-name" method="post" >
+                              <p>
+                              <label for="pseudo">Votre pseudo : </label>
+                              <input type="text" class="form-control" name="pseudo" id="pseudoId" placeholder="Votre pseudo"/>
+                              </p>
+                          </form>
+                          <form class="modal-comment">
+                              <p>
+                              <label for="pseudo">Votre commentaire : </label>
+                              <input type="text" class="form-control" name="commentaire" id="commentaireId" placeholder="Votre commentaire" size="74" row="3" maxlength="2000" />
+                              </p>
+                          </form>
+                          <form class="modal-rating">
+                              <p>
+                              <label for="pseudo">Votre note : </label>
+                              <input type="number" class="form-control" name="note" id="ratingId" min="0" max="5" size="50" maxlength="1" />
+                              </p>
+                          </form>
+                          <button id="buttonModalValidCommentId" class="btn btn-primary btn-lg">Validez</button>
                       </div>
                   </div>
               </div>
-          <!-- </template> -->
-
+          </div>
 
           <div id="addCommentId" class="commentClass" hidden>
               <div class="commentNameClass"></div>
@@ -160,7 +148,6 @@
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
           <!-- JS -->
-
           <script src="../js/App.js"></script>
           <script src="../js/Map.js"></script>
           <script src="../js/Item.js"></script>
@@ -172,7 +159,6 @@
           </script>
 
           <!-- GOOGLE MAPS -->
-
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIBnKJzVPW5Vb_db43wqphVvIQBH3Ils&libraries=places&callback=myMap.initMap">
           </script>
