@@ -9,7 +9,7 @@ function myMap () {
 
 
 //====== INITMAP ===========================================================================================================================================//
-// map de base cntré sur Paris par défault
+// map de base centré sur Paris par défault
 myMap.prototype.initMap = function () {
     this.map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -18,6 +18,34 @@ myMap.prototype.initMap = function () {
         },
         zoom: 16,
     });
+    var pos = {
+        lat: 48.8534100,
+        lng: 2.3488000
+    }
+    var marker = new google.maps.Marker({
+        position: pos,
+        map: this.map,
+        title:"Here",
+        animation: google.maps.Animation.DROP,
+        icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
+    })
+
+    document.querySelector('#buttonChargerJsonId').style.display = "block";
+    document.querySelector('#rId').style.display = "block";
+
+    $(function() {
+        $('#buttonChargerJsonId').click(function() {
+            console.log("jSON");
+            $.getJSON('restaurants.json'), function(data) {
+                console.log("data");
+                $('#rId').html('<p><b>Nom</b> : ' + data.restaurantName + '</p>');
+                $('#rId').append('<p><b>Adresse</b> : ' + data.adress + '</p>');
+                $('#rId').append('<p><b>Note</b> : ' + data.ratings.stars + '</p>');
+                $('#rId').append('<p><b>Commentaires</b> : ' + data.ratings.comment + '</p>');
+            }
+        })
+    });
+
   	this.PlaceService = new google.maps.places.PlacesService(this.map);
     this.geolocation();
     this.autocomplete();
@@ -135,7 +163,7 @@ myMap.prototype.addMarkerClick = function () {
         var rating = modal.querySelector('#ratingItem').value;
         // reset modal
         $(".modal-body input").val("");
-        
+
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
                                     self.PlaceService,
