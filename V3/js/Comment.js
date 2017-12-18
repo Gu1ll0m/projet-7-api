@@ -14,9 +14,6 @@ function Comment (name, rating, comment, itemNode) {
 }
 
 
-
-
-
 //====== MODAL =========================================================================================================================================//
 Comment.prototype.initHtml = function () {
 	var self = this;
