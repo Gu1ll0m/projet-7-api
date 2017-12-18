@@ -46,8 +46,10 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
+    document.querySelector('#buttonChargerJsonId').style.display = "none";
+    document.querySelector('#rId').style.display = "none";
+
     this.itemNode = document.querySelector('.item').cloneNode(true);
-    this.closeElm = document.getElementsByClassName("close")[0].cloneNode(true);
     var self = this;
 
     self.itemNode.classList.remove('.item');
@@ -85,14 +87,14 @@ Item.prototype.initHtml = function () {
         // add close
         var closeElm = document.createElement('img');
         closeElm.src = "../img/close.png";
-        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));        
+        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
 
         // modal comment
         self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
-        document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation) 
+        document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
         function validation (event) {
             console.log("validation");
             var $modal = $('#myModal');
@@ -104,9 +106,9 @@ Item.prototype.initHtml = function () {
             comment.initHtml();
             if (comment == true) {
                 self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
-            }    
+            }
             self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
-            $modal.modal('toggle');        
+            $modal.modal('toggle');
             // reset modal
             $(".modal-body input").val("");
             document.body.querySelector('#buttonModalValidCommentId').removeEventListener('click', validation);
@@ -125,8 +127,8 @@ Item.prototype.initHtml = function () {
             self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             var commentNode = document.body.querySelector('.commentClass');
             commentNode.style.display = "none";
-          })
-      })
+        })
+    })
 
     App.listItem.appendChild(self.itemNode);
 
