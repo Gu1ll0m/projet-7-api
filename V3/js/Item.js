@@ -46,8 +46,8 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
-    document.querySelector('#buttonChargerJsonId').style.display = "none";
-    document.querySelector('#rId').style.display = "none";
+    // document.querySelector('#buttonChargerJsonId').style.display = "none";
+    // document.querySelector('#rId').style.display = "none";
 
     this.itemNode = document.querySelector('.item').cloneNode(true);
     var self = this;
@@ -122,6 +122,27 @@ Item.prototype.initHtml = function () {
             self.itemNode.querySelector('.itemCommentAuthorClass').textContent = "";
             self.itemNode.querySelector('.itemCommentClass').textContent = "";
             self.itemNode.querySelector('.itemCommentTimeClass').textContent = "";
+
+            // self.itemNode.querySelector('.itemCommentInfoClass1').textContent ="";
+            // self.itemNode.querySelector('.itemCommentAuthorClass1').textContent = "";
+            // self.itemNode.querySelector('.itemCommentClass1').textContent = "";
+            // self.itemNode.querySelector('.itemCommentTimeClass1').textContent = "";
+
+            // self.itemNode.querySelector('.itemCommentInfoClass2').textContent ="";
+            // self.itemNode.querySelector('.itemCommentAuthorClass2').textContent = "";
+            // self.itemNode.querySelector('.itemCommentClass2').textContent = "";
+            // self.itemNode.querySelector('.itemCommentTimeClass2').textContent = "";
+
+            // self.itemNode.querySelector('.itemCommentInfoClass3').textContent ="";
+            // self.itemNode.querySelector('.itemCommentAuthorClass3').textContent = "";
+            // self.itemNode.querySelector('.itemCommentClass3').textContent = "";
+            // self.itemNode.querySelector('.itemCommentTimeClass3').textContent = "";
+
+            // self.itemNode.querySelector('.itemCommentInfoClass4').textContent ="";
+            // self.itemNode.querySelector('.itemCommentAuthorClass4').textContent = "";
+            // self.itemNode.querySelector('.itemCommentClass4').textContent = "";
+            // self.itemNode.querySelector('.itemCommentTimeClass4').textContent = "";
+
             imageElm.src = "";
             closeElm.src = "";
             self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
@@ -144,11 +165,31 @@ Item.prototype.getDetails = function() {
 
     function detailsCallback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            //console.log(place.reviews);
+            console.log(place.reviews);
             self.itemNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
             self.itemNode.querySelector('.itemCommentAuthorClass').textContent = ` ${place.reviews[0].author_name} `;
             self.itemNode.querySelector('.itemCommentClass').textContent =  `" ${place.reviews[0].text} " `;
             self.itemNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[0].relative_time_description}.`;
+
+            // self.itemNode.querySelector('.itemCommentInfoClass1').textContent =`Commentaire écrit par : `
+            // self.itemNode.querySelector('.itemCommentAuthorClass1').textContent = ` ${place.reviews[1].author_name} `;
+            // self.itemNode.querySelector('.itemCommentClass1').textContent =  `" ${place.reviews[1].text} " `;
+            // self.itemNode.querySelector('.itemCommentTimeClass1').textContent = `${place.reviews[1].relative_time_description}.`;
+
+            // self.itemNode.querySelector('.itemCommentInfoClass2').textContent =`Commentaire écrit par : `
+            // self.itemNode.querySelector('.itemCommentAuthorClass2').textContent = ` ${place.reviews[2].author_name} `;
+            // self.itemNode.querySelector('.itemCommentClass2').textContent =  `" ${place.reviews[2].text} " `;
+            // self.itemNode.querySelector('.itemCommentTimeClass2').textContent = `${place.reviews[2].relative_time_description}.`;
+
+            // self.itemNode.querySelector('.itemCommentInfoClass3').textContent =`Commentaire écrit par : `
+            // self.itemNode.querySelector('.itemCommentAuthorClass3').textContent = ` ${place.reviews[3].author_name} `;
+            // self.itemNode.querySelector('.itemCommentClass3').textContent =  `" ${place.reviews[3].text} " `;
+            // self.itemNode.querySelector('.itemCommentTimeClass3').textContent = `${place.reviews[3].relative_time_description}.`;
+
+            // self.itemNode.querySelector('.itemCommentInfoClass4').textContent =`Commentaire écrit par : `
+            // self.itemNode.querySelector('.itemCommentAuthorClass4').textContent = ` ${place.reviews[4].author_name} `;
+            // self.itemNode.querySelector('.itemCommentClass4').textContent =  `" ${place.reviews[4].text} " `;
+            // self.itemNode.querySelector('.itemCommentTimeClass4').textContent = `${place.reviews[4].relative_time_description}.`;
         }
     }
 }
