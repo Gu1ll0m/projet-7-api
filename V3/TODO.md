@@ -15,7 +15,7 @@
 8. Permettre l'**ajout d'un restaurant**, en cliquant sur un lieu spécifique de la carte. => OK
 
 
-<!-- filtre photo, Item.js l-75 
+<!-- filtre photo, Item.js l-75
 
 	// if (!imageElm[0]) {
     //   var imgElm = document.createElement('img');
@@ -32,14 +32,14 @@
 
 	// Get the <span> element that closes the modal
 	// var span = document.getElementsByClassName("close")[0];
-	// document.getElementsByClassName("close")[0].style.display = "block";        
+	// document.getElementsByClassName("close")[0].style.display = "block";
 	// // click close div
 	// span.onclick = function() {
 	//     console.log(self.itemNode);
 	//     self.itemNode.style.display = "none";
-	// } 
+	// }
 
-	MODAL HTML 
+	MODAL HTML
 	<span class="close">&times;</span>
 
 	MODAL CSS
@@ -65,7 +65,7 @@
 
 
 ## Points à retravailler:
-1. Ajout des commentaires: il s'agit de les ajouter à une liste en html, avec une note (comme le json de l'énoncé le suggère), une fois qu'on appuie sur un bouton valider. Si ça doit prendre trop d'espace, on peut décaler la liste des commentaires avec la description du restaurant dans une modale => à dev
+1. Ajout des commentaires: il s'agit de les ajouter à une liste en html, avec une note (comme le json de l'énoncé le suggère), une fois qu'on appuie sur un bouton valider. Si ça doit prendre trop d'espace, on peut décaler la liste des commentaires avec la description du restaurant dans une modale => OK
 
 2. De même, pour l'ajout d'un restaurant, on peut mettre en place une modale; on peut utiliser Bootstrap par exemple ou n'importe quelle librairie permettant de faire facilement des modales pour éviter les prompt qui font "hack de dernière minute" et pas "finition professionnelle". => OK
 
