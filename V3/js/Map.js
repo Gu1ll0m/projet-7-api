@@ -30,21 +30,21 @@ myMap.prototype.initMap = function () {
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
 
-    document.querySelector('#buttonChargerJsonId').style.display = "block";
-    document.querySelector('#rId').style.display = "block";
+    // document.querySelector('#buttonChargerJsonId').style.display = "block";
+    // document.querySelector('#rId').style.display = "block";
 
-    $(function() {
-        $('#buttonChargerJsonId').click(function() {
-            console.log("jSON");
-            $.getJSON('restaurants.json'), function(data) {
-                console.log("data");
-                $('#rId').html('<p><b>Nom</b> : ' + data.restaurantName + '</p>');
-                $('#rId').append('<p><b>Adresse</b> : ' + data.adress + '</p>');
-                $('#rId').append('<p><b>Note</b> : ' + data.ratings.stars + '</p>');
-                $('#rId').append('<p><b>Commentaires</b> : ' + data.ratings.comment + '</p>');
-            }
-        })
-    });
+    // $(function() {
+    //     $('#buttonChargerJsonId').click(function() {
+    //         console.log("jSON");
+    //         $.getJSON('restaurants.json'), function(data) {
+    //             console.log("data");
+    //             $('#rId').html('<p><b>Nom</b> : ' + data.restaurantName + '</p>');
+    //             $('#rId').append('<p><b>Adresse</b> : ' + data.adress + '</p>');
+    //             $('#rId').append('<p><b>Note</b> : ' + data.ratings.stars + '</p>');
+    //             $('#rId').append('<p><b>Commentaires</b> : ' + data.ratings.comment + '</p>');
+    //         }
+    //     })
+    // });
 
   	this.PlaceService = new google.maps.places.PlacesService(this.map);
     this.geolocation();
@@ -131,7 +131,7 @@ myMap.prototype.callback = function(results, status) {
   	var self = this;
     console.log(`results : `, results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
       			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
             var item = new Item(self.map,
       														PlaceService,
