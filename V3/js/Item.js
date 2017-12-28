@@ -95,6 +95,7 @@ Item.prototype.initHtml = function () {
         // modal comment
         self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
+
         function validation (event) {
             console.log("validation");
             var $modal = $('#myModal');
@@ -118,11 +119,11 @@ Item.prototype.initHtml = function () {
             self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
             self.itemNode.style.backgroundColor = '#FFFFFF';
             // comment
-            self.itemNode.querySelector('.itemCommentClassNode').style.height = "0px";
-            // self.itemNode.querySelector('.itemCommentInfoClass').textContent = "";
-            // self.itemNode.querySelector('.itemCommentAuthorClass').textContent = "";
-            // self.itemNode.querySelector('.itemCommentClass').textContent = "";
-            // self.itemNode.querySelector('.itemCommentTimeClass').textContent = "";
+            console.log(self.itemNode);
+            self.itemNode.querySelector('.itemCommentInfoClass').textContent = "";
+            self.itemNode.querySelector('.itemCommentAuthorClass').textContent = "";
+            self.itemNode.querySelector('.itemCommentClass').textContent = "";
+            self.itemNode.querySelector('.itemCommentTimeClass').textContent = "";
 
             imageElm.src = "";
             closeElm.src = "";
@@ -147,19 +148,15 @@ Item.prototype.getDetails = function() {
     function detailsCallback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             console.log(place.reviews);
-
             for(var i = 0; i < place.reviews.length; i++ ) {
 
                 self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
-
-                console.log(self.commentNode);
+                self.commentNode.style.display = "block";
 
                 self.commentNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
                 self.commentNode.querySelector('.itemCommentAuthorClass').textContent = ` ${place.reviews[i].author_name} `;
                 self.commentNode.querySelector('.itemCommentClass').textContent =  `" ${place.reviews[i].text} " `;
-                self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;
-
-                // add rating
+                self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;                // add rating
                 x = Math.round(place.reviews[i].rating);
                 self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
                 self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
@@ -176,6 +173,7 @@ Item.prototype.getDetails = function() {
                 var starElm = self.commentNode.insertBefore(starElm, self.commentNode.querySelector('.itemCommentClass'));
 
                 self.itemNode.appendChild(self.commentNode);
+
             }
         }
     }
