@@ -99,7 +99,7 @@ a:focus {
 }
 
 #sidebarId {
-  max-height: 92%;
+  max-height: 93%;
   width: 32%;
   float: left;
   padding-top: 0;
@@ -129,16 +129,18 @@ a:focus {
 
 /* mise en page partie item */
 .item {
-  width: 102%;
-  margin-right: 5%;
-  margin-left: 1%;
-  padding-right: 3%;
+  width: 110%;
+  padding-left: 1%;
+  margin-right: 10%;
+  padding-right: 9%;
   background-color: #FFFFFF;
   border-bottom: solid;
   border-color: #EFEFF4;
   border-width: 1px;
   color : #2D5BE3;
   font-size: 0.8em;
+  visibility: visible;
+  overflow: auto;
 }
 
 .itemNameClass{
@@ -164,6 +166,10 @@ a:focus {
 .itemCommentTimeClass {
   max-width: 100%;
   font-style: italic;
+}
+
+.itemCommentClassNode {
+  display: none;
 }
 
 /* Modal comments */
