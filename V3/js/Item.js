@@ -76,8 +76,14 @@ Item.prototype.initHtml = function () {
 
     // click listener
     self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
+
+      $(function() {
+        $(".itemNode").addClass("load");
+      });
+
         evt.target.style.color = "#FC6354";
-        self.itemNode.style.backgroundColor = '#F4F9FC';
+        self.itemNode.style.backgroundColor = '#DCEDF9';
+        self.itemNode.style.height = "500px";
         // API comments
         self.getDetails()
         // photo
@@ -120,10 +126,8 @@ Item.prototype.initHtml = function () {
             self.itemNode.style.backgroundColor = '#FFFFFF';
             // comment
             console.log(self.itemNode);
-            self.itemNode.querySelector('.itemCommentInfoClass').textContent = "";
-            self.itemNode.querySelector('.itemCommentAuthorClass').textContent = "";
-            self.itemNode.querySelector('.itemCommentClass').textContent = "";
-            self.itemNode.querySelector('.itemCommentTimeClass').textContent = "";
+            self.itemNode.style.height = "100px";
+            self.itemNode.style.overflow = "hidden";
 
             imageElm.src = "";
             closeElm.src = "";
@@ -156,6 +160,7 @@ Item.prototype.getDetails = function() {
                 self.commentNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
                 self.commentNode.querySelector('.itemCommentAuthorClass').textContent = ` ${place.reviews[i].author_name} `;
                 self.commentNode.querySelector('.itemCommentClass').textContent =  `" ${place.reviews[i].text} " `;
+                self.commentNode.querySelector('.itemCommentClass').style.textAlign = "justify-all";
                 self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;                // add rating
                 x = Math.round(place.reviews[i].rating);
                 self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
