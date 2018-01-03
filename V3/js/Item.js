@@ -84,6 +84,7 @@ Item.prototype.initHtml = function () {
         evt.target.style.color = "#FC6354";
         self.itemNode.style.backgroundColor = '#DCEDF9';
         self.itemNode.style.height = "500px";
+        self.itemNode.style.overflow = "auto";
         // API comments
         self.getDetails()
         // photo
