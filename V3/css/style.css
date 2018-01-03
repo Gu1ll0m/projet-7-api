@@ -139,7 +139,7 @@ a:focus {
   border-width: 1px;
   color : #2D5BE3;
   font-size: 0.8em;
-  display: none;
+  display: block;
   overflow: auto;
   transition-property: height;
   transition-duration: 2s;
