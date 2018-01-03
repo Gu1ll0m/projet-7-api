@@ -139,18 +139,10 @@ a:focus {
   border-width: 1px;
   color : #2D5BE3;
   font-size: 0.8em;
-  visibility: visible;
+  display: none;
   overflow: auto;
   transition-property: height;
   transition-duration: 2s;
-  -webkit-transition-property: height;
-  -webkit-transition-duration: 2s;
-  -moz-transition-property: height;
-  -moz-transition-duration: 2s;
-  -ms-transition-property: height;
-  -ms-transition-duration: 2s;
-  -o-transition-property: height;
-  -o-transition-duration: 2s;
 }
 
 .itemNameClass{
