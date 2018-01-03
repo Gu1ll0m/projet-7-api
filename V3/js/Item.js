@@ -100,7 +100,6 @@ Item.prototype.initHtml = function () {
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
 
         function validation (event) {
-            console.log("validation");
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
             var pseudo = modal.querySelector('#pseudoId').value;
@@ -122,12 +121,10 @@ Item.prototype.initHtml = function () {
             self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
             self.itemNode.style.backgroundColor = '#FFFFFF';
             // comment
-            console.log(self.itemNode);
-            self.itemNode.style.height = "100px";
+            self.itemNode.style.height = "90px";
             self.itemNode.style.overflow = "hidden";
-
-            imageElm.src = "";
-            closeElm.src = "";
+            imageElm.style.display = "none";
+            closeElm.style.display = "none";
             self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             var commentNode = document.body.querySelector('.commentClass');
             commentNode.style.display = "none";
