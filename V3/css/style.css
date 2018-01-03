@@ -141,6 +141,16 @@ a:focus {
   font-size: 0.8em;
   visibility: visible;
   overflow: auto;
+  transition-property: height;
+  transition-duration: 2s;
+  -webkit-transition-property: height;
+  -webkit-transition-duration: 2s;
+  -moz-transition-property: height;
+  -moz-transition-duration: 2s;
+  -ms-transition-property: height;
+  -ms-transition-duration: 2s;
+  -o-transition-property: height;
+  -o-transition-duration: 2s;
 }
 
 .itemNameClass{
@@ -171,6 +181,7 @@ a:focus {
 .itemCommentClassNode {
   display: none;
 }
+
 
 /* Modal comments */
 #buttonModalAddCommentId {
