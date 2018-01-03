@@ -77,10 +77,6 @@ Item.prototype.initHtml = function () {
     // click listener
     self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
 
-      $(function() {
-        $(".itemNode").addClass("load");
-      });
-
         evt.target.style.color = "#FC6354";
         self.itemNode.style.backgroundColor = '#DCEDF9';
         self.itemNode.style.height = "500px";
