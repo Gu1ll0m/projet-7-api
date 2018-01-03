@@ -73,6 +73,10 @@ Item.prototype.initHtml = function () {
     else {starElm.src = "../img/0_star.png";};
     // insertion PNG avant l' adress
     var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.itemVicinityClass'));
+    // API comments
+    self.getDetails();
+    self.itemNode.style.height = "90px";
+    self.itemNode.style.overflow = "hidden";
 
     // click listener
     self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
@@ -81,8 +85,6 @@ Item.prototype.initHtml = function () {
         self.itemNode.style.backgroundColor = '#DCEDF9';
         self.itemNode.style.height = "500px";
         self.itemNode.style.overflow = "auto";
-        // API comments
-        self.getDetails()
         // photo
         var imageElm = document.createElement('img');
         imageElm.src = self.photos;
