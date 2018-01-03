@@ -130,6 +130,7 @@ a:focus {
 /* mise en page partie item */
 .item {
   width: 110%;
+  height: 0px;
   padding-left: 1%;
   margin-right: 10%;
   padding-right: 9%;
@@ -172,6 +173,8 @@ a:focus {
 
 .itemCommentClassNode {
   display: none;
+  transition-property: height;
+  transition-duration: 2s;
 }
 
 
