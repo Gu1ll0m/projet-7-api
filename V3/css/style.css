@@ -115,18 +115,6 @@ a:focus {
   z-index: 1;
 }
 
-#buttonChargerJsonId {
-  width: 30%;
-  margin: 1%;
-  text-align: center;
-  font-size: 0.8em;
-  font-style: italic;
-  font-weight: bold;
-  color: #DFDFDF;
-  background-color: #121212;
-  border-color: #121212;
-}
-
 /* mise en page partie item */
 .item {
   width: 110%;
@@ -142,8 +130,30 @@ a:focus {
   font-size: 0.8em;
   display: block;
   overflow: auto;
+  transition-name: backgroundAnimation;
   transition-property: height;
   transition-duration: 2s;
+}
+
+@keyframes backgroundAnimation {
+    from {background-color: #FFFFFF;}
+    to {background-color: #DCEDF9;}
+}
+
+/* The Close Button */
+.close {
+    float: right;
+    margin-right: 6%;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .itemNameClass{
@@ -187,8 +197,8 @@ a:focus {
   font-style: italic;
   font-weight: bold;
   color: #FFFFFF;
-  background-color: #2D5BE3;
-  border-color: #2D5BE3;
+  background-color: #191919;
+  border-color: #191919;
   display: none;
 }
 
