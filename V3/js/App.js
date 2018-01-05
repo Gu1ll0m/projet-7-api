@@ -39,7 +39,7 @@ App.prototype.filterListener = function () {
 App.prototype.filter = function(maxStars){
     //console.log('nombre d\'étoiles : ', maxStars);
   var self = this;
-    for(var i = 0; i < self.listItem.children.length; i++ ){
+    for(var i = 0; i < self.listItem.children.length; i++ ) {
         var itemStars = self.listItem.children[i].querySelector('.itemRatingClass');
         itemStars = itemStars.innerHTML;
         x = Math.round(itemStars);
