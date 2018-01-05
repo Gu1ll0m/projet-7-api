@@ -29,29 +29,52 @@ myMap.prototype.initMap = function () {
         animation: google.maps.Animation.DROP,
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
-
-    // document.querySelector('#buttonChargerJsonId').style.display = "block";
-    // document.querySelector('#rId').style.display = "block";
-
-    // $(function() {
-    //     $('#buttonChargerJsonId').click(function() {
-    //         console.log("jSON");
-    //         $.getJSON('restaurants.json'), function(data) {
-    //             console.log("data");
-    //             $('#rId').html('<p><b>Nom</b> : ' + data.restaurantName + '</p>');
-    //             $('#rId').append('<p><b>Adresse</b> : ' + data.adress + '</p>');
-    //             $('#rId').append('<p><b>Note</b> : ' + data.ratings.stars + '</p>');
-    //             $('#rId').append('<p><b>Commentaires</b> : ' + data.ratings.comment + '</p>');
-    //         }
-    //     })
-    // });
-
+    this.getJson("../js/restaurants.json");
   	this.PlaceService = new google.maps.places.PlacesService(this.map);
     this.geolocation();
     this.autocomplete();
     this.addMarkerClick();
 }
 
+//====== AJAX REQUEST ===================================================================================================================================//
+myMap.prototype.ajaxGet = function (url, callback) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url);
+    req.addEventListener("load", function () {
+        if (req.status >= 200 && req.status < 400) {
+            // Appelle la fonction callback en lui passant la réponse de la requête
+            callback(req.responseText);
+        } else {
+            console.error(req.status + " " + req.statusText + " " + url);
+        }
+    });
+    req.addEventListener("error", function () {
+        console.error("Erreur réseau avec l'URL " + url);
+    });
+    req.send(null);
+}
+
+//====== JSON REQUEST ===================================================================================================================================//
+myMap.prototype.getJson = function (url) {
+    this.ajaxGet(url, function (results) {
+        results = JSON.parse(results);
+        console.log(results);
+        results.forEach (function (result) {
+        console.log(result);
+                    var item = new Item(self.map,
+                              PlaceService,
+                              null,
+                              result[i].geometry.location,
+                              result[i].name,
+                              result[i].adress,
+                              result[i].ratings.forEach,
+                              null,
+                              );
+        });
+        var self = this;
+
+    });
+}
 
 //====== GEOLOCALISATION ===================================================================================================================================//
 
