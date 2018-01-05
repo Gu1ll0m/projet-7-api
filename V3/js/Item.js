@@ -46,9 +46,6 @@ Item.prototype.createMarker = function () {
 
 Item.prototype.initHtml = function () {
 
-    // document.querySelector('#buttonChargerJsonId').style.display = "none";
-    // document.querySelector('#rId').style.display = "none";
-
     this.itemNode = document.querySelector('.item').cloneNode(true);
     var self = this;
 
@@ -73,33 +70,42 @@ Item.prototype.initHtml = function () {
     else {starElm.src = "../img/0_star.png";};
     // insertion PNG avant l' adress
     var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.itemVicinityClass'));
+    // photo
+    var imageElm = document.createElement('img');
+    imageElm.src = self.photos;
+    imageElm.style.display = "none";
+    var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.itemRatingClass'));
     // API comments
     self.getDetails();
     self.itemNode.style.height = "90px";
     self.itemNode.style.overflow = "hidden";
+    // modal comment
+    self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
 
     // click listener
     self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
 
         evt.target.style.color = "#FC6354";
-        self.itemNode.style.backgroundColor = '#DCEDF9';
+        self.itemNode.style.backgroundColor = "#EFEEE4";
         self.itemNode.style.height = "500px";
         self.itemNode.style.overflow = "auto";
         // photo
-        var imageElm = document.createElement('img');
-        imageElm.src = self.photos;
-        var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.itemRatingClass'));
+        imageElm.style.display = "block";
         // add close
         var closeElm = document.createElement('img');
+        closeElm.className = "close";
         closeElm.src = "../img/close.png";
+        //self.itemNode.querySelector('.itemCLoseClass').src = "../img/close.png";
         var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
 
         // modal comment
-        self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "block";
+        var modalElm = self.itemNode.querySelector('#buttonModalAddCommentId');
+        modalElm.style.display = "block";
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
+        var modalElm = self.itemNode.insertBefore(modalElm, self.itemNode.querySelector('.itemCommentClassNode'));
 
         function validation (event) {
             var $modal = $('#myModal');
@@ -120,17 +126,20 @@ Item.prototype.initHtml = function () {
         }
 
         closeElm.addEventListener('click', function(evt){
-            self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
-            self.itemNode.style.backgroundColor = '#FFFFFF';
+            setTimeout(function() {
+                self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
+                self.itemNode.style.backgroundColor = '#FFFFFF';
+                // self.itemNode.style.backgroundColor = '#FFFFFF';
+                self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
+            },2000);
             // comment
             self.itemNode.style.height = "90px";
             self.itemNode.style.overflow = "hidden";
-            imageElm.style.display = "none";
             closeElm.style.display = "none";
-            self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             var commentNode = document.body.querySelector('.commentClass');
             commentNode.style.display = "none";
         })
+
     })
 
     App.listItem.appendChild(self.itemNode);
