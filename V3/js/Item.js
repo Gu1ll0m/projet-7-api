@@ -157,7 +157,7 @@ Item.prototype.getDetails = function() {
 
     function detailsCallback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(place.reviews);
+            console.log(`commentaires : `,place.reviews);
             for(var i = 0; i < place.reviews.length; i++ ) {
 
                 self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
