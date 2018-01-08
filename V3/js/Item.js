@@ -170,8 +170,6 @@ Item.prototype.getDetails = function() {
             for(var i = 0; i < place.reviews.length; i++ ) {
 
                 self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
-                self.commentNode.className += "firstRequest";
-                console.log(self.commentNode.className);
                 self.commentNode.style.display = "block";
 
                 self.commentNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
