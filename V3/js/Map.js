@@ -4,7 +4,7 @@
 
 function myMap () {
     this.map = ""; // api google n'est pas encore chargé
-  	this.PlaceService = "";
+    this.PlaceService = "";
 }
 
 
@@ -30,7 +30,7 @@ myMap.prototype.initMap = function () {
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
     this.getJson("../js/restaurants.json");
-  	this.PlaceService = new google.maps.places.PlacesService(this.map);
+    this.PlaceService = new google.maps.places.PlacesService(this.map);
     this.geolocation();
     this.autocomplete();
     this.addMarkerClick();
@@ -57,21 +57,21 @@ myMap.prototype.ajaxGet = function (url, callback) {
 //====== JSON REQUEST ===================================================================================================================================//
 myMap.prototype.getJson = function (url) {
     this.ajaxGet(url, function (results) {
-        results = JSON.parse(results);
+        result = JSON.parse(results);
         console.log(results);
-        results.forEach (function (result) {
-        console.log(result);
-                    var item = new Item(self.map,
-                              PlaceService,
-                              null,
-                              result[i].geometry.location,
-                              result[i].name,
-                              result[i].adress,
-                              result[i].ratings.forEach,
-                              null,
-                              );
-        });
-        var self = this;
+        for (var i = 0; i < result.length; i++) {
+            console.log(result);
+            var self = this;
+            var item = new Item(self.map,
+                      null, //service
+                      null, //id
+                      result[i].location,
+                      result[i].name,
+                      result[i].adress,
+                      result[i].ratings.forEach,
+                      null, //photo
+                      );
+        };
 
     });
 }
@@ -136,7 +136,7 @@ myMap.prototype.autocomplete = function () {
             location :position,
             radius : 500,
             type : ['restaurant']
-    		}, self.callback)
+        }, self.callback)
         self.map.setCenter(position);
         self.map.setZoom(16);
     })
@@ -151,14 +151,14 @@ myMap.prototype.autocomplete = function () {
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 
 myMap.prototype.callback = function(results, status) {
-  	var self = this;
+    var self = this;
     console.log(`results : `, results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-      			var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
+            var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
             var item = new Item(self.map,
-      														PlaceService,
-      														results[i].place_id,
+                                  PlaceService,
+                                  results[i].place_id,
                                   results[i].geometry.location,
                                   results[i].name,
                                   results[i].vicinity,
@@ -190,12 +190,12 @@ myMap.prototype.addMarkerClick = function () {
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
                                     self.PlaceService,
-                                    null,
+                                    null, //id
                                     event.latLng,
                                     title,
                                     adress,
                                     rating,
-                                    null,
+                                    null, //photo
                                     );
             newRestau.createMarker()
             newRestau.initHtml();
