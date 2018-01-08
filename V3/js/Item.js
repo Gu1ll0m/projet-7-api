@@ -53,10 +53,6 @@ Item.prototype.initHtml = function () {
     self.itemNode.removeAttribute('block');
     // add name
     self.itemNode.querySelector('.itemNameClass').textContent = `${self.name}`;
-    // API comments
-    self.getDetails();
-    self.itemNode.style.height = "90px";
-    self.itemNode.style.overflow = "hidden";
     // add adress
     self.itemNode.querySelector('.itemVicinityClass').textContent = `${self.vicinity}`;
     // add rating
@@ -85,6 +81,9 @@ Item.prototype.initHtml = function () {
     closeElm.src = "../img/close.png";
     closeElm.style.display = "none";
     var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
+    // API comments
+    self.itemNode.style.height = "90px";
+    self.itemNode.style.overflow = "hidden";
     // modal comment
     self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
 
@@ -99,6 +98,8 @@ Item.prototype.initHtml = function () {
         imageElm.style.display = "block";
         // add close
         closeElm.style.display = "block";
+        // API comments
+        self.getDetails();
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
@@ -187,6 +188,8 @@ Item.prototype.getDetails = function() {
                 self.itemNode.appendChild(self.commentNode);
 
             }
+        } else {
+          console.log('request status :' ,status);
         }
     }
 }
