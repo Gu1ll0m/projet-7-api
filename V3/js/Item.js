@@ -48,7 +48,7 @@ Item.prototype.initHtml = function () {
 
     this.itemNode = document.querySelector('.item').cloneNode(true);
     var self = this;
-
+    var a = 0;
     self.itemNode.classList.remove('.item');
     self.itemNode.removeAttribute('block');
     // add name
@@ -99,7 +99,15 @@ Item.prototype.initHtml = function () {
         // add close
         closeElm.style.display = "block";
         // API comments
-        self.getDetails();
+        // var a = 0;
+        if(a == 0) {
+            self.getDetails();
+            a = 1;
+            console.log(a);
+        } if (a== 1 ) {
+          console.log('pas de nouvel request');
+        };
+
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
@@ -162,6 +170,8 @@ Item.prototype.getDetails = function() {
             for(var i = 0; i < place.reviews.length; i++ ) {
 
                 self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
+                self.commentNode.className += "firstRequest";
+                console.log(self.commentNode.className);
                 self.commentNode.style.display = "block";
 
                 self.commentNode.querySelector('.itemCommentInfoClass').textContent =`Commentaire écrit par : `
