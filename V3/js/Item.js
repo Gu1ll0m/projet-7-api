@@ -75,6 +75,12 @@ Item.prototype.initHtml = function () {
     imageElm.src = self.photos;
     imageElm.style.display = "none";
     var imageElm = self.itemNode.insertBefore(imageElm, self.itemNode.querySelector('.itemRatingClass'));
+    // add close
+    var closeElm = document.createElement('img');
+    closeElm.className = "close";
+    closeElm.src = "../img/close.png";
+    closeElm.style.display = "none";
+    var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
     // API comments
     self.getDetails();
     self.itemNode.style.height = "90px";
@@ -92,11 +98,7 @@ Item.prototype.initHtml = function () {
         // photo
         imageElm.style.display = "block";
         // add close
-        var closeElm = document.createElement('img');
-        closeElm.className = "close";
-        closeElm.src = "../img/close.png";
-        //self.itemNode.querySelector('.itemCLoseClass').src = "../img/close.png";
-        var closeElm = self.itemNode.insertBefore(closeElm, self.itemNode.querySelector('.itemVicinityClass'));
+        closeElm.style.display = "block";
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
@@ -166,7 +168,8 @@ Item.prototype.getDetails = function() {
                 self.commentNode.querySelector('.itemCommentAuthorClass').textContent = ` ${place.reviews[i].author_name} `;
                 self.commentNode.querySelector('.itemCommentClass').textContent =  `" ${place.reviews[i].text} " `;
                 self.commentNode.querySelector('.itemCommentClass').style.textAlign = "justify-all";
-                self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;                // add rating
+                self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;
+                // add rating
                 x = Math.round(place.reviews[i].rating);
                 self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
                 self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
