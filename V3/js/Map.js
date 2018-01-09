@@ -77,10 +77,9 @@ myMap.prototype.getJson = function (url) {
 }
 
 //====== GEOLOCALISATION ===================================================================================================================================//
-
 myMap.prototype.geolocation = function () {
     var self = this;
-      // test la geolocation en HTML5.
+    // test la geolocation en HTML5.
     if (navigator.geolocation) {
         var infoWindow = new google.maps.InfoWindow({
             content: name,
@@ -116,7 +115,6 @@ myMap.prototype.geolocation = function () {
 
 
 //====== AUTOCOMPLETE ======================================================================================================================================//
-
 myMap.prototype.autocomplete = function () {
     var self = this;
     var input = document.querySelector('#autocompleteId')
@@ -149,7 +147,6 @@ myMap.prototype.autocomplete = function () {
 
 
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
-
 myMap.prototype.callback = function(results, status) {
     var self = this;
     console.log(`results : `, results);
@@ -172,10 +169,9 @@ myMap.prototype.callback = function(results, status) {
 };
 
 
-// ====== ADD MARKER via click sur la map
+//======= ADD MARKER VIA CLICK SUR LA MAP
 myMap.prototype.addMarkerClick = function () {
     var self = this;
-
     //listener sur map
     google.maps.event.addListener(myMap.map, 'click', function (event) {
         var $modal = $('#myModal1');
@@ -186,7 +182,6 @@ myMap.prototype.addMarkerClick = function () {
         var rating = modal.querySelector('#ratingItem').value;
         // reset modal
         $(".modal-body input").val("");
-
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
                                     self.PlaceService,
@@ -203,7 +198,6 @@ myMap.prototype.addMarkerClick = function () {
         }
     })
     document.body.querySelector('#buttonModalAddCloseId').addEventListener('click', function (){
-            console.log("close");
             var $modal = $('#myModal1');
             var modal = document.body.querySelector('#myModal1');
             $modal.modal('toggle');
@@ -212,7 +206,6 @@ myMap.prototype.addMarkerClick = function () {
 
 
 //====== RETOURNE UNE ERREURE SI NAVIGATEUR INCOMPATIBLE GEOLOCALISATION=====================================================================================//
-
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
