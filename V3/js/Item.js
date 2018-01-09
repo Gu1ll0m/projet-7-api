@@ -5,7 +5,6 @@
 
 //====== RESTAURANT =========================================================================================================================================//
 //====== CONSTRUCTOR ITEM ===================================================================================================================================//
-
 function Item (map, service, id, location, name, vicinity, rating, photos) {
     this.map = map;
     this.service = service;
@@ -23,7 +22,6 @@ function Item (map, service, id, location, name, vicinity, rating, photos) {
 
 
 //====== CREATION DES MARQUEURS =============================================================================================================================//
-
 Item.prototype.createMarker = function () {
     var self = this;
     var placeLoc = self.location;
@@ -43,7 +41,6 @@ Item.prototype.createMarker = function () {
 
 
 //====== SIDEBAR =========================================================================================================================================//
-
 Item.prototype.initHtml = function () {
 
     this.itemNode = document.querySelector('.item').cloneNode(true);
@@ -89,7 +86,6 @@ Item.prototype.initHtml = function () {
 
     // click listener
     self.itemNode.querySelector('.itemNameClass').addEventListener('click', function(evt){
-
         evt.target.style.color = "#FC6354";
         self.itemNode.style.backgroundColor = "#EFEEE4";
         self.itemNode.style.height = "500px";
@@ -99,7 +95,6 @@ Item.prototype.initHtml = function () {
         // add close
         closeElm.style.display = "block";
         // API comments
-        // var a = 0;
         if(a == 0) {
             self.getDetails();
             a = 1;
@@ -107,7 +102,6 @@ Item.prototype.initHtml = function () {
         } if (a== 1 ) {
           console.log('pas de nouvel request');
         };
-
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
         commentNode.style.display= "block";
@@ -149,11 +143,8 @@ Item.prototype.initHtml = function () {
             var commentNode = document.body.querySelector('.commentClass');
             commentNode.style.display = "none";
         })
-
     })
-
     App.listItem.appendChild(self.itemNode);
-
 }
 
 
@@ -192,9 +183,8 @@ Item.prototype.getDetails = function() {
                 else {starElm.src = "../img/0_star.png";};
                 // insertion PNG avant l' adress
                 var starElm = self.commentNode.insertBefore(starElm, self.commentNode.querySelector('.itemCommentClass'));
-
+                // appendchild
                 self.itemNode.appendChild(self.commentNode);
-
             }
         } else {
           console.log('request status :' ,status);
