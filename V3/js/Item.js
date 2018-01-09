@@ -111,7 +111,7 @@ Item.prototype.initHtml = function () {
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
         var modalElm = self.itemNode.insertBefore(modalElm, self.itemNode.querySelector('.itemCommentClassNode'));
 
-        function validation (event) {
+        function validation (evt) {
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
             var pseudo = modal.querySelector('#pseudoId').value;
