@@ -18,11 +18,8 @@
         <body>
 
           <div id="menu">
-
             <button id="refreshId" class="btn btn-primary btn-lg">Actualiser</button>
-
             <input type="text" id="autocompleteId" class="btn btn-primary btn-lg" placeholder= "Votre recherche : " />
-
             <select id="filterId" class="btn btn-primary btn-lg">
                 <option disabled selected="selected"> Nombre d' étoile : </option>
                 <option value="noFilter"> Pas de filtre </option>
@@ -32,29 +29,28 @@
                 <option value="4"> 4 étoiles</option>
                 <option value="5"> 5 étoiles </option>
             </select>
-
           </div>
 
           <div id="sidebarId">
-            <div class="item">
-                <h2 id="itemNameId" class="itemNameClass"></h2>
-                <p id="itemVicinityId" class="itemVicinityClass"></p>
+              <div class="item">
+                  <h2 id="itemNameId" class="itemNameClass"></h2>
+                  <p id="itemVicinityId" class="itemVicinityClass"></p>
 
-                <div class="itemCommentClassNode">
-                    <p class="itemCommentInfoClass"></p>
-                    <p class="itemCommentAuthorClass"></p>
-                    <p class="itemCommentClass"></p>
-                    <p class="itemCommentTimeClass"></p>
-                    <br>
-                    <p class="itemCommentRatingClass"></p>
-                </div>
+                  <div class="itemCommentClassNode">
+                      <p class="itemCommentInfoClass"></p>
+                      <p class="itemCommentAuthorClass"></p>
+                      <p class="itemCommentClass"></p>
+                      <p class="itemCommentTimeClass"></p>
+                      <br>
+                      <p class="itemCommentRatingClass"></p>
+                  </div>
 
-                <p class="itemRatingClass"></p>
-                <!-- Bouton execution modal -->
-                <button id="buttonModalAddCommentId"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                  Ajouter un commentaire
-                </button>
-            </div>
+                  <p class="itemRatingClass"></p>
+                  <!-- Bouton execution modal -->
+                  <button id="buttonModalAddCommentId"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Ajouter un commentaire
+                  </button>
+              </div>
           </div>
 
           <div id="map"></div>
@@ -69,35 +65,35 @@
 
           <!-- Modal add item-->
           <div class="modal fade" id="myModal1" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" id="buttonModalValidItemId" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">Ajouter un restaurant</h4>
-                </div>
-                <div class="modal-body">
-                   <form class="modal-item-name" method="post" >
-                      <p>
-                        <label for="item-name">Nom du restaurant : </label>
-                        <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
-                      </p>
-                  </form>
-                  <form class="modal-item-adress">
-                      <p>
-                        <label for="item-adress">Adresse du restaurant : </label>
-                        <input type="text" class="form-control" name="adress-item" id="adressItem" placeholder="Adresse" size="74" row="3" maxlength="200" />
-                      </p>
-                  </form>
-                  <form class="modal-item-rating">
-                      <p>
-                        <label for="pseudo">Votre note : </label>
-                        <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
-                      </p>
-                  </form>
-                  <button id="buttonModalAddCloseId" class="btn btn-primary btn-lg">Fermer</button>
-                </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" id="buttonModalValidItemId" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="myModalLabel">Ajouter un restaurant</h4>
+                      </div>
+                      <div class="modal-body">
+                         <form class="modal-item-name" method="post" >
+                            <p>
+                                <label for="item-name">Nom du restaurant : </label>
+                                <input type="text" class="form-control" name="name-item" id="nameItem" placeholder="Raison sociale" size="80" maxlength="20" />
+                            </p>
+                        </form>
+                        <form class="modal-item-adress">
+                            <p>
+                                <label for="item-adress">Adresse du restaurant : </label>
+                                <input type="text" class="form-control" name="adress-item" id="adressItem" placeholder="Adresse" size="74" row="3" maxlength="200" />
+                            </p>
+                        </form>
+                        <form class="modal-item-rating">
+                            <p>
+                                <label for="pseudo">Votre note : </label>
+                                <input type="number" class="form-control" name="note" id="ratingItem" min="0" max="5" size="50" maxlength="1" />
+                            </p>
+                        </form>
+                        <button id="buttonModalAddCloseId" class="btn btn-primary btn-lg">Fermer</button>
+                      </div>
+                  </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 
           <div class="modal fade" id="myModal" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -140,13 +136,15 @@
 
           <!-- jQuery -->
           <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous">
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous">
           </script>
 
           <!-- Bootstrap -->
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script 
+              src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+          </script>
 
           <!-- JS -->
           <script src="../js/App.js"></script>
@@ -155,13 +153,13 @@
           <script src="../js/Comment.js"></script>
 
           <script>
-            var App = new App();
-            var myMap = new myMap();
+              var App = new App();
+              var myMap = new myMap();
           </script>
 
           <!-- GOOGLE MAPS -->
           <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIBnKJzVPW5Vb_db43wqphVvIQBH3Ils&libraries=places&callback=myMap.initMap">
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIBnKJzVPW5Vb_db43wqphVvIQBH3Ils&libraries=places&callback=myMap.initMap">
           </script>
 
 
