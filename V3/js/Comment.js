@@ -4,8 +4,7 @@
 
 
 //====== COMMENT ============================================================================================================================================//
-//====== CONSTRUCTOR COMMENT ===================================================================================================================================//
-
+//====== CONSTRUCTOR COMMENT ================================================================================================================================//
 function Comment (name, rating, comment, itemNode) {
 	this.name = name;
 	this.rating = rating;
@@ -41,7 +40,6 @@ Comment.prototype.initHtml = function () {
     // commentaire
     commentNode.querySelector('.commentCommentClass').style.display = "block";
     commentNode.querySelector('.commentCommentClass').textContent = `Votre commentaire : " ${self.comment} "`;
-
+    // appendchild
     self.itemNode.appendChild(commentNode);
-
 }
