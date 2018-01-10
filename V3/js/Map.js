@@ -60,7 +60,6 @@ myMap.prototype.getJson = function (url) {
         result = JSON.parse(results);
         console.log(results);
         for (var i = 0; i < result.length; i++) {
-            console.log(result);
             var self = this;
             var item = new Item(self.map,
                       null, //service
@@ -149,7 +148,7 @@ myMap.prototype.autocomplete = function () {
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 myMap.prototype.callback = function(results, status) {
     var self = this;
-    console.log(`results : `, results);
+    // console.log(`results : `, results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
