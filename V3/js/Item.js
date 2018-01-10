@@ -28,7 +28,6 @@ Item.prototype.createMarker = function () {
     var titleInfo =  `
         ${self.name}
         ${self.vicinity}
-        ${self.rating}
       `;
     var marker = new google.maps.Marker({
         map: myMap.map,
@@ -98,9 +97,9 @@ Item.prototype.initHtml = function () {
         if(a == 0) {
             self.getDetails();
             a = 1;
-            console.log(a);
+            // console.log(a);
         } if (a== 1 ) {
-          console.log('pas de nouvel request');
+          // console.log('pas de nouvel request');
         };
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
@@ -157,7 +156,7 @@ Item.prototype.getDetails = function() {
 
     function detailsCallback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(`commentaires : `,place.reviews);
+            // console.log(`commentaires : `,place.reviews);
             for(var i = 0; i < place.reviews.length; i++ ) {
 
                 self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
@@ -187,7 +186,7 @@ Item.prototype.getDetails = function() {
                 self.itemNode.appendChild(self.commentNode);
             }
         } else {
-          console.log('request status :' ,status);
+            console.log('request status :' ,status);
         }
     }
 }
