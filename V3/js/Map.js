@@ -29,51 +29,12 @@ myMap.prototype.initMap = function () {
         animation: google.maps.Animation.DROP,
         icon: 'https://cdn3.iconfinder.com/data/icons/mapicons/icons/hospital.png'
     })
-    this.getJson("../js/restaurants.json");
     this.PlaceService = new google.maps.places.PlacesService(this.map);
     this.geolocation();
     this.autocomplete();
     this.addMarkerClick();
 }
 
-//====== AJAX REQUEST ===================================================================================================================================//
-myMap.prototype.ajaxGet = function (url, callback) {
-    var req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.addEventListener("load", function () {
-        if (req.status >= 200 && req.status < 400) {
-            // Appelle la fonction callback en lui passant la réponse de la requête
-            callback(req.responseText);
-        } else {
-            console.error(req.status + " " + req.statusText + " " + url);
-        }
-    });
-    req.addEventListener("error", function () {
-        console.error("Erreur réseau avec l'URL " + url);
-    });
-    req.send(null);
-}
-
-//====== JSON REQUEST ===================================================================================================================================//
-myMap.prototype.getJson = function (url) {
-    this.ajaxGet(url, function (results) {
-        result = JSON.parse(results);
-        console.log(results);
-        for (var i = 0; i < result.length; i++) {
-            var self = this;
-            var item = new Item(self.map,
-                      null, //service
-                      null, //id
-                      result[i].location,
-                      result[i].name,
-                      result[i].adress,
-                      result[i].ratings.forEach,
-                      null, //photo
-                      );
-        };
-
-    });
-}
 
 //====== GEOLOCALISATION ===================================================================================================================================//
 myMap.prototype.geolocation = function () {
@@ -111,7 +72,6 @@ myMap.prototype.geolocation = function () {
       handleLocationError(false, infoWindow, self.map.getCenter())
     }
 }
-
 
 //====== AUTOCOMPLETE ======================================================================================================================================//
 myMap.prototype.autocomplete = function () {
