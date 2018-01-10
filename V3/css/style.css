@@ -78,24 +78,6 @@ a:focus {
 
 /*========== PARTIE GAUCHE ==================================================================================================================================*/
 /* mise en page partie item */
-
-#jsonId {
-    max-height: 92%;
-    width: 32%;
-    float: left;
-    padding-top: 0;
-    margin-top: 0;
-    padding-right: 2%;
-    background-color: #FFFFFF;
-    border-bottom: solid;
-    border-color: #EFEFF4;
-    border-width: 1px;
-    visibility: visible;
-    overflow: auto;
-    position : absolute;
-    z-index: 2;
-}
-
 #sidebarId {
     max-height: 93%;
     width: 32%;
@@ -108,7 +90,8 @@ a:focus {
     border-color: #EFEFF4;
     border-width: 1px;
     visibility: visible;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     position : absolute;
     z-index: 1;
 }
