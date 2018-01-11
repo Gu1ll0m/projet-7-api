@@ -24,6 +24,10 @@ Comment.prototype.initHtml = function () {
 	    commentNode.querySelector('.commentNameClass').textContent = `Votre pseudo : ${self.name}`;
 	    // note
 		x = Math.floor(self.rating);
+		commentNode.querySelector('.commentRatingClass').textContent = "";
+		commentNode.querySelector('.commentRatingClass').style.display = "block";
+		commentNode.querySelector('.commentRatingClass').textContent = `${x}`;
+		commentNode.querySelector('.commentRatingClass').style.display = "none";
 		var starElm = document.createElement('img');
 	    //var starElm = document.querySelector('img');
 	    starElm.id = "starElmID";
