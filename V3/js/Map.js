@@ -143,7 +143,7 @@ myMap.prototype.addMarkerClick = function () {
         $(".modal-body input").val("");
         if (title != undefined || adress != undefined) {
             var newRestau = new Item(self.map,
-                                    self.PlaceService,
+                                    null, //self.PlaceService,
                                     null, //id
                                     event.latLng,
                                     title,
