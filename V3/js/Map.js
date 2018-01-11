@@ -45,7 +45,6 @@ myMap.prototype.geolocation = function () {
             content: name,
         });
         navigator.geolocation.getCurrentPosition(function(position) {
-            App.listItem.innerHTML = "";
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
@@ -81,7 +80,6 @@ myMap.prototype.autocomplete = function () {
     var autocomplete = new google.maps.places.Autocomplete(input);
 
     autocomplete.addListener('place_changed', function () {
-        App.listItem.innerHTML = "";
         var position = autocomplete.getPlace().geometry.location;
         var marker = new google.maps.Marker({
             position: position,
