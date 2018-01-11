@@ -58,9 +58,8 @@ Item.prototype.initHtml = function () {
     x = Math.round(self.rating);
     self.itemNode.querySelector('.itemRatingClass').textContent = `${x}`;
     self.itemNode.querySelector('.itemRatingClass').style.display = "none";
-    console.log(x);
     var starElm = document.createElement('img');
-    //var starElm = document.querySelector('img');
+    // var starElm = document.querySelector('img');
     // png en fonction de la note
     if (x === 1) {starElm.src = "../img/1_star.png";}
     else if (x === 2) {starElm.src = "../img/2_stars.png";}
@@ -68,6 +67,7 @@ Item.prototype.initHtml = function () {
     else if (x === 4) {starElm.src = "../img/4_stars.png";}
     else if (x === 5) {starElm.src = "../img/5_stars.png";}
     else {starElm.src = "../img/0_star.png";};
+    console.log(`moyenne du restaurant : `, x);
     // insertion PNG avant l' adress
     var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.itemVicinityClass'));
     // photo
@@ -136,7 +136,6 @@ Item.prototype.initHtml = function () {
             setTimeout(function() {
                 self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
                 self.itemNode.style.backgroundColor = '#FFFFFF';
-                // self.itemNode.style.backgroundColor = '#FFFFFF';
                 self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             },2000);
             // comment
@@ -189,7 +188,7 @@ Item.prototype.getDetails = function() {
                     self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
                     self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
                     var starElm = document.createElement('img');
-                    //var starElm = document.querySelector('img');
+                    // var starElm = document.querySelector('img');
                     // png en fonction de la note
                     if (x === 1) {starElm.src = "../img/1_star.png";}
                     else if (x === 2) {starElm.src = "../img/2_stars.png";}
