@@ -66,7 +66,7 @@ myMap.prototype.getJson = function (url) {
                       null, //id
                       new google.maps.LatLng(result[i].lat, result[i].long), // retourne l'objet formater googlemap
                       result[i].restaurantName,
-                      result[i].adress,
+                      result[i].address,
                       null, // TODO : rating
                       null, //photo
                       result[i].ratings,
