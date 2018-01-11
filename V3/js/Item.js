@@ -132,7 +132,6 @@ Item.prototype.initHtml = function () {
             setTimeout(function() {
                 self.itemNode.querySelector('.itemNameClass').style.color = "#2D5BE3";
                 self.itemNode.style.backgroundColor = '#FFFFFF';
-                // self.itemNode.style.backgroundColor = '#FFFFFF';
                 self.itemNode.querySelector('#buttonModalAddCommentId').style.display = "none";
             },2000);
             // comment
