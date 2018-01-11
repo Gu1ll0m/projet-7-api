@@ -16,7 +16,7 @@ myMap.prototype.initMap = function () {
             lat: 48.8534100,
             lng: 2.3488000
         },
-        zoom: 16,
+        zoom: 13,
     });
     var pos = {
         lat: 48.8534100,
@@ -58,19 +58,22 @@ myMap.prototype.ajaxGet = function (url, callback) {
 myMap.prototype.getJson = function (url) {
     this.ajaxGet(url, function (results) {
         result = JSON.parse(results);
-        // console.log(results);
+        console.log(results);
         for (var i = 0; i < result.length; i++) {
             var self = this;
+            var x = Math.round(result[i].stars);
+            console.log(x);
+            console.log(typeof(x));
             var item = new Item(self.map,
-                      null, //service
-                      null, //id
-                      new google.maps.LatLng(result[i].lat, result[i].long), // retourne l'objet formater googlemap
-                      result[i].restaurantName,
-                      result[i].address,
-                      null, // TODO : rating
-                      null, //photo
-                      result[i].ratings,
-                      );
+                        null, //service
+                        null, //id
+                        new google.maps.LatLng(result[i].lat, result[i].long), // retourne l'objet formater googlemap
+                        result[i].restaurantName,
+                        result[i].address,
+                        null, // TODO : rating
+                        null, //photo
+                        result[i].ratings,
+                        );
             item.createMarker();
             item.initHtml();
         };
@@ -153,7 +156,7 @@ myMap.prototype.autocomplete = function () {
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 myMap.prototype.callback = function(results, status) {
     var self = this;
-    // console.log(`results : `, results);
+    console.log(`results : `, results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
