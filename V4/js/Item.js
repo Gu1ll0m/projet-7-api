@@ -56,6 +56,8 @@ Item.prototype.initHtml = function () {
     self.itemNode.querySelector('.itemVicinityClass').textContent = `${self.vicinity}`;
     // add rating
     x = Math.round(self.rating);
+    self.itemNode.querySelector('.itemRatingClass').textContent = `${x}`;
+    self.itemNode.querySelector('.itemRatingClass').style.display = "none";
     console.log(x);
     var starElm = document.createElement('img');
     //var starElm = document.querySelector('img');
@@ -184,6 +186,8 @@ Item.prototype.getDetails = function() {
                     self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;
                     // add rating
                     x = Math.round(place.reviews[i].rating);
+                    self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
+                    self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
                     var starElm = document.createElement('img');
                     //var starElm = document.querySelector('img');
                     // png en fonction de la note
