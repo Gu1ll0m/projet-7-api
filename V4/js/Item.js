@@ -56,11 +56,9 @@ Item.prototype.initHtml = function () {
     self.itemNode.querySelector('.itemVicinityClass').textContent = `${self.vicinity}`;
     // add rating
     x = Math.round(self.rating);
-    self.itemNode.querySelector('.itemRatingClass').textContent = `${x}`;
-    self.itemNode.querySelector('.itemRatingClass').style.display = "none";
+    console.log(x);
     var starElm = document.createElement('img');
-    // var starElm = document.querySelector('img');
-    // starElm.id = "starElmID";
+    //var starElm = document.querySelector('img');
     // png en fonction de la note
     if (x === 1) {starElm.src = "../img/1_star.png";}
     else if (x === 2) {starElm.src = "../img/2_stars.png";}
@@ -103,7 +101,7 @@ Item.prototype.initHtml = function () {
             a = 1;
             // console.log(a);
         } if (a== 1 ) {
-            // console.log('pas de nouvel request');
+            console.log('pas de nouvel request');
         };
         // add comment
         var commentNode = document.body.querySelector('.commentClass');
@@ -158,7 +156,6 @@ Item.prototype.getDetails = function() {
 
     if (self.commentsJson) {
         console.log(self.commentsJson);
-        // function Comment (name, rating, comment, itemNode)
         self.commentsJson.forEach(function(comment){
             console.log(comment);
             var commentObject = new Comment("Anonyme", comment.stars, comment.comment, self.itemNode);
@@ -170,12 +167,13 @@ Item.prototype.getDetails = function() {
 
         function detailsCallback(place, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                // console.log(`commentaires : `,place.reviews);
+                console.log(`commentaires : `,place.reviews);
                 for(var i = 0; i < place.reviews.length; i++ ) {
+                    //var commentApi = new Comment(self.name, self.rating, self.vicinity, self.itemNode);
+                    //console.log(commentApi);
+                    //commentApi.initHtml();
 
-                    // var commentApi = new Comment(comment.name, comment.rating, comment.comment, self.itemNode);
-                    // commentApi.initHtml();
-
+                    console.log("commentaire API");
                     self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
                     self.commentNode.style.display = "block";
 
@@ -186,10 +184,8 @@ Item.prototype.getDetails = function() {
                     self.commentNode.querySelector('.itemCommentTimeClass').textContent = `${place.reviews[i].relative_time_description}.`;
                     // add rating
                     x = Math.round(place.reviews[i].rating);
-                    self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
-                    self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
                     var starElm = document.createElement('img');
-                    // var starElm = document.querySelector('img');
+                    //var starElm = document.querySelector('img');
                     // png en fonction de la note
                     if (x === 1) {starElm.src = "../img/1_star.png";}
                     else if (x === 2) {starElm.src = "../img/2_stars.png";}
@@ -207,8 +203,6 @@ Item.prototype.getDetails = function() {
             }
         }
     }
-
-
 
 }
 
