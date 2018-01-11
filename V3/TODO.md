@@ -1,3 +1,6 @@
+# Json pas intégré
+
+
 1. Afficher les restaurants visibles sur la carte sous forme de **liste sur le côté gauche**. => OK
 
 2. Chaques restaurants doit avoir un numéro (1/2/3/4/...) correspondant à ça position sur la sidebar. => place_id = marker_id
@@ -13,55 +16,6 @@
 7. Permettre l'**ajout d'un avis** sur un restaurant existant. => OK
 
 8. Permettre l'**ajout d'un restaurant**, en cliquant sur un lieu spécifique de la carte. => OK
-
-
-<!-- filtre photo, Item.js l-75
-
-	// if (!imageElm[0]) {
-    //   var imgElm = document.createElement('img');
-    //   imgElm.className = "classImage";
-    //   imgElm.src = self.photos;
-    //   self.itemNode.appendChild(imgElm);
-    // }
-    //console.log(`typeof :` , typeof(imageElm)); -->
-
-
-<!-- https://www.w3schools.com/howto/howto_css_modals.asp
-
-	MODAL JS
-
-	// Get the <span> element that closes the modal
-	// var span = document.getElementsByClassName("close")[0];
-	// document.getElementsByClassName("close")[0].style.display = "block";
-	// // click close div
-	// span.onclick = function() {
-	//     console.log(self.itemNode);
-	//     self.itemNode.style.display = "none";
-	// }
-
-	MODAL HTML
-	<span class="close">&times;</span>
-
-	MODAL CSS
-
-	/* The Close Button */
-	.close {
-	    color: #aaa;
-	    float: right;
-	    font-size: 28px;
-	    font-weight: bold;
-	    display: none;
-	}
-
-	.close:hover,
-	.close:focus {
-	    color: black;
-	    text-decoration: none;
-	    cursor: pointer;
-	}
-
-
--->
 
 
 ## Points à retravailler:
