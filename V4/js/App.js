@@ -29,7 +29,7 @@ App.prototype.filterListener = function () {
         var selectedStars = event.target.selectedOptions[0].attributes[0].nodeValue;
         // call the filter with this value
         self.filter(selectedStars);
-        // console.log(`selectedStars : `, selectedStars);
+        console.log(`selectedStars : `, selectedStars);
     })
 }
 
