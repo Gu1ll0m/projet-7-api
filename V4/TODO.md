@@ -1,3 +1,6 @@
+# Json intégrer
+
+
 1. Afficher les restaurants visibles sur la carte sous forme de **liste sur le côté gauche**. => OK
 
 2. Chaques restaurants doit avoir un numéro (1/2/3/4/...) correspondant à ça position sur la sidebar. => place_id = marker_id
