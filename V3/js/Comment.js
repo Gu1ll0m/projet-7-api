@@ -28,7 +28,8 @@ Comment.prototype.initHtml = function () {
 	commentNode.querySelector('.commentRatingClass').style.display = "block";
 	commentNode.querySelector('.commentRatingClass').textContent = `${x}`;
 	commentNode.querySelector('.commentRatingClass').style.display = "none";
-	var starElm = document.createElement('img');
+	//var starElm = document.createElement('img');
+    var starElm = commentNode.querySelector('.commentCommentImg');
 	starElm.id = "starElmID";
 	if (x === 1) {starElm.src = "../img/1_star.png";}
 	else if (x === 2) {starElm.src = "../img/2_stars.png";}
