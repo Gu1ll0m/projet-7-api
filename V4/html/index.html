@@ -36,22 +36,22 @@
           <div class="item">
               <h2 id="itemNameId" class="itemNameClass"></h2>
               <p id="itemVicinityId" class="itemVicinityClass"></p>
-              <img src=""/>
+              <img class="itemRatingImg" src="" alt="commentImg">
               <div class="itemCommentClassNode">
                   <p class="itemCommentInfoClass"></p>
                   <p class="itemCommentAuthorClass"></p>
                   <p class="itemCommentClass"></p>
                   <p class="itemCommentTimeClass"></p>
+                  <img class="itemCommentImg" src="" alt="itemCommentImg">
                   <br>
                   <p class="itemCommentRatingClass"></p>
               </div>
-
                   <p class="itemRatingClass"></p>
-                  <!-- Bouton execution modal -->
-                  <button id="buttonModalAddCommentId"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Ajouter un commentaire
-                  </button>
-              </div>
+              <!-- Bouton execution modal -->
+              <button id="buttonModalAddCommentId"class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Ajouter un commentaire
+              </button>
+          </div>
 
           <div id="map"></div>
 
@@ -96,6 +96,7 @@
               </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 
+          <!-- Modal add comment-->
           <div class="modal fade" id="myModal" tabindex="-1" data-width="760" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                   <div class="modal-content">
@@ -131,6 +132,7 @@
           <div id="addCommentId" class="commentClass" hidden>
               <div class="commentNameClass"></div>
               <div class="commentRatingClass"></div>
+              <img class="commentCommentImg" src="" alt="commentImg">
               <div class="commentCommentClass"></div>
           </div>
 
