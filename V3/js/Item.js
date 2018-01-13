@@ -55,8 +55,7 @@ Item.prototype.initHtml = function () {
     x = Math.round(self.rating);
     self.itemNode.querySelector('.itemRatingClass').textContent = `${x}`;
     self.itemNode.querySelector('.itemRatingClass').style.display = "none";
-    var starElm = document.createElement('img');
-    starElm.id = "starElmID";
+    var starElm = self.itemNode.querySelector('.itemRatingImg');
     // png en fonction de la note
     if (x === 1) {starElm.src = "../img/1_star.png";}
     else if (x === 2) {starElm.src = "../img/2_stars.png";}
@@ -110,6 +109,7 @@ Item.prototype.initHtml = function () {
         document.body.querySelector('#buttonModalValidCommentId').addEventListener('click', validation)
         var modalElm = self.itemNode.insertBefore(modalElm, self.itemNode.querySelector('.itemCommentClassNode'));
 
+        // validation modal
         function validation (evt) {
             var $modal = $('#myModal');
             var modal = document.body.querySelector('#myModal');
@@ -170,8 +170,8 @@ Item.prototype.getDetails = function() {
                 x = Math.round(place.reviews[i].rating);
                 self.commentNode.querySelector('.itemCommentRatingClass').textContent = `${x}`;
                 self.commentNode.querySelector('.itemCommentRatingClass').style.display = "none";
-                var starElm = document.createElement('img');
-                starElm.id = "starElmID";
+                //var starElm = document.createElement('img');
+                var starElm = self.commentNode.querySelector('.itemCommentImg');
                 // png en fonction de la note
                 if (x === 1) {starElm.src = "../img/1_star.png";}
                 else if (x === 2) {starElm.src = "../img/2_stars.png";}
