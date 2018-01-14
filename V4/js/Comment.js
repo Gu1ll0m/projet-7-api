@@ -16,7 +16,7 @@ function Comment (name, rating, comment, itemNode) {
 //====== MODAL =========================================================================================================================================//
 Comment.prototype.initHtml = function () {
     var self = this;
-        console.log("commentaire Json");
+        // console.log("commentaire Json");
         var commentNode = document.body.querySelector('.commentClass').cloneNode(true);
         commentNode.removeAttribute("hidden");
         // pseudo
