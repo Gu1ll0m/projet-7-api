@@ -66,7 +66,7 @@ Item.prototype.initHtml = function () {
     else if (x === 4) {starElm.src = "../img/4_stars.png";}
     else if (x === 5) {starElm.src = "../img/5_stars.png";}
     else {starElm.src = "../img/0_star.png";};
-    console.log(`moyenne du restaurant : `, x);
+    // console.log(`moyenne du restaurant : `, x);
     // insertion PNG avant l' adress
     var starElm = self.itemNode.insertBefore(starElm, self.itemNode.querySelector('.itemVicinityClass'));
     // photo
@@ -155,9 +155,9 @@ Item.prototype.getDetails = function() {
     var self = this;
 
     if (self.commentsJson) {
-        console.log(self.commentsJson);
+        // console.log(self.commentsJson);
         self.commentsJson.forEach(function(comment){
-            console.log(comment);
+            // console.log(comment);
             var commentObject = new Comment("Anonyme", comment.stars, comment.comment, self.itemNode);
             commentObject.initHtml();
         });
@@ -167,13 +167,13 @@ Item.prototype.getDetails = function() {
 
         function detailsCallback(place, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log(`commentaires : `,place.reviews);
+                // console.log(`commentaires : `,place.reviews);
                 for(var i = 0; i < place.reviews.length; i++ ) {
                     //var commentApi = new Comment(self.name, self.rating, self.vicinity, self.itemNode);
                     //console.log(commentApi);
                     //commentApi.initHtml();
 
-                    console.log("commentaire API");
+                    // console.log("commentaire API");
                     self.commentNode = document.querySelector('.itemCommentClassNode').cloneNode(true);
                     self.commentNode.style.display = "block";
 
