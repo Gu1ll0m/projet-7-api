@@ -61,25 +61,28 @@ myMap.prototype.getJson = function (url) {
         console.log(results);
         for (var i = 0; i < result.length; i++) {
             var self = this;
-            var x = Math.round(result[i].stars);
-            console.log(x);
-            console.log(typeof(x));
+            var num1 = result[i].ratings[0].stars;
+            var num2 = result[i].ratings[1].stars;
+            var somme = num1 + num2;
+            var x = Math.round(somme / result[i].ratings.length);
+            console.log(x, typeof(x));
             var item = new Item(self.map,
                         null, //service
                         null, //id
                         new google.maps.LatLng(result[i].lat, result[i].long), // retourne l'objet formater googlemap
                         result[i].restaurantName,
                         result[i].address,
-                        null, // TODO : rating
+                        x,
                         null, //photo
                         result[i].ratings,
                         );
             item.createMarker();
             item.initHtml();
         };
-
     });
 }
+
+
 
 //====== GEOLOCALISATION ===================================================================================================================================//
 myMap.prototype.geolocation = function () {
