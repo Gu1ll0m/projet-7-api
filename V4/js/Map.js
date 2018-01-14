@@ -58,14 +58,14 @@ myMap.prototype.ajaxGet = function (url, callback) {
 myMap.prototype.getJson = function (url) {
     this.ajaxGet(url, function (results) {
         result = JSON.parse(results);
-        console.log(results);
+        // console.log(results);
         for (var i = 0; i < result.length; i++) {
             var self = this;
             var num1 = result[i].ratings[0].stars;
             var num2 = result[i].ratings[1].stars;
             var somme = num1 + num2;
             var x = Math.round(somme / result[i].ratings.length);
-            console.log(x, typeof(x));
+            // console.log(x, typeof(x));
             var item = new Item(self.map,
                         null, //service
                         null, //id
@@ -159,7 +159,7 @@ myMap.prototype.autocomplete = function () {
 //====== RETOURNE LES ITEMS AUTOUR DE LA LOCALISATION
 myMap.prototype.callback = function(results, status) {
     var self = this;
-    console.log(`results : `, results);
+    // console.log(`results : `, results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var PlaceService = new google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
