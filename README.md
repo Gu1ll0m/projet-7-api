@@ -13,49 +13,49 @@ Utilisation des API Google :
 
 ## _Etape 1 : la carte des restaurants_
 
-* Une carte Google Maps, chargée avec l'API [__Maps__](https://developers.google.com/maps/?hl=fr)
+1. Une carte Google Maps, chargée avec l'API [__Maps__](https://developers.google.com/maps/?hl=fr)
       
-      myMap.prototype.initMap = function () {.....}
+            myMap.prototype.initMap = function () {.....}
       
-[__Map.js__](./js/Map.js)
+[fichier __Map.js__](./js/Map.js)
 
-* Une liste de restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
+2. Une liste de restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
 
-      myMap.prototype.getJson = function () {.....}
+            myMap.prototype.getJson = function () {.....}
       
-[__Map.js__](./js/Map.js)
+[fichier __Map.js__](./js/Map.js)
 
 
-* Géolocalisation de l' utilisateur via [__API JavaScript dédié__](https://developers.google.com/maps/documentation/javascript/geolocation?hl=fr)
+3.  Géolocalisation de l' utilisateur via [__API JavaScript dédié__](https://developers.google.com/maps/documentation/javascript/geolocation?hl=fr)
 
-      myMap.prototype.geolocation = function () {.....}
+            myMap.prototype.geolocation = function () {.....}
       
-[__Map.js__](./js/Map.js) 
+[fichier __Map.js__](./js/Map.js) 
 
 
-* Création d' un outil de filtrage des réponses
+4. Création d' un outil de filtrage des réponses
 
-      App.prototype.filterListener = function () {....}
+            App.prototype.filterListener = function () {....}
       
-      App.prototype.filter = function () {....}
+            App.prototype.filter = function () {....}
       
-[__App.js__](./js/App.js) 
+[fichier __App.js__](./js/App.js) 
 
 
 
 ## _Etape 2 : ajoutez des restaurants et des avis !_
 
-* Ajout d' avis sur un restaurant existant
+1. Ajout d' avis sur un restaurant existant
 
-      Item.prototype.initHtml = function () {....}
+            Item.prototype.initHtml = function () {....}
       
-[__Item.js__](./js/Item.js) 
+[fichier __Item.js__](./js/Item.js) 
 
-* Ajout de restaurant via click sur la map 
+2. Ajout de restaurant via click sur la map 
 
-      myMap.prototype.addMarkerClick = function () {....}
+            myMap.prototype.addMarkerClick = function () {....}
       
-[__Map.js__](./js/Map.js) 
+[fichier __Map.js__](./js/Map.js) 
 
 
 
@@ -63,11 +63,13 @@ Utilisation des API Google :
 ## _Etape 3 : intégration avec l'API de Google Places_
 
 
-* Ajout de restaurant via l' API [__Places__](https://developers.google.com/places/) dans la zone affiché
+1. Ajout de restaurant via l' API [__Places__](https://developers.google.com/places/) dans la zone affiché
 
-      Item.prototype.getDetails = function () {....}
+            Item.prototype.getDetails = function () {....}
       
-[__Item.js__](./js/Item.js)
+[fichier __Item.js__](./js/Item.js)
 
 
 
+## Installation de l' appli : 
+Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api) puis ouvrir dans votre navigateur le fichier __index.html__ que vous trouverez en suivant le chemin suivant `../P7/html/index.html`
