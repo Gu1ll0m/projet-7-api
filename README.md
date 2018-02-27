@@ -74,4 +74,4 @@ Utilisation des API Google :
 ## Installation de l' appli : 
 Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api)
 
-Ouvrer dans votre navigateur le fichier __index.html__ que vous trouverez en suivant le chemin suivant `../P7/html/index.html`
+Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivant `../P7/html/index.html`, dans votre navigateur `ctrl + o`
