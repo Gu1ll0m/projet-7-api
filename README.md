@@ -37,6 +37,8 @@ Utilisation des API Google :
 
             App.prototype.filterListener = function () {....}
       
+      
+      
             App.prototype.filter = function () {....}
       
 > [fichier __App.js__](./js/App.js) 
