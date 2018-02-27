@@ -1,6 +1,6 @@
 # projet-7-api : [__Lancez votre propre site d'avis de restaurants__](https://openclassrooms.com/projects/lancez-votre-propre-site-d-avis-de-restaurants)
 
-Création complète d'une application d' avis de restaurants 
+Création complète d'une application d' avis de restaurants.
 
 Recap des  [__fichiers et fonctions__](recap_fonction_12012018.pdf) de notre appli
 
@@ -17,20 +17,20 @@ Utilisation des API Google :
       
             myMap.prototype.initMap = function () {.....}
       
-[fichier __Map.js__](./js/Map.js)
+> [fichier __Map.js__](./js/Map.js)
 
 2. Une liste de restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
 
             myMap.prototype.getJson = function () {.....}
       
-[fichier __Map.js__](./js/Map.js)
+> [fichier __Map.js__](./js/Map.js)
 
 
 3.  Géolocalisation de l' utilisateur via [__API JavaScript dédié__](https://developers.google.com/maps/documentation/javascript/geolocation?hl=fr)
 
             myMap.prototype.geolocation = function () {.....}
       
-[fichier __Map.js__](./js/Map.js) 
+> [fichier __Map.js__](./js/Map.js) 
 
 
 4. Création d' un outil de filtrage des réponses
@@ -39,7 +39,7 @@ Utilisation des API Google :
       
             App.prototype.filter = function () {....}
       
-[fichier __App.js__](./js/App.js) 
+> [fichier __App.js__](./js/App.js) 
 
 
 
@@ -49,13 +49,13 @@ Utilisation des API Google :
 
             Item.prototype.initHtml = function () {....}
       
-[fichier __Item.js__](./js/Item.js) 
+> [fichier __Item.js__](./js/Item.js) 
 
 2. Ajout de restaurant via click sur la map 
 
             myMap.prototype.addMarkerClick = function () {....}
       
-[fichier __Map.js__](./js/Map.js) 
+> [fichier __Map.js__](./js/Map.js) 
 
 
 
@@ -67,9 +67,11 @@ Utilisation des API Google :
 
             Item.prototype.getDetails = function () {....}
       
-[fichier __Item.js__](./js/Item.js)
+> [fichier __Item.js__](./js/Item.js)
 
 
 
 ## Installation de l' appli : 
-Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api) puis ouvrir dans votre navigateur le fichier __index.html__ que vous trouverez en suivant le chemin suivant `../P7/html/index.html`
+Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api)
+
+Ouvrer dans votre navigateur le fichier __index.html__ que vous trouverez en suivant le chemin suivant `../P7/html/index.html`
