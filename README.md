@@ -2,7 +2,7 @@
 
 Création complète d'une application d' avis de restaurants.
 
-Recap des  [__fichiers et fonctions__](recap_fonction.png) de notre appli
+Recap des  [__fichiers et fonctions__](recap_function.png) de notre appli
 
 Utilisation des API Google : 
 * [__Maps__](https://developers.google.com/maps/?hl=fr)
