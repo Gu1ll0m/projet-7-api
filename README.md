@@ -97,7 +97,7 @@ Vous utiliserez la search api pour trouver des restaurants dans la zone affiché
 
 Lisez bien la documentation pour savoir comment accéder aux données de Google Places et n'hésitez pas à faire autant de recherches Google que nécessaire quand vous butez sur un problème. ;)
 
- 
+
 
 ### Compétences à valider
 
