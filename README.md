@@ -104,6 +104,3 @@ Lisez bien la documentation pour savoir comment accéder aux données de Google 
 Développer une application JavaScript complète en respectant un cahier des charges
 Utiliser une API externe en JavaScript
 
-
-# URL 
-[__Appli Restau__](https://github.com/Gu1ll0m/projet-7-api)
