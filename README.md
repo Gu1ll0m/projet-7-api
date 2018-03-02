@@ -70,6 +70,14 @@ Utilisation des API Google :
 > [fichier __Item.js__](./js/Item.js)
 
 
+##__AJOUT DE FONCTIONNALITEE :__
+
+1. Ajout d'une fonction d' autocomplète
+
+            myMap.prototype.autocomplete = function () {....}
+            
+> [fichier __Map.js__](./js/Map.js) 
+
 
 ## Installation de l' appli : 
 Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api)
