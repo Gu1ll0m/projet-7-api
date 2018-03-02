@@ -70,7 +70,7 @@ Utilisation des API Google :
 > [fichier __Item.js__](./js/Item.js)
 
 
-## _Ajout de fonctionnalitée : _
+## _Ajout de fonctionnalitée :_
 
 1. Ajout d'une fonction d' autocomplète
 
