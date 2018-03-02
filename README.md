@@ -19,7 +19,7 @@ Utilisation des API Google :
       
 > [fichier __Map.js__](./js/Map.js)
 
-2. Une liste de restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
+2. Une liste de plusieurs restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
 
             myMap.prototype.getJson = function () {.....}
       
@@ -45,13 +45,13 @@ Utilisation des API Google :
 
 ## _Etape 2 : ajoutez des restaurants et des avis !_
 
-1. Ajout d' avis sur un restaurant existant
+1. Ajout d' avis sur un ou plusieurs restaurants existants
 
             Item.prototype.initHtml = function () {....}
       
 > [fichier __Item.js__](./js/Item.js) 
 
-2. Ajout de restaurant via click sur la map 
+2. Ajout de restaurant(s) via click sur la map 
 
             myMap.prototype.addMarkerClick = function () {....}
       
@@ -63,7 +63,7 @@ Utilisation des API Google :
 ## _Etape 3 : intégration avec l'API de Google Places_
 
 
-1. Ajout de restaurant via l' API [__Places__](https://developers.google.com/places/) dans la zone affiché
+1. Ajout de restaurant(s) via l' API [__Places__](https://developers.google.com/places/) dans la zone affiché
 
             Item.prototype.getDetails = function () {....}
       
