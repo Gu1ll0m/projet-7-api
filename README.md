@@ -89,8 +89,8 @@ Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivan
 
 En cas de difficultée avec le chargement du fichier Json l' utilisation de npm est recommandé.
 
-      npm -v
-      npm init
-      npm install live-server --save
-      npm start
+            npm -v
+            npm init
+            npm install live-server --save
+            npm start
                   
