@@ -9,6 +9,7 @@ Utilisation des API Google :
 * [__StreetView__](https://developers.google.com/maps/documentation/streetview/?hl=fr)
 * [__Places__](https://developers.google.com/places/)
 
+![img](screenshotP7.png)
 
 
 ## _Etape 1 : la carte des restaurants_
