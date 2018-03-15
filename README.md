@@ -86,3 +86,11 @@ Utilisation des API Google :
 Télécharger [le dossier](https://github.com/Gu1ll0m/projet-7-api)
 
 Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivant `../P7/html/index.html`, dans votre navigateur `ctrl + o`
+
+En cas de difficultée avec le chargement du fichier Json l' utilisation de npm est recommandé.
+
+                  npm -v
+                  npm init
+                  npm install live-server --save
+                  npm start
+                  
