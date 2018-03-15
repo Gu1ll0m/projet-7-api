@@ -23,6 +23,8 @@ Utilisation des API Google :
 2. Une liste de plusieurs restaurants correspondant à la zone affichée sur la carte Google Maps correspondant au fichier JSON fourni.
 
             myMap.prototype.getJson = function () {.....}
+            
+![img](screenshotP7Json.png)
       
 > [fichier __Map.js__](./js/Map.js)
 
