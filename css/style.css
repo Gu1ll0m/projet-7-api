@@ -111,7 +111,7 @@ a:focus {
     font-size: 0.8em;
     display: block;
     overflow: auto;
-    transition-name: backgroundAnimation;
+    transition: backgroundAnimation;
     transition-property: height;
     transition-duration: 2s;
 }
@@ -372,7 +372,7 @@ a:focus {
         transition-duration: 2s;
     }
 
-    .itemCommentAuthorClass, ..commentNameClass {
+    .itemCommentAuthorClass, .commentNameClass {
         min-width: 10%;
         font-weight: bold;
         text-align: left;
@@ -407,7 +407,7 @@ a:focus {
         width: 40%;
         margin-left: 2%;
         text-align: center;
-        padding-bottom: : 1%;
+        padding-bottom: 1%;
         margin-bottom: 1%;
         font-size: 8px;
     }
@@ -417,7 +417,7 @@ a:focus {
         width: 30%;
         margin-right: 2%;
         text-align: center;
-        padding-bottom: : 1%;
+        padding-bottom: 1%;
         margin-bottom: 1%;
         font-size: 8px;
     }
